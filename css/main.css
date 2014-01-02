@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0F0F0F;
+    color: #CCCCCC;
+    font: 16px Helvetica, Arial, sans-serif;
+}
+
+p {
+    margin: 1em 0;
+}
+
+a {
+    color: #69F;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #69F;
+}
+
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #280000;
+    color: #CCCCCC;
+}
+
+.page-header {
+    margin-top: 0;
+}
+
+.content {
+    background-color: #663366;
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.footer {
+    padding-top: 20px;
+    height: 300px;
+}

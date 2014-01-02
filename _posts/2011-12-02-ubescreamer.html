@@ -1,0 +1,101 @@
+---
+layout: post
+title:  "UBE Screamer"
+description: "TS-808 workalike built around the CD4049UBE logic IC."
+date:   2011-12-02 16:05:56
+categories: articles-and-schematics ube-screamer
+excerpt: "Added Ube Screamer project, a CMOS implementation of the Tube Screamer."
+complexity: 2
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>One of the factors that influences the sound of the TS is the opamp in use with its particular
+            characteristics and limitations. Opamps are known to clip in a rather hard and unmusical way, and also have
+            very high open loop gain which sometimes generates unwanted ringing and artifacts that arise when nonlinear
+            components are present, like the diodes in the feedback loop of an OD.</p>
+
+        <p>In the context of the FX-X contest of August 2006, we decided to implement the venerable TS based around the
+            CD4049UBE logic IC since its amp stages, when used in audio applications, are known to clip softly and have
+            moderate gain, typically in the order of 30 to 100 times, as opposed to the usual 100000+ of an opamp. For
+            the sake of clarity, the CD4069UBE IC can be used as well with equally pleasing results.</p>
+
+        <p>The result was an overdrive pedal that has some air of the original TS, but with more attitude and character.
+            The gain control is very wide, ranging from almost clean, to light OD, to moderate OD to a nice and full
+            distortion. At minimum gain, there isn't as much bass loss as in a real TS, which is a good thing if adding
+            a little dirt or pushing a tube amp is desired. The tone control provides great control over the sound, and
+            at maximum it allows the signal to pass nearly unfiltered, contributing to the transparence of the pedal at
+            low gains.</p>
+
+        <p>The circuit can be dissected like this:</p>
+        <ol>
+            <li>The input buffer U1A was set up for unity gain and an input impedance similar to a TS.</li>
+            <li>The audio is divided in two paths, the upper is the distortion path and the lower is the clean path. At
+                the end of the circuit both paths are mixed.
+            </li>
+            <li>In the distortion path, the 2n2 and 100k provide a low filtering corner frequency of 718 Hz, just like
+                in the original TS. As it can be seen, the clean path is not affected by this filtering, which is also
+                true in the original TS.
+            </li>
+            <li>The original opamp gain is obtained with two series amps (U1B and U1C), since a single stage is not
+                enough to attain the 200x to 250x gain found in a cranked TS. The gain pot arrangement is optimized for
+                varying the gain incrementally in both stages simultaneously.
+            </li>
+            <li>The first gain amp U1B varies its gain between 1x and a modest 6x, as the intention here is to avoid
+                clipping as much as possible in this stage, so it actually takes place in the diodes of the second gain
+                stage.
+            </li>
+            <li>The second gain amp U1C has the clipping diodes and provides most of the gain (which ranges from 2x to
+                aproximately 50x). The usual 47pF capacitor placed across these diodes was purposely removed as this
+                stage doesn't have as much bandwidth as an opamp, and anyway the filter stage can provide plenty of
+                filtering if desired.
+            </li>
+            <li>The tone section is implemented around U1D. It is an inverting 2nd order low pass filter whose 3dB
+                cutoff frequency can be varied between 1kHz and 10 kHz with a single pot. According to our knowledge,
+                this tone control arrangement has not been used anywhere else and was developed as part of this work!
+                This is an important deviation from the original TS, as this circuit is capable of better filtering the
+                high frequency harmonics. Also, we have boldly left the clean path out from the filter stage so as to
+                avoid mudding up the signal when strong harmonic filtering is applied to the distortion path. As a
+                consequence, the tone control doesn't have much effect at minimum gain, however in this condition we
+                usually want the sound to be as transparent as possible anyway.
+            </li>
+            <li>Finally, the output buffer and mixer built around U1E provides an extra 2x gain so the circuit has
+                plenty of output signal.
+            </li>
+        </ol>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1
+            <small>bypassed, Gain 9, Tone 12; Gain 12, Tone 12; Gain 3, Tone 12; Gain 15, Tone 9; Gain at 15, Tone at 15.</small>
+        </h4>
+        <audio controls>
+            <source src="/clips/ubescreamer.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+
+<h3>Possible Mods</h3>
+<p>Apart from the universe of clipping diode changes and the high-pass filtering R-C components on the distortion path,
+    Rx could be replaced with a trimmer or pot.</p>
+<p>Also, the Vdd resistor may be adjusted for subtle and not so subtle changes in the overall sonic quality of the
+    circuit. When using a CD4069UBE without this resistor, the current consumption is as high as 22mA. With 330 ohms,
+    current consumption dropped down to 7-8 mA and voltage on the Vdd pin was reduced to 6.5V. A 1k or 500 ohms pot
+    could be installed to starve the circuit at will - this control can be labeled VARIAC, if so desired.</p>
+
+<h3>Schematic</h3>
+<img src="/images/ube.png" alt="UBE Screamer" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="/images/ube-perf.png" alt="UBE Screamer perfboard layout" class="img-rounded img-responsive center-block">
+
+<p align="center"><a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/"><img
+        alt="Creative Commons License" style="border-width:0"
+        src="http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"/></a><br/><span
+        xmlns:dct="http://purl.org/dc/terms/" property="dct:title">UBE Screamer</span> by <a
+        xmlns:cc="http://creativecommons.org/ns#" href="runoffgroove.com" property="cc:attributionName"
+        rel="cc:attributionURL">runoffgroove.com</a> is licensed under a <a rel="license"
+                                                                            href="http://creativecommons.org/licenses/by-nc-sa/3.0/">Creative
+    Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.<br/>Permissions beyond the scope of this
+    license may be requested.</p>
