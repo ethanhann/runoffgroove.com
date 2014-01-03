@@ -11,8 +11,9 @@ layout: default
          title="This project is rated {{ page.complexity }} out of 3 for the level of complexity.">
     <script>jQuery('#project-difficulty').tooltip({placement: "right"})</script>
 </div>
+
 <p>
-    <span class="meta">{{ page.date | date_to_string }}</span>
+    {{ page.date | date_to_string }}
 </p>
 
 <div class="post">

@@ -60,3 +60,13 @@ a:hover {
 .padded-list li {
     padding-bottom: 0.25em;
 }
+
+#project-difficulty {
+    background-color: #0F0F0F;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+
+ol > li {
+    margin-left: 60px;
+}
