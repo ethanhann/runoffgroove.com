@@ -2,4 +2,4 @@ name: runoffgroove.com
 markdown: redcarpet
 pygments: true
 baseurl: /runoffgroove.com/
-permalink: :categories/:year/:month/:day/:title/
+permalink: pretty
