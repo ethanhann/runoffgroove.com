@@ -35,11 +35,28 @@ a:hover {
 
 .content {
     background-color: #663366;
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 
 .footer {
-    padding-top: 20px;
+    padding-top: 40px;
     height: 300px;
+}
+
+.front .header {
+    background-color: #0F0F0F;
+    padding: 2em 0 2em 0;
+}
+
+.front .content {
+    padding-bottom: 60px;
+}
+
+.navbar-brand img {
+    height: 20px;
+}
+
+.padded-list li {
+    padding-bottom: 0.25em;
 }
