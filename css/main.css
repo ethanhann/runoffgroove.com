@@ -61,12 +61,6 @@ a:hover {
     padding-bottom: 0.25em;
 }
 
-#project-difficulty {
-    background-color: #0F0F0F;
-    padding: 0.5em;
-    border-radius: 4px;
-}
-
 ol > li {
     margin-left: 60px;
 }
@@ -86,3 +80,34 @@ ol > li {
     fill: #FFFFFF;
 }
 
+/**
+    Complexity/Difficulty Rating Icons
+*/
+.project-complexity .rating-1,
+.project-complexity .rating-2,
+.project-complexity .rating-3 {
+    width: 105px;
+}
+
+.project-complexity svg {
+    height: 45px;
+    fill: #663366;
+    background-color: #0F0F0F;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+
+.project-complexity .rating-1 #logo-icon-1 {
+    fill: #CCCCCC;
+}
+
+.project-complexity .rating-2 #logo-icon-1,
+.project-complexity .rating-2 #logo-icon-2 {
+    fill: #CCCCCC;
+}
+
+.project-complexity .rating-3 #logo-icon-1,
+.project-complexity .rating-3 #logo-icon-2,
+.project-complexity .rating-3 #logo-icon-3{
+    fill: #CCCCCC;
+}
