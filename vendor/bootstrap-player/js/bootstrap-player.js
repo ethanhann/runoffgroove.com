@@ -4,7 +4,7 @@
         var song = this;
         song.controls=false;
         var player_box = document.createElement('div');
-        $(player_box).addClass($(song).attr('class') + ' playa');
+        $(player_box).addClass($(song).attr('class') + ' well playa');
         var data_sec = document.createElement('div');
         $(data_sec).addClass('collapse');
         var toggle_holder = document.createElement('div');
