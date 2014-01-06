@@ -60,7 +60,9 @@
 </div>
 <script>
     jQuery(document).ready(function(){
-        jQuery('audio').mediaelementplayer();
+        jQuery('audio').mediaelementplayer({
+            features: ['playpause','progress', 'duration','tracks']
+        });
     });
 </script>
 </body>
