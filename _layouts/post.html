@@ -7,16 +7,10 @@ layout: default
     <small>{{ page.description }}</small>
 </div>
 <div class="project-complexity">
-    <div class="rating-{{ page.complexity }}">
+    <span class="rating-{{ page.complexity }}">
         {% include logo.svg %}
-    </div>
-    <script>
-        jQuery('[class^=rating-]').tooltip({
-            placement: 'right',
-            container: 'body',
-            title: 'This project is rated {{ page.complexity }} out of 3 for the level of complexity.'
-        });
-    </script>
+    </span>
+    <span class="rating-text">This project is rated {{ page.complexity }} out of 3 for the level of complexity.</span>
 </div>
 
 <p>

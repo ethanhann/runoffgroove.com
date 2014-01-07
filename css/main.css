@@ -65,37 +65,32 @@ ol > li {
     margin-left: 60px;
 }
 
-/** Branding
-*/
-.navbar-nav li a {
-    line-height: 30px;
-}
-
-.navbar-brand svg {
-    height: 30px;
-    fill: #CCCCCC;
-}
-
-.navbar-brand svg:hover {
-    fill: #FFFFFF;
-}
-
 /**
     Complexity/Difficulty Rating Icons
 */
 .project-complexity .rating-1,
 .project-complexity .rating-2,
 .project-complexity .rating-3 {
-    width: 105px;
+    fill: #663366;
+}
+
+.project-complexity {
+    background-color: #0F0F0F;
+    padding: 0.1em 0.5em 0.1em 0.5em;
+    border-radius: 4px;
+}
+
+.rating-text {
+    line-height: 46px;
+    margin-left: 0.5em;
 }
 
 .project-complexity svg {
     height: 45px;
-    fill: #663366;
-    background-color: #0F0F0F;
-    padding: 0.5em;
-    border-radius: 4px;
+    width: 105px;
+    float: left;
 }
+
 
 .project-complexity .rating-1 #logo-icon-1 {
     fill: #CCCCCC;
