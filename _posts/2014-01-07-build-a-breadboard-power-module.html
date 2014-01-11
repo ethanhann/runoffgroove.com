@@ -1,0 +1,31 @@
+---
+layout: post
+title:  "Breadboard power module"
+description: "Simplify prototyping integrated circuits."
+date:   2012-08-07 16:05:56
+categories: projects
+excerpt: "Link text for the news list"
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <!-- Post text -->
+        <p>When I began building effects, I built directly on perfboard and sometimes, I had never before heard the circuit. This led to, on a few occasions, being disappointed with the sound and later de-soldering the valuable parts and throwing away the rest. Other times, I would want to modify various components and would need the soldering iron for that as well.</p>
+        <p>I soon purchased a small breadboard to facilitate proper prototyping and experimentation. I was able to explore all possibilities of a circuit and make a more educated decision on whether I should commit the project to perfboard.</p>
+
+
+        However, since my breadboard is small (but usually accommodates the complexity of circuits I'm interested in) I find it a bit "crowdy" with high-parts count projects. I realized that for nearly all projects involving an IC, I would need to build the same voltage divider that required a small portion of the breadboard.
+
+        I decided to build an off-board voltage divider with three leads: +9 volts, 4.5 volts, and ground (earth). I also included power supply filtering and reverse polarity protection. This little unit removes 6 components from the breadboard and replaces them with three wires that are much easier to place within a complicated circuit.
+
+        The only parts recommendation is to use either solid-core or pre-tinned wire for the leads. Pushing hand-twisted stranded wire into breadboard holes is only easy the first time, if ever.
+    </div>
+
+    <div class="col-md-4">
+        <img src="images/bb-pwr.jpg" alt="completed breadboard power module" class="img-rounded img-responsive center-block">
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/bb-pwr-schematic.png" alt="breadboard power module schematic" class="img-rounded img-responsive center-block">
