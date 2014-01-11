@@ -31,11 +31,20 @@ complexity: 2
     <div class="col-md-4">
         <img src="images/condor-box.jpg" alt="condor box" class="img-rounded img-responsive center-block">
         <p>The <a href="{{ page.url }}#notch-depth-switch-mod">Notch Depth Switch mod</a> was implemented in the official runoffgroove.com Condor build. The blue LED indicates that the stock notch is active, while an amber LED is used to indicate the <a href="{{ page.url }}#marshall-response-curve-mod">Marshall</a> notch.</p>
-        <!--
+
         <h3>Sound Samples</h3>
-        <h4>Clip X <small>SETTINGS </small></h4>
-        <audio controls><source src="clips/azabache1.mp3" type="audio/mp3"></audio>
-        -->
+        <h4>Clip 1 <small>both pickups - direct, Condor, Condor with software reverb</small></h4>
+        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>neck pickup - Condor at 50% Gain, then 100% Gain</small></h4>
+        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>both pickups - Tube Reamer direct, then through Condor (50% Gain)</small></h4>
+        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 4 <small>neck pickup - Tube Reamer direct, then through Condor (50% Gain)</small></h4>
+        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 5 <small>both pickups - Sili-Face direct, then through Condor (50% Gain)</small></h4>
+        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
+
+        <p>* All clips recorded with <a href="images/pretty-guitar.jpg">pretty guitar</a>.</p>
     </div>
 </div>
 <h3>Schematic</h3>
@@ -43,8 +52,13 @@ complexity: 2
 <h3>Perfboard</h3>
 <img src="images/condor-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
 <img src="images/condor-perf-photo.jpg" alt="{{ page.title }} perfboard photo" class="img-rounded img-responsive center-block"><br>
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Condor.</p>
+<iframe src="pdf/condor-pcb.pdf" class="pcb-layout"></iframe>
 
-<h3 id="marshall-response-curve-mod">Marshall Response Curve Mod</h3>
+<div class="page-header">
+<h2 id="marshall-response-curve-mod">Marshall Response Curve Mod</h2>
+</div>
 <p>The Condor can be modified to reproduce the frequency response of the Marshall speaker simulator that is included on their amps with an XLR output (as traced by Ed Rembold, available at <a href="http://www.diystompboxes.com/pedals/schematics.html">Aron's Selected Schematics</a>). Substitute the following components:</p>
 <dl class="padded-list">
     <dt>Bridged-T notch filter</dt>
@@ -57,7 +71,9 @@ complexity: 2
 <p>The below graph compares the original Condor frequency response with the Marshall mods.</p>
 <img src="images/condor-marshall-mod.png" alt="{{ page.title }} marshall mod" class="img-rounded img-responsive center-block"><br>
 
-<h3 id="notch-depth-switch-mod">Notch Depth Switch Mod</h3>
+<div class="page-header">
+    <h2 id="notch-depth-switch-mod">Notch Depth Switch Mod</h2>
+</div>
 <p>While the above modifications will accurately reproduce the Marshall speaker simulator's response curve, so many components differ from the stock Condor that using a switch to toggle between the two is not feasible. However, a compromise is available if we focus our efforts on the Marshall notch depth. By adding and removing capacitors in parallel with the notch caps, we can produce a notch depth that approximates the notch produced by the Marshall speaker simulator. Best of all, a DPDT switch can be used to toggle between the two modes - or a 3PDT can be used to allow LED indicators for each response.</p>
 <p>As shown in the partial schematic below, the 1n "bridge" cap is unchanged while the stock 15n cap is changed to a 6n8. A 1n2 and 8n2, both with a single-pole switch in series, are placed in parallel with those caps, respectively. By using a DPDT switch for the two single-pole switches, we can open a switch while closing the other. When the 1n2 "bridge" cap switch is open and the 8n2 switch is closed. The 6n8 and 8n2 caps are in parallel, which creates a total capacitance of 15n. Those values produce a notch as found in the stock Condor.</p>
 <p>As the DPDT switch is activated, the 1n2 cap is added in parallel with the 1n, forming a 2n2 cap. Simultaneously, the 8n2 cap is switched out, leaving just the 6n8 cap to ground. The notch depth is now roughly half of the stock circuit, which is close to the Marshall response.</p>

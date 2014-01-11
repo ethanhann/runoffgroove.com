@@ -66,6 +66,10 @@ ol > li, dl > dd{
     margin-left: 60px;
 }
 
+iframe.pcb-layout {
+    width:100%; height: 400px;
+}
+
 /** Branding
 */
 .navbar-nav li a {
@@ -128,6 +132,11 @@ ol > li, dl > dd{
 
 /** Creative Commons License notice
 */
+.cc-license-notice {
+    margin-top: 3em;
+}
+
 .cc-license-notice div {
     padding: 0.25em 0 0 0;
 }
+
