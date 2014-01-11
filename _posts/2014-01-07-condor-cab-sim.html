@@ -9,40 +9,90 @@ complexity: 2
 
 <div class="row">
     <div class="col-md-8">
-        <p>Typical DIY speaker cabinet simulator designs are simple builds, but often fall short of a convincing frequency response due to the oversimplified designs. Our goal was to design a speaker cabinet simulator suitable for direct recording and headphone playing, capable of outperforming existing designs, but still within the reach of do-it-yourself builders.</p>
-        <p>The starting point was the published response of a single 10 inch Jensen P10R speaker. We chose to emulate a 4x10 cabinet, so low frequency response was shifted down slightly from the published curves to account for the larger cabinet and the combined cone area of four speakers.</p>
+        <p>Typical DIY speaker cabinet simulator designs are simple builds, but often fall short of a convincing
+            frequency response due to the oversimplified designs. Our goal was to design a speaker cabinet simulator
+            suitable for direct recording and headphone playing, capable of outperforming existing designs, but still
+            within the reach of do-it-yourself builders.</p>
+
+        <p>The starting point was the published response of a single 10 inch Jensen P10R speaker. We chose to emulate a
+            4x10 cabinet, so low frequency response was shifted down slightly from the published curves to account for
+            the larger cabinet and the combined cone area of four speakers.</p>
+
         <p>The circuit is composed of the following functional blocks:</p>
 
         <dl class="padded-list">
             <dt>JFET amplifier</dt>
-            <dd>Amplifies the signal to drive the filters. Also adds some overdrive at higher Gain settings, which emulates the behavior of a real speaker operating at high volume. We liked using a J201 best, but an MPF102 or 2N5457 will provide more treble-content and different overdrive characteristics.</dd>
+            <dd>Amplifies the signal to drive the filters. Also adds some overdrive at higher Gain settings, which
+                emulates the behavior of a real speaker operating at high volume. We liked using a J201 best, but an
+                MPF102 or 2N5457 will provide more treble-content and different overdrive characteristics.
+            </dd>
             <dt>Bridged-T notch filter</dt>
-            <dd>Produces the 400Hz notch found in the P10R response. Please note that the extra resistor in parallel with the capacitor to ground is not only for biasing the op-amp, but it also produces a high-pass shelving effect. High frequencies are then 6dB above low frequencies, as shown in the speaker response curve. To reduce the notch depth, you can replace the 1n and 15n caps with 1n5 and 10n, or even 2n2 and 6n8, respectively.</dd>
+            <dd>Produces the 400Hz notch found in the P10R response. Please note that the extra resistor in parallel
+                with the capacitor to ground is not only for biasing the op-amp, but it also produces a high-pass
+                shelving effect. High frequencies are then 6dB above low frequencies, as shown in the speaker response
+                curve. To reduce the notch depth, you can replace the 1n and 15n caps with 1n5 and 10n, or even 2n2 and
+                6n8, respectively.
+            </dd>
             <dt>High-pass filter</dt>
-            <dd>This is the network between the first two op-amp stages. It simulates the low frequency rolloff of the speaker cabinet, plus the 90Hz peak. For deeper bass, you can replace the two 47nF caps with 56nF or 68nF. For less bass, use 39nF or 33nF.</dd>
+            <dd>This is the network between the first two op-amp stages. It simulates the low frequency rolloff of the
+                speaker cabinet, plus the 90Hz peak. For deeper bass, you can replace the two 47nF caps with 56nF or
+                68nF. For less bass, use 39nF or 33nF.
+            </dd>
             <dt>Low-pass filter</dt>
-            <dd>These are the two identical networks between second and fourth op-amp stages. They simulate the steep high frequency rolloff of a guitar speaker, in addition to the peak near 3kHz. For more high frequency content, you can reduce the four 22k resistors to 18k or less. To cut more highs, increase them to 27k or more.</dd>
+            <dd>These are the two identical networks between second and fourth op-amp stages. They simulate the steep
+                high frequency rolloff of a guitar speaker, in addition to the peak near 3kHz. For more high frequency
+                content, you can reduce the four 22k resistors to 18k or less. To cut more highs, increase them to 27k
+                or more.
+            </dd>
         </dl>
 
-        <p>A frequency response graph of the Condor is shown below. For comparison, the Bulldog Cab Sim response curve is shown with a dotted red line. Note how the steeper roll-off of the Condor removes more high frequency content. When those are present, the resulting sound can seem harsh and unrealistic - especially when using a distortion pedal.</p>
-        <img src="images/condor-bulldog-comparison.png" alt="{{ page.title }} box" class="img-rounded img-responsive center-block">
+        <p>A frequency response graph of the Condor is shown below. For comparison, the Bulldog Cab Sim response curve
+            is shown with a dotted red line. Note how the steeper roll-off of the Condor removes more high frequency
+            content. When those are present, the resulting sound can seem harsh and unrealistic - especially when using
+            a distortion pedal.</p>
+        <img src="images/condor-bulldog-comparison.png" alt="{{ page.title }} box"
+             class="img-rounded img-responsive center-block">
     </div>
 
     <div class="col-md-4">
         <img src="images/condor-box.jpg" alt="condor box" class="img-rounded img-responsive center-block">
-        <p>The <a href="{{ page.url }}#notch-depth-switch-mod">Notch Depth Switch mod</a> was implemented in the official runoffgroove.com Condor build. The blue LED indicates that the stock notch is active, while an amber LED is used to indicate the <a href="{{ page.url }}#marshall-response-curve-mod">Marshall</a> notch.</p>
+
+        <p>The <a href="{{ page.url }}#notch-depth-switch-mod">Notch Depth Switch mod</a> was implemented in the
+            official runoffgroove.com Condor build. The blue LED indicates that the stock notch is active, while an
+            amber LED is used to indicate the <a href="{{ page.url }}#marshall-response-curve-mod">Marshall</a> notch.
+        </p>
 
         <h3>Sound Samples</h3>
-        <h4>Clip 1 <small>both pickups - direct, Condor, Condor with software reverb</small></h4>
-        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
-        <h4>Clip 2 <small>neck pickup - Condor at 50% Gain, then 100% Gain</small></h4>
-        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
-        <h4>Clip 3 <small>both pickups - Tube Reamer direct, then through Condor (50% Gain)</small></h4>
-        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
-        <h4>Clip 4 <small>neck pickup - Tube Reamer direct, then through Condor (50% Gain)</small></h4>
-        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
-        <h4>Clip 5 <small>both pickups - Sili-Face direct, then through Condor (50% Gain)</small></h4>
-        <audio controls><source src="clips/condor1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 1
+            <small>both pickups - direct, Condor, Condor with software reverb</small>
+        </h4>
+        <audio controls>
+            <source src="clips/condor1.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 2
+            <small>neck pickup - Condor at 50% Gain, then 100% Gain</small>
+        </h4>
+        <audio controls>
+            <source src="clips/condor1.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 3
+            <small>both pickups - Tube Reamer direct, then through Condor (50% Gain)</small>
+        </h4>
+        <audio controls>
+            <source src="clips/condor1.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 4
+            <small>neck pickup - Tube Reamer direct, then through Condor (50% Gain)</small>
+        </h4>
+        <audio controls>
+            <source src="clips/condor1.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 5
+            <small>both pickups - Sili-Face direct, then through Condor (50% Gain)</small>
+        </h4>
+        <audio controls>
+            <source src="clips/condor1.mp3" type="audio/mp3">
+        </audio>
 
         <p>* All clips recorded with <a href="images/pretty-guitar.jpg">pretty guitar</a>.</p>
     </div>
@@ -50,32 +100,56 @@ complexity: 2
 <h3>Schematic</h3>
 <img src="images/condor-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
 <h3>Perfboard</h3>
-<img src="images/condor-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
-<img src="images/condor-perf-photo.jpg" alt="{{ page.title }} perfboard photo" class="img-rounded img-responsive center-block"><br>
+<img src="images/condor-perf-layout.png" alt="{{ page.title }} perfboard layout"
+     class="img-rounded img-responsive center-block"><br>
+<img src="images/condor-perf-photo.jpg" alt="{{ page.title }} perfboard photo"
+     class="img-rounded img-responsive center-block"><br>
 <h3>Printed Circuit Board</h3>
 <p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Condor.</p>
 <iframe src="pdf/condor-pcb.pdf" class="pcb-layout"></iframe>
 
 <div class="page-header">
-<h2 id="marshall-response-curve-mod">Marshall Response Curve Mod</h2>
+    <h2 id="marshall-response-curve-mod">Marshall Response Curve Mod</h2>
 </div>
-<p>The Condor can be modified to reproduce the frequency response of the Marshall speaker simulator that is included on their amps with an XLR output (as traced by Ed Rembold, available at <a href="http://www.diystompboxes.com/pedals/schematics.html">Aron's Selected Schematics</a>). Substitute the following components:</p>
+<p>The Condor can be modified to reproduce the frequency response of the Marshall speaker simulator that is included on
+    their amps with an XLR output (as traced by Ed Rembold, available at <a
+            href="http://www.diystompboxes.com/pedals/schematics.html">Aron's Selected Schematics</a>). Substitute the
+    following components:</p>
 <dl class="padded-list">
     <dt>Bridged-T notch filter</dt>
     <dd>Replace the 1n and 15n caps with 2n2 and 6n8, respectively.</dd>
     <dt>High-pass filter</dt>
     <dd>Replace the 18k and 100k resistors with 12k and 120k</dd>
     <dt>Low-pass filter</dt>
-    <dd>Replace the 3n9 caps with 4n7, and replace the four 22k resistors with 15k or 18k (16k is the nominal value, if you can get it; otherwise use 15k for slight extra treble, or 18k for some less fizz).</dd>
+    <dd>Replace the 3n9 caps with 4n7, and replace the four 22k resistors with 15k or 18k (16k is the nominal value, if
+        you can get it; otherwise use 15k for slight extra treble, or 18k for some less fizz).
+    </dd>
 </dl>
 <p>The below graph compares the original Condor frequency response with the Marshall mods.</p>
-<img src="images/condor-marshall-mod.png" alt="{{ page.title }} marshall mod" class="img-rounded img-responsive center-block"><br>
+<img src="images/condor-marshall-mod.png" alt="{{ page.title }} marshall mod"
+     class="img-rounded img-responsive center-block"><br>
 
 <div class="page-header">
     <h2 id="notch-depth-switch-mod">Notch Depth Switch Mod</h2>
 </div>
-<p>While the above modifications will accurately reproduce the Marshall speaker simulator's response curve, so many components differ from the stock Condor that using a switch to toggle between the two is not feasible. However, a compromise is available if we focus our efforts on the Marshall notch depth. By adding and removing capacitors in parallel with the notch caps, we can produce a notch depth that approximates the notch produced by the Marshall speaker simulator. Best of all, a DPDT switch can be used to toggle between the two modes - or a 3PDT can be used to allow LED indicators for each response.</p>
-<p>As shown in the partial schematic below, the 1n "bridge" cap is unchanged while the stock 15n cap is changed to a 6n8. A 1n2 and 8n2, both with a single-pole switch in series, are placed in parallel with those caps, respectively. By using a DPDT switch for the two single-pole switches, we can open a switch while closing the other. When the 1n2 "bridge" cap switch is open and the 8n2 switch is closed. The 6n8 and 8n2 caps are in parallel, which creates a total capacitance of 15n. Those values produce a notch as found in the stock Condor.</p>
-<p>As the DPDT switch is activated, the 1n2 cap is added in parallel with the 1n, forming a 2n2 cap. Simultaneously, the 8n2 cap is switched out, leaving just the 6n8 cap to ground. The notch depth is now roughly half of the stock circuit, which is close to the Marshall response.</p>
-<p>In addition to the added midrange content produced by the decreased notch depth, more treble frequencies are present and the overall output is increased. Remember, this modification does not reproduce the Marshall response, but is a good "halfway point" that adds to the usefulness of the stock Condor. Refer to the below schematic for the necessary modifications. A 3PDT switch wiring diagram is also shown, but you can ignore the middle column and use a DPDT if you don't want LED indicators.</p>
-<img src="images/condor-notch-depth-switch-mod-schematic.png" alt="condor notch depth switch mod schematic" class="img-rounded img-responsive center-block">
+<p>While the above modifications will accurately reproduce the Marshall speaker simulator's response curve, so many
+    components differ from the stock Condor that using a switch to toggle between the two is not feasible. However, a
+    compromise is available if we focus our efforts on the Marshall notch depth. By adding and removing capacitors in
+    parallel with the notch caps, we can produce a notch depth that approximates the notch produced by the Marshall
+    speaker simulator. Best of all, a DPDT switch can be used to toggle between the two modes - or a 3PDT can be used to
+    allow LED indicators for each response.</p>
+<p>As shown in the partial schematic below, the 1n "bridge" cap is unchanged while the stock 15n cap is changed to a
+    6n8. A 1n2 and 8n2, both with a single-pole switch in series, are placed in parallel with those caps, respectively.
+    By using a DPDT switch for the two single-pole switches, we can open a switch while closing the other. When the 1n2
+    "bridge" cap switch is open and the 8n2 switch is closed. The 6n8 and 8n2 caps are in parallel, which creates a
+    total capacitance of 15n. Those values produce a notch as found in the stock Condor.</p>
+<p>As the DPDT switch is activated, the 1n2 cap is added in parallel with the 1n, forming a 2n2 cap. Simultaneously, the
+    8n2 cap is switched out, leaving just the 6n8 cap to ground. The notch depth is now roughly half of the stock
+    circuit, which is close to the Marshall response.</p>
+<p>In addition to the added midrange content produced by the decreased notch depth, more treble frequencies are present
+    and the overall output is increased. Remember, this modification does not reproduce the Marshall response, but is a
+    good "halfway point" that adds to the usefulness of the stock Condor. Refer to the below schematic for the necessary
+    modifications. A 3PDT switch wiring diagram is also shown, but you can ignore the middle column and use a DPDT if
+    you don't want LED indicators.</p>
+<img src="images/condor-notch-depth-switch-mod-schematic.png" alt="condor notch depth switch mod schematic"
+     class="img-rounded img-responsive center-block">

@@ -1,0 +1,107 @@
+---
+layout: post
+title:  "Double D"
+description: "Two channel distortion."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>Everyone that has tinkered with a 4049 IC knows there are six inverters onboard. Most distortion designs for
+            this chip use two or three stages and shunt the others. It has always been an idea to utilize all the stages
+            on the IC to avoid wasting the unused inverters.
+            There has been much discussion on <a href="http://www.diystompboxes.com/">Aron's Forum</a> about using all
+            six stages or various configurations for getting the most from this chip. There aren't any published designs
+            showing this, so RunoffGroove set out to see what was possible.</p>
+
+        <p>Design goals were established before and during the designing phase. The first goal was to utilize all the
+            inverters we could on the 4049 chip. The second goal was to have 1M or better input impedance. The third
+            goal was to have a buffered output to avoid loading the inverters. We tried using all six stages in series,
+            but the level of hiss was incredibly high. Good tones were there, but the noise level was too much. We
+            discovered the maximum limit for a well-behaved circuit was around four inverters in series. Even then, the
+            noise was pretty high. Looking back at other designs using the 4049, we decided. the maximum number of
+            stages needed would be two or three. A simple Jfet common source input stage could drive the inverters into
+            a heavy overdrive, as proven by <a href="http://fclarke.softwareballistics.com/Distortion/">Frank Clarke</a>'s
+            Hot Harmonics design.</p>
+
+        <p>The layout of our chosen CD4049UBE chip has all the inverters facing the same way. This layout lends itself
+            nicely to running two parallel channels. The idea was firmly in place at this point, so we set out to make
+            two switchable channels, using two or all three inverters on each side of the IC. We wanted two independent
+            overdrive channels, with gain and volume controls for each. We wanted one channel to sound very amp-like in
+            the classic style. The sound of overdriven Fenders, Marshalls, etc. were a target sound. For the other
+            channel, we wanted something a little more "over-the-top." We wanted a very high gain sound, with a smooth
+            top. Something along the lines of the older Boogie amps.</p>
+
+        <p>For simplicity's sake (the RunoffGroove prime directive), we chose to use a common input stage and buffer. We
+            decided to switch the inverters in and out to facilitate the channel switching idea. Jfets were chosen as
+            the input stage and buffer due to the favorable sound and electrical properties, along with fewer required
+            parts.</p>
+
+        <p>The Double D is born! We were able to develop a two inverter channel, "Jiggle" with a lot of classic amp-like
+            sounds at various settings of the gain knob. The other channel, "Bounce" uses three inverters to crank the
+            gain up higher. Caps were used over the inverters to mellow the clipping out.
+            We've implemented <a href="http://hammer.ampage.org/">Mark Hammer</a>'s suggestion of rolling the treble
+            back
+            more in earlier clipping stages and less in subsequent ones.
+            This helped bring out the amp-like sounds and removed the harsh, "fizzy" high end of the bare circuit. There
+            is certainly no lack of highs at the output. The typical "piercing" highs of classic amps dimed are still
+            present. Dynamic response is really good and grit can be controlled from the guitar volume knob.</p>
+
+        <p>There is one down side to this design, as plagues many 4049/4069 designs: The current consumption is high. We
+            measured 22.8mA on one of the prototypes. We have not determined the expected lifespan of a 9V, but it will
+            be less than many other distortion units. Due to the high current draw, we recommend using a 9V adapter. You
+            can try some of the suggestions posted on <a href="http://www.diystompboxes.com/">Aron's Stompbox Forum</a>
+            by Tim Escobedo and Gez Paton, among others.
+            They've recently mentioned trying various methods of controlling the power supplied to the 4049 to reduce
+            current consumption.</p>
+
+        <p>This circuit was independently confirmed to work properly using the values and parts shown. We cannot be sure
+            any modified values or substitute parts will work the same as the prototypes. Alter values/substitute parts
+            at your own risk!</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1
+            <small>Jiggle Channel, 50% Gain. <a href="images/pretty-guitar.jpg">pretty guitar</a> - effect - <a
+                    href="http://www.muzique.com/" target="_blank">AMZ</a> Cab Sim - sound card
+            </small>
+        </h4>
+        <audio controls>
+            <source src="clips/jiggle.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 2
+            <small>Bounce Channel, 100% Gain. guitar - amp - mic - sound card - Freeverb</small>
+        </h4>
+        <audio controls>
+            <source src="clips/bounce.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+<h3>Schematic</h3>
+<img src="images/double-d-v1-schematic.png" alt="{{ page.title }} schematic"
+     class="img-rounded img-responsive center-block">
+<h3>Perfboard</h3>
+<img src="images/double-d-perf-layout.png" alt="{{ page.title }} perfboard layout"
+     class="img-rounded img-responsive center-block"><br>
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Double D.</p>
+<iframe src="pdf/double-d-pcb.pdf" class="pcb-layout"></iframe>
+<p>Will Percival also contributed a PCB layout for the Double D.</p>
+<iframe src="pdf/double-d-pcb-will-percival.pdf" class="pcb-layout"></iframe>
+
+<div class="page-header">
+    <h2>Possible Mods</h2>
+</div>
+<p>Use a 3PDT footswitch for SW1 on the schematic. With this switch, you can have channel switching, plus an LED
+    indicator to show which channel is active. A red/green Bi-color LED would be convenient for this function.
+    Ricky Don Vance (a.k.a. RDV) kindly shared his method of wiring two 3PDT switches to provide bypass and channel
+    switching with LED indicators. Note that you'll need to determine the proper LED current limiting resistors
+    yourself.</p>
+<img src="images/double-d-3pdt-switch-mod-schematic.png" alt="{{ page.title }} schematic"
+     class="img-rounded img-responsive center-block">
+<p>Add in your favorite tone stacks for each channel. A good way to implement this would be to make a preamp. For ease
+    of construction, we chose to make this circuit a pedal, but the preamp idea will work nicely. You can put the power
+    supply into the preamp chassis for convenience.</p>
