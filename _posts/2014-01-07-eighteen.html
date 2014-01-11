@@ -1,0 +1,125 @@
+---
+layout: post
+title:  "Eighteen"
+description: "The Marshall 18W adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 2
+---
+
+<div class="alert alert-info">PLEASE NOTE: There is an effect pedal named Eighteen produced by <a
+        href="http://laa-custom.com/">LAA-Custom</a>. While there
+    are similarities between our project and their pedal, the circuitry is not the same and they are not to be confused.
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <p>Around 1965, Marshall introduced a few amps built around an 18 Watt EL84 powered circuit. While these models
+            were intended for practice, the sound was much better than other small amps. Unfortunately, only a few
+            hundred of these combos were manufactured over the next three years. These rare amps were given the model
+            numbers 1958 for the 2X10" combo, 1973 for the 2X12" combo, and 1974 for the 1X12" version.</p>
+
+        <p>The features were two channels with Volume and a single Tone on each, along with Tremolo on one channel and
+            an optional Reverb. The 18W amps consisted of 3 12AX7 type tubes and a pair of EL84 power tubes in push-pull
+            configuration. Legend says Jim Marshall bought the circuit from Watkins Electric Music. Watkins sold a very
+            similar amp they called the "Watkins Dominator."</p>
+
+        <p>An internet group for cloning these amps has been established at <a href="http://18watt.com/">18watt.com</a>.
+            On this site, you will find a verified schematic for the 18 Watt combo. After hearing the sound samples
+            there, we decided to give this circuit a try as a distortion stompbox with FETs in place of the tubes.</p>
+
+        <p>We opted to recreate the normal channel. The circuit consists of only one preamp stage, a volume and unique
+            tone control setup, the phase splitter and a single power stage. There is no negative feedback, so
+            distortion will be much easier to achieve. You may notice we used 8k2 as the value of R17 on the <a
+                    href="http://18watt.com/">18watt.com</a> schematic. The reason for this is to scale the voltages of
+            the associated JFET to the voltages of the amp. We did find that the sound was closer to the amp when we did
+            this, instead of arbitrarily choosing a value. Please feel free to experiment with this resistor on your
+            own.</p>
+
+        <p>Although the components designated do not look to be typical Marshall, they do produce results very similar
+            to the soundclips of the amp. Great rock and blues sounds are readily available with this circuit.</p>
+
+        <p>Baseline pin voltages from the official runoffgroove.com build (supply voltage from a 9.1v battery):</p>
+        <div>
+            <table class="table table-bordered table-condensed">
+                <thead>
+                <tr>
+                    <th colspan="2">Q1 J201</th>
+                    <th colspan="2">Q2 J201</th>
+                    <th colspan="2">Q3 J201</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>D</td>
+                    <td>4.61</td>
+                    <td>D</td>
+                    <td>6.86</td>
+                    <td>D</td>
+                    <td>4.63</td>
+                </tr>
+                <tr>
+                    <td>S</td>
+                    <td>118mV</td>
+                    <td>S</td>
+                    <td>2.19</td>
+                    <td>S</td>
+                    <td>29mV</td>
+                </tr>
+                <tr>
+                    <td>G</td>
+                    <td>0</td>
+                    <td>G</td>
+                    <td>1.63</td>
+                    <td>G</td>
+                    <td>0</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1
+            <small>Dual HB guitar - Eighteen: Volume 100%, Tone 50% - Randall SS amp - mic - sound card - software reverb</small>
+        </h4>
+        <audio controls>
+            <source src="clips/18a.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 2
+            <small>(left channel) pretty guitar (bridge pickup) - Eighteen: Volume 60%, Tone 75%
+                (right channel) proto guitar (bridge pickup) - Eighteen: Volume 100%, Tone 75%
+                cab sim - software reverb</small>
+        </h4>
+        <audio controls>
+            <source src="clips/18b.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+{% include olcircuits-notice.html url="http://www.olcircuits.com/olc_eighteen.html" %}
+
+<h3>Schematic</h3>
+<img src="images/eighteen-schematic.png" alt="{{ page.title }} schematic"
+     class="img-rounded img-responsive center-block">
+<h3>Perfboard</h3>
+<img src="images/eighteen-perf-layout.png" alt="{{ page.title }} perfboard layout"
+     class="img-rounded img-responsive center-block"><br>
+<img src="images/eighteen-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1"
+     class="img-rounded img-responsive center-block"><br>
+<img src="images/eighteen-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2"
+     class="img-rounded img-responsive center-block"><br>
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/eighteen-pcb.pdf" class="pcb-layout"></iframe>
+
+<div class="page-header">
+    <h2>Possible Mods</h2>
+</div>
+<p>Use 1M pots for Volume and Tone. It has been documented that some 18W Marshalls were fitted with these instead of the
+    500k pots specified on the schematic.</p>
+<p>Add the treble bleed cap to the Volume control to brighten the amp. 220pF is a good starting point, but other values
+    will also work well.</p>
+<p>Experiment with different JFETs (use sockets!) in any or all positions.</p>
+<p>Try different values for the 4n7 and 10n caps on the Tone control to change the response. Sockets may also be helpful
+    here. The 100k resistor is another point for tweaking.</p>

@@ -23,7 +23,6 @@ a:hover {
     color: #69F;
 }
 
-
 .navbar {
     background-color: #0F0F0F;
     color: #CCCCCC;
@@ -62,12 +61,39 @@ a:hover {
     padding-bottom: 0.25em;
 }
 
-ol > li, dl > dd{
+ol > li, dl > dd {
     margin-left: 60px;
 }
 
 iframe.pcb-layout {
-    width:100%; height: 400px;
+    width: 100%;
+    height: 400px;
+}
+
+.table {
+    background-color: #FFFFFF;
+}
+
+.table thead {
+    background-color: #0F0F0F;
+}
+
+.table tbody {
+    color: #000000;
+}
+
+.table-bordered,
+.table-bordered > thead > tr > th,
+.table-bordered > tbody > tr > th,
+.table-bordered > tfoot > tr > th,
+.table-bordered > thead > tr > td,
+.table-bordered > tfoot > tr > td {
+    border: 1px solid #0F0F0F;
+}
+
+.table-bordered,
+.table-bordered > thead > tr > th {
+    border: 1px solid #DDDDDD;
 }
 
 /** Branding
@@ -86,7 +112,6 @@ iframe.pcb-layout {
 .navbar-brand :hover {
     fill: #FFFFFF;
 }
-
 
 /**
     Complexity/Difficulty Rating Icons
@@ -114,7 +139,6 @@ iframe.pcb-layout {
     float: left;
 }
 
-
 .project-complexity .rating-1 #logo-icon-1 {
     fill: #CCCCCC;
 }
@@ -126,7 +150,7 @@ iframe.pcb-layout {
 
 .project-complexity .rating-3 #logo-icon-1,
 .project-complexity .rating-3 #logo-icon-2,
-.project-complexity .rating-3 #logo-icon-3{
+.project-complexity .rating-3 #logo-icon-3 {
     fill: #CCCCCC;
 }
 
