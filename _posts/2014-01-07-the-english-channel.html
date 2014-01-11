@@ -1,0 +1,112 @@
+---
+layout: post
+title:  "The English Channel"
+description: "The Vox AC-30 Top Boost adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The Vox AC-30 amp is considered by many to be the defining sound of the British Invasion during the 1960s.
+            The Top Boost circuitry provided crisp treble-laden overdrive that perfectly complemented the rich bass
+            content. The English Channel is a JFET-based distortion stompbox that uses the same basic architecture as
+            that classic early '60s amp.</p>
+
+        <p>This circuit is based on a 1961 Vox AC-30 with Top Boost, as designed by Tom Jennings and Dick Denney.
+            Artists such as Tom Petty, Brian May, the Rolling Stones, the Beatles and the Shadows have used the AC-30
+            during their careers. For more information about Vox amps, visit the
+            <a href="http://www.voxshowroom.com/">The Vox Showroom</a>.</p>
+
+        <p>The above schematic replicates the Brilliant input, but the Normal input can be simulated by changing the
+            470pF cap to 47nF.</p>
+
+        <p>To obtain 1.6v at the source of Q4, you may need to try different J201 or adjust the 4k7 resistor. During
+            testing and development, values as high as 12k were necessary for some J201. Try to get close to 1.6v, but
+            slightly lower values will have no audible difference.</p>
+
+        <p>Note that the Cut control is set up in the traditional manner, reducing treble as turned clockwise.</p>
+
+        <p>Philip Miller Tate (a.k.a. Ge_Whiz) found the Cut control to be quite subtle when using the stock values. He
+            reports that substituting a 47nF capacitor and 50k-B pot provided a much more effective control.</p>
+
+        <p>Here are pin voltages from the official runoffgroove.com build to provide a baseline (supply voltage from a
+            9.1v battery):</p>
+
+        <table class="table table-bordered table-condensed">
+            <thead>
+            <tr>
+                <th colspan="2">Q1 J201</th>
+                <th colspan="2">Q2 J201</th>
+                <th colspan="2">Q3 J201</th>
+                <th colspan="2">Q4 J201</th>
+                <th colspan="2">Q5 J201</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>D</td>
+                <td>4.57</td>
+                <td>D</td>
+                <td>4.55</td>
+                <td>D</td>
+                <td>9.11</td>
+                <td>D</td>
+                <td>4.59</td>
+                <td>D</td>
+                <td>4.61</td>
+            </tr>
+            <tr>
+                <td>S</td>
+                <td>.174</td>
+                <td>S</td>
+                <td>.164</td>
+                <td>S</td>
+                <td>4.79</td>
+                <td>S</td>
+                <td>1.41</td>
+                <td>S</td>
+                <td>27mV</td>
+            </tr>
+            <tr>
+                <td>G</td>
+                <td>0</td>
+                <td>G</td>
+                <td>0</td>
+                <td>G</td>
+                <td>4.55</td>
+                <td>G</td>
+                <td>.878</td>
+                <td>G</td>
+                <td>0</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1
+            <small>Dual HB guitar - English Channel (many different settings) - Randall SS amp - mic - sound card -
+                software reverb
+            </small>
+        </h4>
+        <audio controls>
+            <source src="clips/englishchannel.mp3" type="audio/mp3">
+        </audio>
+    </div>
+</div>
+{% include olcircuits-notice.html url="http://www.olcircuits.com/olc_englishchannel.html" %}
+{% include velvetpedals-notice.html url="http://www.velvetpedals.com/english%20channel.html" %}
+
+<h3>Schematic</h3>
+<img src="images/englishchannel-schematic.png" alt="{{ page.title }} schematic"
+     class="img-rounded img-responsive center-block">
+<h3>Perfboard</h3>
+<img src="images/englishchannel-perf-layout.png" alt="{{ page.title }} perfboard layout"
+     class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/englishchannel-pcb.pdf" class="pcb-layout"></iframe>
