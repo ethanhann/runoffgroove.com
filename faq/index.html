@@ -1,0 +1,227 @@
+---
+layout: page
+title: runoffgroove.com
+---
+
+<div class="page-header">
+    <h2 style="display: inline;">Frequently Asked Questions</h2>
+</div>
+
+<dl class="padded-list">
+<dt>How do you set a trimpot for a specific voltage?</dt>
+<dd>
+    <blockquote>
+        <p>Using a voltmeter, place the red probe at the specified test point (such as the drain pin of a FET) and
+            touch
+            the black probe to the ground rail. Adjust the appropriate trimpot accordingly, based on the voltmeter
+            reading.</p>
+    </blockquote>
+</dd>
+<dt>How do I add a headphone output to the Ruby or Little Gem?</dt>
+<dd>
+    <blockquote>
+        <p>You'll need either an 1/8" or 1/4" (depending on the size of the
+            headphones plug) closed-tip, open ring
+            stereo jack. Follow the schematic shown below for the main speaker to be silenced when the headphones
+            are
+            plugged into the circuit. The 10 ohm resistance between the headphone jack sleeve and ground will reduce
+            the
+            headphone output level. However, the headphone jack must be insulated from the enclosure by using
+            non-conductive
+            washers (thanks to Peter Snowberg for this tip!)</p>
+
+        <p>Be careful! Using headphones at higher volumes can damage your hearing.</p>
+
+        <p><img src="images/headphone-jack-for-gem-or-ruby.png" alt="headphone jack schematic"
+                class="img-rounded img-responsive center-block">
+        </p>
+    </blockquote>
+</dd>
+<dt>What speakers do you recommend for use with your mini-amp circuits?</dt>
+<dd>
+    <blockquote>
+        <p>While the Ruby, Little Gem, and Little Gem MkII practice amps can be used with any speakers, best results
+            are
+            achieved with full-size speakers intended for use with guitar amps. The amps will work well with an
+            total
+            impedance of 4, 8, or 16 ohms.</p>
+
+        <p>We've tried hi-fi speakers, clock-radio speakers, and auto speakers - they just can't cut it. For me,
+            using
+            anything other than a speaker designed for the frequencies of an electric guitar produced sounds more
+            like a
+            toy than an actual amp.</p>
+
+        <p>However, you may want to ask at Aron's Stompbox Forum. Many of the members have built one of the
+            aforementioned amps and may be able to suggest a decent-sounding small speaker.</p>
+    </blockquote>
+</dd>
+<dt>Is a separate cab sim necessary when using a FET-based distortions and recording direct? What about when playing
+    through a headphone amp?
+</dt>
+<dd>
+    <blockquote>
+        <p>We suggest using a cab sim when recording direct or playing through headphones. Without the aggressive
+            frequency shaping of the Condor Cab Sim, the overabundance of treble content will seem harsh and
+            unrealistic.</p>
+
+        <p>The passive filtering in those circuits is adequate when using them with an amp, since the amp's speaker
+            picks up where they leave off. The greater frequency response of the sound card input or headphones
+            requires
+            the more efficient active filters as found in the Condor.</p>
+    </blockquote>
+</dd>
+<dt>I'm not very good at reading schematics. Can I just use your perfboard layout instead?</dt>
+<dd>
+    <blockquote>
+        <p>No. You need to understand and follow the schematic to build a working circuit. On our perfboard layouts,
+            all the necessary ground connections and other off-board wiring may not be shown. Our perf layouts are
+            simply a guide for physically arranging the circuit when building on perfboard. They are not an
+            alternative to the schematic, but rather a companion.
+        </p>
+    </blockquote>
+</dd>
+<dt>Can I use one of your FET-based distortions to drive my Ruby or Little Gem amp?</dt>
+<dd>
+    <blockquote>
+        <p>When placing any distortion circuit before a 386-based amp, you need to keep the output volume at the
+            same
+            level as the dry guitar signal. Otherwise, you'll overdrive the 386 and lose the character of the
+            distortion.</p>
+    </blockquote>
+</dd>
+<dt>What does 1k5 mean? What about 4n7?</dt>
+<dd>
+    <blockquote>
+        <p>1k5 is the same as 1.5k, just written differently. The unit multiplier is used in place of the decimal
+            point.
+            4n7 uses the same style of notation, meaning 4.7 nanofarads. 1 nanofarad equals 1000 picofarads. We
+            often note
+            capacitor values in nanofarads on our schematics, but suppliers often will use microfarads. To convert
+            the
+            units, use the chart below:
+        </p>
+
+        <table class="table table-condensed text-center">
+            <tbody>
+            <tr><td>0.1µF = 100nF</td></tr>
+            <tr><td>0.01µF = 10nF</td></tr>
+            <tr><td>0.001µF = 1nF = 1000pF</td></tr>
+            </tbody>
+        </table>
+    </blockquote>
+</dd>
+<dt>How do you draw perfboard layouts?</dt>
+<dd>
+    <blockquote>
+        <p>You can use nearly any drawing/painting application to create layouts. We usually start with a hand-drawn
+            layout on one of the perfboard templates. The basic approach to re-drawing it with the computer is
+            nearly the same for any software. Start with the blank perfboard image. Then, using a "library" of
+            components, arrange them on the perfboard.
+        </p>
+    </blockquote>
+</dd>
+<dt>I'd like to create a PCB layout for a runoffgroove.com circuit and post it on my website. Is that OK with you?
+</dt>
+<dd>
+    <blockquote>
+        <p>Sure! All we ask is that you include a link to this site and include "(circuit name) by runoffgroove.com"
+            as
+            part of the PCB layout artwork. Also, please do not include our original copyright-protected
+            schematic.</p>
+    </blockquote>
+</dd>
+<dt>Can I use a power supply higher than 9 volts with the tube-amp-inspired distortions?</dt>
+<dd>
+    <blockquote>
+        <p>Yes. Make sure that all your components are appropriately rated for the voltage you're using and bias the
+            FET
+            drain pins to half of that.</p>
+    </blockquote>
+</dd>
+<dt>How do I add a fuzz control to the Sili-Face or Sili-Face II?</dt>
+<dd>
+    <blockquote>
+        <p>If you need a fuzz control, we recommend using the same arrangement shown on Joe Gagan's EasyFace. Visit
+            GeneralGuitarGadgets.com for the schematic.</p>
+    </blockquote>
+</dd>
+<dt>Are the tube-amp-inspired FET distortions used differently than other pedals? Can I hook them up to a speaker?
+</dt>
+<dd>
+    <blockquote>
+        <p>No, they're regular stompbox circuits and cannot directly drive a speaker. Use them in the same manner as
+            any
+            effect pedal.</p>
+    </blockquote>
+</dd>
+<dt>What happened to the old articles and sound clips?</dt>
+<dd>
+    <blockquote>
+        <p>They are archived at home-wrecker.com. The older content was removed from this site to emphasize our
+            focus on
+            original designs.</p>
+    </blockquote>
+</dd>
+<dt>Where do you buy parts?</dt>
+<dd>
+    <blockquote>
+        <p>Small Bear Electronics. Great prices, selection, and service. Steve Daniels is the best supply source for
+            the
+            DIY-FX community and will ship nearly anywhere.</p>
+    </blockquote>
+</dd>
+<dt>Why isn't there a switch shown on many of the schematics?</dt>
+<dd>
+    <blockquote>
+        <p>Often, the switch is omitted when drawing schematics since it is nearly the same for every effect.
+            GeneralGuitarGadgets.com and AMZ both offer comprehensive bypass switching diagrams. Also, GEOfex.com
+            has an
+            informative article about wrappers - the parts common to nearly every effect.</p>
+    </blockquote>
+</dd>
+<dt>Do you have any general suggestions for building?</dt>
+<dd>
+    <blockquote>
+        <p>Use sockets for transistors, ICs, and sometimes caps. Always install the correct parts, as noted on the
+            schematic. Substitute parts at your own risk. Try the circuits in their stock form before starting
+            mods.</p>
+    </blockquote>
+</dd>
+<dt>Do the projects work? Do they sound good?</dt>
+<dd>
+    <blockquote>
+        <p>Our projects are developed and independently tested by both of us before release. The sound clips are
+            meant
+            to be as representative as possible, but your results may vary since you probably have different
+            equipment. We
+            wouldn't post non-working circuits or lousy sound clips.</p>
+    </blockquote>
+</dd>
+<dt>Can I send you something to post at runoffgroove.com?</dt>
+<dd>
+    <blockquote>
+        <p>Participation at runoffgroove.com is by invitation only. Please do not send original schematics, clone
+            build
+            notes, or sound clips for us to post. It is better to share them at Aron's Stompbox Forum, or better
+            yet, build
+            your own website.</p>
+
+        <p>For general DIY-FX questions, visit these sites:</p>
+        <ul class="list-unstyled">
+            <li><a href="http://www.geofex.com/effxfaq/fxfaq.htm">GEOFex Effects FAQ</a></li>
+            <li><a href="http://www.diystompboxes.com/cnews/FAQ.html">Aron's DIY Stompbox FAQ</a></li>
+            <li><a href="http://www.diystompboxes.com/cnews/mods.html">Aron's Simple DIY Mods</a></li>
+            <li><a href="http://www.diystompboxes.com/pedals/debug.html">Aron's Debugging Page</a></li>
+        </ul>
+    </blockquote>
+</dd>
+<dt>What is a runoffgroove?</dt>
+<dd>
+    <blockquote>
+        <p>The term refers to the innermost groove of a vinyl record. When playing an album on a manual turntable, the
+            needle remains in this "dead end" area until you lift the tone arm and flip the disc. This is also where
+            secret messages from the artist or engineer can be etched into the vinyl.</p>
+    </blockquote>
+</dd>
+</dl>
