@@ -8,7 +8,7 @@ title: runoffgroove.com
 </div>
 
 <ul class="padded-list list-unstyled">
-    {% for post in site.posts %}
+    {% for post in site.categories.news %}
     <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.excerpt }}</a></li>
     {% endfor %}
 </ul>
