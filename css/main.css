@@ -164,3 +164,69 @@ iframe.pcb-layout {
     padding: 0.25em 0 0 0;
 }
 
+/** Sidebar
+*/
+.sidebar.affix {
+    
+    position: static;
+}
+
+.sidebar {
+    font-size: 14px;
+    background-color: #0F0F0F;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top:    10px;
+    padding-bottom: 10px;
+    border-radius: 5px;
+}
+.sidebar .nav > li > a {
+    display: block;
+    color: #716b7a;
+    padding: 5px 20px;
+}
+.sidebar .nav > li > a:hover,
+.sidebar .nav > li > a:focus {
+    text-decoration: none;
+    background-color: #e5e3e9;
+    border-right: 1px solid #dbd8e0;
+}
+.sidebar .nav > .active > a,
+.sidebar .nav > .active:hover > a,
+.sidebar .nav > .active:focus > a {
+    font-weight: bold;
+    color: #563d7c;
+    background-color: transparent;
+    border-right: 1px solid #563d7c;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .sidebar.affix,
+    .sidebar.affix-bottom {
+        width: 213px;
+    }
+    .sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 80px;
+    }
+    .sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .sidebar.affix-bottom .bs-sidenav,
+    .sidebar.affix .bs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .sidebar.affix-bottom,
+    .sidebar.affix {
+        width: 263px;
+    }
+}

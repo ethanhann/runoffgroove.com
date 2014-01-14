@@ -7,374 +7,383 @@ categories: projects
 complexity: 1
 ---
 
-<div class="page-header">
-    <h2>1. Introduction</h2>
-</div>
-<p>In the two years since the Fetzer Valve was first published in the midst of our adaptation of tube amps for use as distortion pedals, the circuit has enjoyed popularity as a standalone booster and as a building block in larger circuits. While the circuit has its merits, we decided to further explore it to determine if it was a truly faithful solid-state version of the familiar input stage used in many tube amps.</p>
-
-<p>The original Fetzer Valve circuit is presented in Fig.1.</p>
-<img src="images/fetzervalve-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block"><br>
-<div class="text-center">Fig.1 (Original Fetzer Valve schematic)</div>
-
-<p>This circuit was developed by applying the well known Triode-to-JFET translation to the first stage found in a typical Fender tube amp, as illustrated in Fig.2.</p>
-<img src="images/tube-fet-schematic.png" alt="tube fet schematic" class="img-rounded img-responsive center-block"><br>
-<div class="text-center">Fig.2 (Valve to JFET transformation)</div>
-
-<p>The steps involved can be summarized as follows:</p>
-<ul>
-    <li>The triode is replaced by a JFET with the following correspondence of terminals: plate to drain, grid to gate, and cathode to source. This is supported by the fact that both the vacuum triode and the JFET are voltage controlled devices which change their transconductance according to a (usually) negative control voltage.</li>
-    <li>The high voltage supply voltage is replaced by a low voltage, usually in the 9 to 18V range as used in effect circuits.</li>
-    <li>The original grid and cathode elements remain the same.</li>
-    <li>The plate resistor is changed for a variable resistor (usually a 10k to 100k trimpot) which is used to adjust the JFET's biasing to a value close to half the supply voltage.</li>
-</ul>
-
-<p>Before we proceed, here are the aspects of the Fetzer Valve that will be discussed:</p>
-<ul><li><a href="#2">High and Low gain inputs</a></li>
-    <li><a href="#3">Frequency response</a></li>
-    <li><a href="#4">Harmonic content</a></li>
-    <li><a href="#5">Optimal biasing</a></li>
-    <li><a href="#6">Input level</a></li>
-    <li><a href="#7">Stage gain</a></li>
-    <li><a href="#8">Output dynamic range</a></li>
-    <li><a href="#9">Fetzer Valve Revisited</a></li>
-    <li><a href="#10">Fetzer Valve Deluxe</a></li>
-    <li><a href="#11">Measurement of Vp and Idss</a></li>
-    <li><a href="#12">Fetzer Valve Calculator</a></li>
-</ul>
-
-<p><i class="fa fa-rocket fa-3x"></i><span>OK, now let's go: three, two, one, lift-off!</span></p>
-
-<div class="page-header">
-    <h2>2. High and Low Gain Inputs</h2>
-</div>
-
-<p>High and Low gain inputs are often noted on the faceplate as 1 and 2, respectively. Fig.3 shows the typical input circuit of a Fender tube amp. The key to understanding this circuit lies in the fact that the tip of each input jack is making electrical contact with the arrow-shaped terminal when no plug is inserted. When a plug is inserted, the contact with the arrow terminal is opened, thus interrupting this previous connection.</p>
-<img src="images/fetzertech3-schematic.png" alt="tube fet schematic" class="img-rounded img-responsive center-block"><br>
-<div class="text-center">Fig.3 (Original Fender input stage and equivalent Hi and Low input schematics)</div>
-
-<p>As shown, the Low Gain input is in fact a resistive divider that introduces 6 dB attenuation and presents a relatively low impedance to the guitar, which is 68k + 68k = 134k, hence its "Low Gain" designation. When a low impedance source is connected to the amplifier, the grid of the valve "sees" an equivalent resistance of 68k || 68k = 34k.</p>
-<p>The High Gain input introduces no attenuation and presents a 1 Mohm impedance to the instrument. Again, a 34k equivalent resistance appears in series with the grid when a low impedance source is connected to the amplifier.</p>
-<p>A guitar with its volume dimed will have an output impedance lower than 34k. The importance of the series resistance with the grid becomes evident in the next section.</p>
-
-<div class="page-header">
-    <h2>3. Frequency Response</h2>
-</div>
-<p>Fig.4 shows the simulated frequency response of the valve circuit when driven by a low impedance source, and a modified JFET stage that has a similar high frequency response. In both cases the -3 dB knee is located close to 20 kHz.</p>
-<img src="images/fetzertech4-schematic.png" alt="tube fet schematic" class="img-rounded img-responsive center-block"><br>
-<div class="text-center">Fig.4 (Frequency response of the valve and equivalent JFET circuits)</div>
-
-<p>The main purpose of the cathode capacitor (22 uF) is to boost the gain of the stage. As a side effect, the low frequency response is also affected by the value of this capacitor, however, in the Fender input stage this effect occurs well below 80 Hz.</p>
-<p>On the other hand, the high frequency response is limited near 20 kHz, despite there is no visible capacitor capable of doing this! After a second thought, a 20 kHz bandwidth is a good thing for guitar audio, and it also prevents RF and radio stations from getting into the amp--a good thing indeed!</p>
-<p>The phenomena responsible for determining the high frequency limit are the Miller capacitance of the triode and the equivalent resistance to the grid, 34k. The Miller capacitance corresponds to the grid-to-plate parasitic capacitance (around 4 pF for a 12AX7) times the stage gain (around 34 dB or 50 times), which gives an approximated input capacitance of 4 pF x 50= 200 pF.</p>
-<p>Based on the aforementioned figures, the 3dB high frequency corner can be calculated as 23kHz. Now we understand the importance of the equivalent series grid resistance and why the circuit configuration was chosen to have the same value for both inputs.</p>
-<p>Now going into the JFET equivalent circuit, we notice that most JFETs have a smaller gate-to-drain capacitance (typically in the range from 0.5 to 2 pF), and the overall gain of such a stage will be also smaller (between 6db and 26 db or 2 times to 20 times typically). Thus, it is rather inconvenient to rely on this capacitance to define high frequency limit.</p>
-<p>A better alternative is to simply ignore the JFET's input capacitance (since it is rather small) and add an extra gate-to-GND capacitor. This extra capacitance should be around 220 pF, however any capacitor in the range from 150pF to 250pF should work appropriately.</p>
-
-<div class="page-header">
-    <h2>4. Harmonic Content</h2>
-</div>
-
-<p>It is well known that the plate voltage of a triode is related to the grid voltage by the three-halves power law, which produces both even and odd harmonics. As the signal level increases, the 2nd harmonic rises, followed by the 3rd harmonic, and then higher ordered harmonics start to appear.</p>
-<p>On the other hand, the JFET drain current is related to the gate-to-source voltage by a square law. This means that theoretically only 2nd harmonic distortion is produced, unless the signal is strong enough to produce clipping.</p>
-<p>In order to be faithful to the three-halves power law found in triodes, Dimitri Danyuk proposes the use of a carefully chosen source resistor on the JFET amplifier in his article "Triode Emulator" (as presented at the 116th Audio Engineering Society Convention, May 2004 in Berlin, Germany). This resistor should not be bypassed by a capacitor to produce the appropriate amount of negative feedback to change the square law of the FET into an approximation of the three-halves law of the triode.</p>
-
-<p>Consider this:</p>
-<ol type="a">
-    <li>linear circuit = unity or 1.0 exponent</li>
-    <li>triode = 1.5 exponent</li>
-    <li>JFET = 2.0 exponent</li>
-    <li>JFET with "magic" Rs and no bypass cap = 1.5 exponent around the operating point</li>
-</ol>
-
-<p>In summary, for the harmonic distortion produced by a FET to have a complexity similar to a triode, the familiar 22uF source bypass cap must be omitted.</p>
-
-<p>Danyuk suggests that a source resistor equal to:</p>
-
-<pre>Rs = 0.83 * |Vp| / Idss</pre>
-
-<p>will closely approximate the three-halves power law around the operating point of the JFET, where Vp is the pinch-off voltage of the JFET (a negative value for N-channel devices), and Idss is the saturation current of the device. These two parameters should be measured for the particular device in use in order to calculate the exact source resistor. In this article |Vp| represents the positive value of Vp.</p>
-
-<p>Example: Consider a J201 with Vp=-0.75V and Idss=0.35mA. Then, Rs = 0.83 * 0.75V / 0.00035A = 1779 ohms. A practical standard value would be Rs = 1k8.</p>
-
-<p>Example: Consider a 2N5457 with Vp=-1.5V and Idss=3mA. Then, Rs = 0.83 * 1.5V / 0.003A = 415 ohms. Practical standard values would be Rs = 390 ohms or 430 ohms.</p>
-
-<p>(Notice that we used the positive value of Vp in the above calculations.)</p>
-
-<p>As a general rule, JFETs with higher values of |Vp| and/or Idss will require smaller source resistors, which has the following implications to take into account:</p>
-<ul>
-    <li>Increased input level handling without clipping</li>
-    <li>Increased current consumption</li>
-    <li>Reduced gain</li>
-</ul>
-
-<div class="page-header">
-    <h2>5. Optimal Biasing</h2>
-</div>
-
-<p>Normally, biasing of the drain voltage in JFET amplifiers is performed by adjusting the drain resistor with one of the following methods:</p>
-
-<ul>
-    <li>Drain voltage is set near half the supply voltage</li>
-    <li>Drain voltage is tuned by ear for the "best sound"</li>
-</ul>
-
-<p>The proposed optimal biasing allows the largest dynamic range where the JFET approximates the three-halves law if the suggested Rs is used.</p>
-
-<p>The optimum drain voltage, which is dependent on the supply voltage and Vp, can be approximated by:</p>
-<pre>Vd = 0.6*Vcc + 0.7*|Vp|</pre>
-
-<p>In addition, the required drain resistor can be expressed as:</p>
-<pre>Rd = 0.9 * (Vcc - 2*|Vp|) / Idss</pre>
-
-<p>It must be noted that normally Rd should be trimmed to comply with the Vd criteria, nevertheless, it is useful to define a starting point and eventually choose the drain trimpot with a nominal value closer to twice the anticipated Rd value for ease of adjustment.</p>
-
-<p>It is useful to calculate Id in order to determine the current consumption of the Fetzer stage. This is done with the following equation:</p>
-<pre>Id = Idss * (0.44*Vcc - 0.78*Vp) / (Vcc - 2*Vp)</pre>
-
-<p>Finally, it is possible to also calculate the source voltage Vs as:</p>
-<pre>Vs = Vp * (0.37*Vcc - 0.65*Vp) / (Vcc - 2*Vp)</pre>
-
-<p>Knowing Vd and Vs in advance is useful for trimming the circuit. With the circuit powered up, adjust Rs trimmer for Vs first, then adjust Rd trimmer for Vd.</p>
-
-
-<div class="page-header">
-    <h2>6. Input Levels</h2>
-</div>
-
-<p>The first valve stage of a Fender amp can withstand input voltages up to +/- 2.5V without noticeable clipping.</p>
-
-<p>The proposed JFET stage will start clipping when the input voltage exceeds +/- |Vp|. It is interesting to notice that the maximum input voltage without clipping is independent of Vcc and Idss. Then clipping-free input dynamic range is defined by:</p>
-<pre>Vi = +/- |Vp|</pre>
-
-<p>Example: A J201 with Vp=-0.75V will accept up to +/- 0.75V before entering into the clipping region.</p>
-
-<p>If clipping is undesired, one of the following workarounds might be considered:</p>
-<ul>
-    <li>Reduce the guitar volume</li>
-    <li>Use a JFET with higher |Vp|</li>
-    <li>Implement a voltage divider at the input of the Fetzer Valve</li>
-</ul>
-
-<div class="page-header">
-    <h2>7. Stage Gain</h2>
-</div>
-
-<p>The gain of the first 12AX7 stage in the Fender amp is near 35 dB or 50 times.</p>
-
-<p>The gain of the proposed JFET stage is calculated by:</p>
-<pre>Av = 0.5 * Rd / Rs</pre>
-
-<p>Replacing the optimal values for Rd and Rs gain can be also expressed as:</p>
-<pre>Av = 0.54 * (Vcc/|Vp| - 2)</pre>
-
-<p>Some remarks on the gain formulae are:</p>
-<ul>
-    <li>Rd must be greater than twice Rs or the gain will be less than unity.</li>
-    <li>Vcc must be approximately greater than 4*|Vp| or the gain will be less than unity.</li>
-    <li>Gain depends on Vcc and Vp only, and is independent of Idss.</li>
-    <li>Gain increases as Vcc is increased or |Vp| is decreased.</li>
-</ul>
-
-<p>Example: Consider a MPF102 whose Vp=-3V. If a 9V supply is used, gain will be 0.54 times or -5 dB, which is less than unity! If the supply voltage is doubled to 18V, the resulting gain will rise to 2.2 times or 7 dB!</p>
-
-<p>Example: A J201 with Vp=-0.6V fed by 9V will have a gain of 7 times or almost 17 dB. (However, as we already know this stage will clip as soon as the input voltage exceeds the +/- 0.6V range.)</p>
-
-<div class="page-header">
-    <h2>8. Output Dynamic Range</h2>
-</div>
-
-<p>The drain voltage can vary from 2*|Vp| (when input voltage is +|Vp|) up to Vcc (when input voltage is -|Vp|). Thus, the output dynamic range can be expressed as:</p>
-<pre>Vo = Vcc - 2*|Vp|</pre>
-
-<p>Example: A 2N5458 with Vp=-2.5V will be able to swing its drain between 5V and 9V, provided that the output load resistance is much higher than Rd, meaning its output dynamic range is limited to 4V.</p>
-
-<div class="page-header">
-    <h2>9. Fetzer Valve Revisited</h2>
-</div>
-<p>At this point it is in order to present a circuit that incorporates the presented refinements. Fig.5 shows the schematic of the Fetzer Valve Revisited:</p>
-<p>
-    <img src="images/fetzertech5-schematic.png" alt="{{ page.title }} 5 schematic" class="img-rounded img-responsive center-block">
-    <div class="text-center">Fig.5 (Fetzer Valve Revisited)</div>
-</p>
-<p>
-    <img src="images/fetzerrev-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block">
-    <div class="text-center">Fig.6 (Fetzer Valve Revisted perfboard layout)</div>
-</p>
-
-<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Fetzer Valve Revisited.</p>
-<iframe src="pdf/fetzer2-pcb.pdf" class="pcb-layout"></iframe>
-
-<p>The circuit can be set up according to the following steps:</p>
-<ul>
-    <li>Choose a JFET type whose Vp is compatible with the desired or anticipated input range</li>
-    <li>Vp and Idss for the chosen JFET should be measured (see section 11 below), or else an estimated value extracted from the datasheet should be used</li>
-    <li>Calculate and adjust Rs</li>
-    <li>Calculate the optimum Vd</li>
-    <li>Calculate and adjust Rd for the optimum Vd</li>
-    <li>If desired, the gain of the circuit may be calculated</li>
-</ul>
-
-<p>Example: Assume we have a 2N5457 with measured Vp=-1.5V and Idss=3mA. The presented equations dictate the following design data if a 9V supply is to be used:</p>
-<ul>
-    <li>Vi = +/- 1.5V (input dynamic range)</li>
-    <li>Rs = 0.83 * 1.5 / 0.003 = 415 ohms (source resistor)</li>
-    <li>Rd = 0.9 * (9 - 2*1.5) / 0.003 = 1800 ohms (drain resistor)</li>
-    <li>Vd = 0.6*9 + 0.7*1.5 = 6.45V (optimal drain voltage)</li>
-    <li>Av = 0.5 * 1800 / 415 = 2.2 times or roughly 7 dB (voltage gain)</li>
-    <li>Vo = 9 - 2*1.5 = 6V (output dynamic range)</li>
-</ul>
-
-<p>See the <a href="#12">calculator</a> below to determine your component values.</p>
-<p>Choosing whether to include a source capacitor (and subsequently, the value of that capacitor) should be approached with the knowledge of how the Fetzer Valve stage will be used. Its inclusion increases gain (while reducing the clipping-free input range) while producing pure 2nd order harmonics. Having pure 2nd order harmonics is not necessarily undesirable, but different from a triode, which is the goal of the Fetzer Valve Revisited. For the cleanest possible output and closest approximation of a triode, it should be omitted. If the builder is interested in allowing some clipping in an effort to add character or wants to increase overall gain, the traditional 22u source bypass cap can be included. Or, a smaller cap can be used to accentuate certain frequencies, as illustrated with the Presence control in the Fetzer Valve Deluxe and discussed below.</p>
-<p>Fig.7 shows the simulated waveform and harmonic distortion obtained for the Fetzer Valve using the component values from the above example. The red line shows the drain bias voltage when the input is zero.</p>
-<img src="images/fetzertech6-chart.png" alt="{{ page.title }} chart" class="img-rounded img-responsive center-block">
-<div class="text-center">Fig.7 (Simulated waveform and harmonic distortion of Fetzer Valve Revisited)</div>
-
-<div class="page-header">
-    <h2>10. Fetzer Valve Deluxe</h2>
-</div>
-<p>If a JFET with small |Vp| is used and clipping with guitar volume at maximum is not desired, a resistive attenuator might be added. This is implemented by replacing the 1Mohm input resistor with a 1Mohm LEVEL pot or trimpot. In order to avoid affecting the high frequency cutoff, the 33k input resistor and 220 pF filter cap are moved ahead of the trimpot. In this case a slight attenuation (0.28 dB) will be introduced when the LEVEL pot is dimed.</p>
-<p>Another area open for modification is adding a cap in parallel with Rs. If a very large cap is added, the overall stage gain will increase by 6 dB, the clipping-free input range will be reduced by a similar amount, and the harmonics will be closer to the original Fetzer Valve, e.g. mostly 2nd order. A more interesting mod consists of adding a smaller cap instead, chosen to add brightness to the sound.</p>
-<p>The value of this capacitor depends on Rs and the desired knee frequency fn, and can be calculated as:</p>
-<pre>Cp = 1 / (2*pi*Rs*fn)</pre>
-<p>where fn should be within 200 Hz and 2 kHz according to the desired effect on the mid and high frequencies. A 1 kHz corner frequency produces a nice Presence effect. This cap may be made switchable.</p>
-<p>Example: if Rs= 1800 ohms, then a suitable Presence capacitor would be Cp = 1 / (2*pi*1800*1000) = 88.4 nF, thus, 68 nF, 82 nF or 100 nF would do fine.</p>
-<p>A final refinement over the conventional Fetzer Valve would be to use a higher supply voltage, perhaps 12V, 15V or even 18V. This won't increase the input dynamic range but will increase the gain to allow more driving muscle out of this stage.</p>
-<p>See the calculator below to determine your resistor and Presence capacitor values.</p>
-<p>Fig.8 shows a Deluxe version of the Fetzer Valve Revisited.</p>
-<img src="images/fetzertech7-schematic.png" alt="{{ page.title }} deluxe schematic" class="img-rounded img-responsive center-block">
-<div class="text-center">Fig.8 (Fetzer Valve Deluxe)</div>
-<img src="images/fetzerdlx-perf-layout.png" alt="{{ page.title }} deluxe perfboard layout" class="img-rounded img-responsive center-block">
-<div class="text-center">Fig.9 (Fetzer Valve Deluxe perfboard layout)</div>
-<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Fetzer Valve Deluxe.</p>
-<iframe src="pdf/fetzer-deluxe-pcb.pdf" class="pcb-layout"></iframe>
-
-<div class="page-header">
-    <h2>11. Measurement of Vp and Idss</h2>
-</div>
-<p>Fig.10 shows the setup required to measure Vp and Idss for an N-channel JFET.</p>
-<img src="images/fetzertech10-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
-<div class="text-center">Fig.10 (Vp and Idss measurement setup)</div>
-
-<p>As shown, a 9V battery, two resistors, a SPDT switch, and a DMM (digital multimeter) are required. Analog voltmeters won't work here for the Vp reading since input impedance must be at least 1 Mohm in order not to disturb the source biasing.</p>
-<p>Follow the instructions above for Vp and Idss measurement.</p>
-
-<p>The following data pertains to the specified number of JFETs we sampled for Vp and Idss. Average Rs value provides a reference starting point. Average Idss and Gain are based on a supply voltage of 9V. For ease of adjustment, you should use a trimpot that is twice the expected value of Rs and Rd. Note that in most cases the spread of values is over 2:1.</p>
-
-<h4>Out of ten (10) J201</h4>
-<div>average Vp: -0.83V (spanning from -0.57 to -0.97)</div>
-<div>average Idss: 0.64mA (spanning 0.30mA to 0.83mA)</div>
-<div>average Rs: 1076 ohms</div>
-<div>average Rd: 10321 ohms</div>
-<div>average Gain: 4.8 times or 13.6 dB</div>
-
-<h4>Out of ten (10) 2SK30AY</h4>
-<div>average Vp: -1.41V (spanning from -1.26 to -1.52)</div>
-<div>average Idss: 2.14mA (spanning 1.78mA to 2.50mA)</div>
-<div>average Rs: 505 ohms</div>
-<div>average Rd: 2602 ohms</div>
-<div>average Gain: 2.4 times or 7.6 dB</div>
-
-<h4>Out of twelve (12) 2N5457</h4>
-<div>average Vp: -1.58V (spanning from -1.22 to -1.80)</div>
-<div>average Idss: 3.27mA (spanning 1.96mA to 4.11mA)</div>
-<div>average Rs: 401 ohms</div>
-<div>average Rd: 1607 ohms</div>
-<div>average Gain: 2 times or 6 dB</div>
-
-<h4>Out of ten (10) 2N5458</h4>
-<div>average Vp: -2.18V (spanning from -1.74 to -2.87)</div>
-<div>average Idss: 5.22mA (spanning 3.62mA to 7.41mA)</div>
-<div>average Rs: 347 ohms</div>
-<div>average Rd: 800 ohms</div>
-<div>average Gain: 1.1 times or 1 dB</div>
-
-<h4>Out of twenty-four (24) MPF102</h4>
-<div>average Vp: -2.34V (spanning from -1.76 to -3.11)</div>
-<div>average Idss: 5.65mA (spanning 3.91mA to 7.15mA)</div>
-<div>average Rs: 344 ohms</div>
-<div>average Rd: 688 ohms</div>
-<div>average Gain: 1 times or 0 dB</div>
-
-<h4>Out of five (5) PN4392</h4>
-<div>average Vp: -3.64V (spanning from -3.34 to -4.10)</div>
-<div>average Idss: 43.9mA (spanning 39.2mA to 48.7mA)</div>
-<div>average Rs: 68.8 ohms</div>
-<div>average Rd: 35.3 ohms</div>
-<div>average Gain: 0.25 times or -12 dB</div>
-
-<div class="page-header">
-    <h2>12. Fetzer Valve Calculator</h2>
-</div>
-
-<p>Insert Vp (absolute value), Idss, and Vcc values to calculate the optimal resistor values as well as the current consumption. For the Deluxe version, the 1kHz Presence capacitor value is calculated from Rs.</p>
-<p>Default values correspond to an average J201.</p>
-
-<p>Insert Vp (absolute value), Idss, and Vcc values to calculate the optimal resistor values as well as the current consumption.  For the Deluxe version, the 1kHz Presence capacitor value is calculated from Rs.<br>Default values correspond to an average J201.</p>
-<form role="form" class=" well">
-    <div class="row">
-        <div class="col-md-6">
-            <legend>Input</legend>
-            <div class="form-group">
-                <label for="input-vp" class="control-label">Vp (V)</label>
-                <input type="text" class="form-control" id="input-vp" value="0.83">
-            </div>
-            <div class="form-group">
-                <label for="input-idss" class="control-label">Idss (mA)</label>
-                <input type="text" class="form-control" id="input-idss" value="0.64">
-            </div>
-            <div class="form-group">
-                <label for="input-vcc" class="control-label">Vcc (V)</label>
-                <input type="text" class="form-control" id="input-vcc" value="9">
-            </div>
-        </div>
-        <div class="col-md-6">
-            <legend>Output</legend>
-            <table class="table table-bordered table-condensed">
-                <tbody>
-                    <tr>
-                        <td style="width: 30%;">Rs (ohms)</td>
-                        <td id="output-rs">-</td>
-                    </tr>
-                    <tr>
-                        <td>Rd (ohms)</td>
-                        <td id="output-rd">-</td>
-                    </tr>
-                    <tr>
-                        <td>Vs (V)</td>
-                        <td id="output-vs">-</td>
-                    </tr>
-                    <tr>
-                        <td>Vd (V)</td>
-                        <td id="output-vd">-</td>
-                    </tr>
-                    <tr>
-                        <td>Id (mA)</td>
-                        <td id="output-id">-</td>
-                    </tr>
-                    <tr>
-                        <td>Av (V/V)</td>
-                        <td id="output-av">-</td>
-                    </tr>
-                    <tr>
-                        <td>Av (dB)</td>
-                        <td id="output-av-db">-</td>
-                    </tr>
-                    <tr>
-                        <td>Vo (Vpp)</td>
-                        <td id="output-vo">-</td>
-                    </tr>
-                    <tr>
-                        <td>Cp (nF)</td>
-                        <td id="output-cp">-</td>
-                    </tr>
-                </tbody>
-            </table>
+<div class="row">
+    <div class="col-md-3">
+        <div data-spy="affix" data-offset-top="140" class="sidebar">
+            <ul class="nav">
+                <li><a href="{{ page.url }}#introduction">1. Introduction</a></li>
+                <li><a href="{{ page.url }}#high-and-low-gain-inputs">2. High and Low gain inputs</a></li>
+                <li><a href="{{ page.url }}#frequency-response">3. Frequency response</a></li>
+                <li><a href="{{ page.url }}#harmonic-content">4. Harmonic content</a></li>
+                <li><a href="{{ page.url }}#optimal-biasing">5. Optimal biasing</a></li>
+                <li><a href="{{ page.url }}#input-level">6. Input level</a></li>
+                <li><a href="{{ page.url }}#stage-gain">7. Stage gain</a></li>
+                <li><a href="{{ page.url }}#output-dynamic-range">8. Output dynamic range</a></li>
+                <li><a href="{{ page.url }}#fetzer-valve-revisited">9. Fetzer Valve Revisited</a></li>
+                <li><a href="{{ page.url }}#fetzer-valve-deluxe">10. Fetzer Valve Deluxe</a></li>
+                <li><a href="{{ page.url }}#measurement-of-vp-and-idss">11. Measurement of Vp and Idss</a></li>
+                <li><a href="{{ page.url }}#fetzer-valve-calculator">12. Fetzer Valve Calculator</a></li>
+            </ul>
         </div>
     </div>
-    <hr>
-    <button class="btn btn-primary" type="submit" id="fetzer-calculate-button">Calculate</button>
-    <button class="btn" type="reset" id="fetzer-reset-button">Reset</button>
-</form>
+    <div class="col-md-9">
 
-<script src="js/fetzer-calculator.js"></script>
+        <div class="page-header">
+            <h2 id="introduction">1. Introduction</h2>
+        </div>
+        <p>In the two years since the Fetzer Valve was first published in the midst of our adaptation of tube amps for use as distortion pedals, the circuit has enjoyed popularity as a standalone booster and as a building block in larger circuits. While the circuit has its merits, we decided to further explore it to determine if it was a truly faithful solid-state version of the familiar input stage used in many tube amps.</p>
+
+        <p>The original Fetzer Valve circuit is presented in Fig.1.</p>
+        <img src="images/fetzervalve-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block"><br>
+        <div class="text-center">Fig.1 (Original Fetzer Valve schematic)</div>
+
+        <p>This circuit was developed by applying the well known Triode-to-JFET translation to the first stage found in a typical Fender tube amp, as illustrated in Fig.2.</p>
+        <img src="images/tube-fet-schematic.png" alt="tube fet schematic" class="img-rounded img-responsive center-block"><br>
+        <div class="text-center">Fig.2 (Valve to JFET transformation)</div>
+
+        <p>The steps involved can be summarized as follows:</p>
+        <ul>
+            <li>The triode is replaced by a JFET with the following correspondence of terminals: plate to drain, grid to gate, and cathode to source. This is supported by the fact that both the vacuum triode and the JFET are voltage controlled devices which change their transconductance according to a (usually) negative control voltage.</li>
+            <li>The high voltage supply voltage is replaced by a low voltage, usually in the 9 to 18V range as used in effect circuits.</li>
+            <li>The original grid and cathode elements remain the same.</li>
+            <li>The plate resistor is changed for a variable resistor (usually a 10k to 100k trimpot) which is used to adjust the JFET's biasing to a value close to half the supply voltage.</li>
+        </ul>
+
+        <p><i class="fa fa-rocket fa-3x"></i><span>OK, now let's go: three, two, one, lift-off!</span></p>
+
+        <div class="page-header">
+            <h2 id="high-and-low-gain-inputs">2. High and Low Gain Inputs</h2>
+        </div>
+
+        <p>High and Low gain inputs are often noted on the faceplate as 1 and 2, respectively. Fig.3 shows the typical input circuit of a Fender tube amp. The key to understanding this circuit lies in the fact that the tip of each input jack is making electrical contact with the arrow-shaped terminal when no plug is inserted. When a plug is inserted, the contact with the arrow terminal is opened, thus interrupting this previous connection.</p>
+        <img src="images/fetzertech3-schematic.png" alt="tube fet schematic" class="img-rounded img-responsive center-block"><br>
+        <div class="text-center">Fig.3 (Original Fender input stage and equivalent Hi and Low input schematics)</div>
+
+        <p>As shown, the Low Gain input is in fact a resistive divider that introduces 6 dB attenuation and presents a relatively low impedance to the guitar, which is 68k + 68k = 134k, hence its "Low Gain" designation. When a low impedance source is connected to the amplifier, the grid of the valve "sees" an equivalent resistance of 68k || 68k = 34k.</p>
+        <p>The High Gain input introduces no attenuation and presents a 1 Mohm impedance to the instrument. Again, a 34k equivalent resistance appears in series with the grid when a low impedance source is connected to the amplifier.</p>
+        <p>A guitar with its volume dimed will have an output impedance lower than 34k. The importance of the series resistance with the grid becomes evident in the next section.</p>
+
+        <div class="page-header">
+            <h2 id="frequency-response">3. Frequency Response</h2>
+        </div>
+        <p>Fig.4 shows the simulated frequency response of the valve circuit when driven by a low impedance source, and a modified JFET stage that has a similar high frequency response. In both cases the -3 dB knee is located close to 20 kHz.</p>
+        <img src="images/fetzertech4-schematic.png" alt="tube fet schematic" class="img-rounded img-responsive center-block"><br>
+        <div class="text-center">Fig.4 (Frequency response of the valve and equivalent JFET circuits)</div>
+
+        <p>The main purpose of the cathode capacitor (22 uF) is to boost the gain of the stage. As a side effect, the low frequency response is also affected by the value of this capacitor, however, in the Fender input stage this effect occurs well below 80 Hz.</p>
+        <p>On the other hand, the high frequency response is limited near 20 kHz, despite there is no visible capacitor capable of doing this! After a second thought, a 20 kHz bandwidth is a good thing for guitar audio, and it also prevents RF and radio stations from getting into the amp--a good thing indeed!</p>
+        <p>The phenomena responsible for determining the high frequency limit are the Miller capacitance of the triode and the equivalent resistance to the grid, 34k. The Miller capacitance corresponds to the grid-to-plate parasitic capacitance (around 4 pF for a 12AX7) times the stage gain (around 34 dB or 50 times), which gives an approximated input capacitance of 4 pF x 50= 200 pF.</p>
+        <p>Based on the aforementioned figures, the 3dB high frequency corner can be calculated as 23kHz. Now we understand the importance of the equivalent series grid resistance and why the circuit configuration was chosen to have the same value for both inputs.</p>
+        <p>Now going into the JFET equivalent circuit, we notice that most JFETs have a smaller gate-to-drain capacitance (typically in the range from 0.5 to 2 pF), and the overall gain of such a stage will be also smaller (between 6db and 26 db or 2 times to 20 times typically). Thus, it is rather inconvenient to rely on this capacitance to define high frequency limit.</p>
+        <p>A better alternative is to simply ignore the JFET's input capacitance (since it is rather small) and add an extra gate-to-GND capacitor. This extra capacitance should be around 220 pF, however any capacitor in the range from 150pF to 250pF should work appropriately.</p>
+
+        <div class="page-header">
+            <h2 id="harmonic-content">4. Harmonic Content</h2>
+        </div>
+
+        <p>It is well known that the plate voltage of a triode is related to the grid voltage by the three-halves power law, which produces both even and odd harmonics. As the signal level increases, the 2nd harmonic rises, followed by the 3rd harmonic, and then higher ordered harmonics start to appear.</p>
+        <p>On the other hand, the JFET drain current is related to the gate-to-source voltage by a square law. This means that theoretically only 2nd harmonic distortion is produced, unless the signal is strong enough to produce clipping.</p>
+        <p>In order to be faithful to the three-halves power law found in triodes, Dimitri Danyuk proposes the use of a carefully chosen source resistor on the JFET amplifier in his article "Triode Emulator" (as presented at the 116th Audio Engineering Society Convention, May 2004 in Berlin, Germany). This resistor should not be bypassed by a capacitor to produce the appropriate amount of negative feedback to change the square law of the FET into an approximation of the three-halves law of the triode.</p>
+
+        <p>Consider this:</p>
+        <ol type="a">
+            <li>linear circuit = unity or 1.0 exponent</li>
+            <li>triode = 1.5 exponent</li>
+            <li>JFET = 2.0 exponent</li>
+            <li>JFET with "magic" Rs and no bypass cap = 1.5 exponent around the operating point</li>
+        </ol>
+
+        <p>In summary, for the harmonic distortion produced by a FET to have a complexity similar to a triode, the familiar 22uF source bypass cap must be omitted.</p>
+
+        <p>Danyuk suggests that a source resistor equal to:</p>
+
+        <pre>Rs = 0.83 * |Vp| / Idss</pre>
+
+        <p>will closely approximate the three-halves power law around the operating point of the JFET, where Vp is the pinch-off voltage of the JFET (a negative value for N-channel devices), and Idss is the saturation current of the device. These two parameters should be measured for the particular device in use in order to calculate the exact source resistor. In this article |Vp| represents the positive value of Vp.</p>
+
+        <p>Example: Consider a J201 with Vp=-0.75V and Idss=0.35mA. Then, Rs = 0.83 * 0.75V / 0.00035A = 1779 ohms. A practical standard value would be Rs = 1k8.</p>
+
+        <p>Example: Consider a 2N5457 with Vp=-1.5V and Idss=3mA. Then, Rs = 0.83 * 1.5V / 0.003A = 415 ohms. Practical standard values would be Rs = 390 ohms or 430 ohms.</p>
+
+        <p>(Notice that we used the positive value of Vp in the above calculations.)</p>
+
+        <p>As a general rule, JFETs with higher values of |Vp| and/or Idss will require smaller source resistors, which has the following implications to take into account:</p>
+        <ul>
+            <li>Increased input level handling without clipping</li>
+            <li>Increased current consumption</li>
+            <li>Reduced gain</li>
+        </ul>
+
+        <div class="page-header">
+            <h2 id="optimal-biasing">5. Optimal Biasing</h2>
+        </div>
+
+        <p>Normally, biasing of the drain voltage in JFET amplifiers is performed by adjusting the drain resistor with one of the following methods:</p>
+
+        <ul>
+            <li>Drain voltage is set near half the supply voltage</li>
+            <li>Drain voltage is tuned by ear for the "best sound"</li>
+        </ul>
+
+        <p>The proposed optimal biasing allows the largest dynamic range where the JFET approximates the three-halves law if the suggested Rs is used.</p>
+
+        <p>The optimum drain voltage, which is dependent on the supply voltage and Vp, can be approximated by:</p>
+        <pre>Vd = 0.6*Vcc + 0.7*|Vp|</pre>
+
+        <p>In addition, the required drain resistor can be expressed as:</p>
+        <pre>Rd = 0.9 * (Vcc - 2*|Vp|) / Idss</pre>
+
+        <p>It must be noted that normally Rd should be trimmed to comply with the Vd criteria, nevertheless, it is useful to define a starting point and eventually choose the drain trimpot with a nominal value closer to twice the anticipated Rd value for ease of adjustment.</p>
+
+        <p>It is useful to calculate Id in order to determine the current consumption of the Fetzer stage. This is done with the following equation:</p>
+        <pre>Id = Idss * (0.44*Vcc - 0.78*Vp) / (Vcc - 2*Vp)</pre>
+
+        <p>Finally, it is possible to also calculate the source voltage Vs as:</p>
+        <pre>Vs = Vp * (0.37*Vcc - 0.65*Vp) / (Vcc - 2*Vp)</pre>
+
+        <p>Knowing Vd and Vs in advance is useful for trimming the circuit. With the circuit powered up, adjust Rs trimmer for Vs first, then adjust Rd trimmer for Vd.</p>
+
+
+        <div class="page-header">
+            <h2 id="input-level">6. Input Levels</h2>
+        </div>
+
+        <p>The first valve stage of a Fender amp can withstand input voltages up to +/- 2.5V without noticeable clipping.</p>
+
+        <p>The proposed JFET stage will start clipping when the input voltage exceeds +/- |Vp|. It is interesting to notice that the maximum input voltage without clipping is independent of Vcc and Idss. Then clipping-free input dynamic range is defined by:</p>
+        <pre>Vi = +/- |Vp|</pre>
+
+        <p>Example: A J201 with Vp=-0.75V will accept up to +/- 0.75V before entering into the clipping region.</p>
+
+        <p>If clipping is undesired, one of the following workarounds might be considered:</p>
+        <ul>
+            <li>Reduce the guitar volume</li>
+            <li>Use a JFET with higher |Vp|</li>
+            <li>Implement a voltage divider at the input of the Fetzer Valve</li>
+        </ul>
+
+        <div class="page-header">
+            <h2 id="stage-gain">7. Stage Gain</h2>
+        </div>
+
+        <p>The gain of the first 12AX7 stage in the Fender amp is near 35 dB or 50 times.</p>
+
+        <p>The gain of the proposed JFET stage is calculated by:</p>
+        <pre>Av = 0.5 * Rd / Rs</pre>
+
+        <p>Replacing the optimal values for Rd and Rs gain can be also expressed as:</p>
+        <pre>Av = 0.54 * (Vcc/|Vp| - 2)</pre>
+
+        <p>Some remarks on the gain formulae are:</p>
+        <ul>
+            <li>Rd must be greater than twice Rs or the gain will be less than unity.</li>
+            <li>Vcc must be approximately greater than 4*|Vp| or the gain will be less than unity.</li>
+            <li>Gain depends on Vcc and Vp only, and is independent of Idss.</li>
+            <li>Gain increases as Vcc is increased or |Vp| is decreased.</li>
+        </ul>
+
+        <p>Example: Consider a MPF102 whose Vp=-3V. If a 9V supply is used, gain will be 0.54 times or -5 dB, which is less than unity! If the supply voltage is doubled to 18V, the resulting gain will rise to 2.2 times or 7 dB!</p>
+
+        <p>Example: A J201 with Vp=-0.6V fed by 9V will have a gain of 7 times or almost 17 dB. (However, as we already know this stage will clip as soon as the input voltage exceeds the +/- 0.6V range.)</p>
+
+        <div class="page-header">
+            <h2 id="output-dynamic-range">8. Output Dynamic Range</h2>
+        </div>
+
+        <p>The drain voltage can vary from 2*|Vp| (when input voltage is +|Vp|) up to Vcc (when input voltage is -|Vp|). Thus, the output dynamic range can be expressed as:</p>
+        <pre>Vo = Vcc - 2*|Vp|</pre>
+
+        <p>Example: A 2N5458 with Vp=-2.5V will be able to swing its drain between 5V and 9V, provided that the output load resistance is much higher than Rd, meaning its output dynamic range is limited to 4V.</p>
+
+        <div class="page-header">
+            <h2 id="fetzer-valve-revisited">9. Fetzer Valve Revisited</h2>
+        </div>
+        <p>At this point it is in order to present a circuit that incorporates the presented refinements. Fig.5 shows the schematic of the Fetzer Valve Revisited:</p>
+        <p>
+            <img src="images/fetzertech5-schematic.png" alt="{{ page.title }} 5 schematic" class="img-rounded img-responsive center-block">
+            <div class="text-center">Fig.5 (Fetzer Valve Revisited)</div>
+        </p>
+        <p>
+            <img src="images/fetzerrev-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block">
+            <div class="text-center">Fig.6 (Fetzer Valve Revisted perfboard layout)</div>
+        </p>
+
+        <p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Fetzer Valve Revisited.</p>
+        <iframe src="pdf/fetzer2-pcb.pdf" class="pcb-layout"></iframe>
+
+        <p>The circuit can be set up according to the following steps:</p>
+        <ul>
+            <li>Choose a JFET type whose Vp is compatible with the desired or anticipated input range</li>
+            <li>Vp and Idss for the chosen JFET should be measured (see section 11 below), or else an estimated value extracted from the datasheet should be used</li>
+            <li>Calculate and adjust Rs</li>
+            <li>Calculate the optimum Vd</li>
+            <li>Calculate and adjust Rd for the optimum Vd</li>
+            <li>If desired, the gain of the circuit may be calculated</li>
+        </ul>
+
+        <p>Example: Assume we have a 2N5457 with measured Vp=-1.5V and Idss=3mA. The presented equations dictate the following design data if a 9V supply is to be used:</p>
+        <ul>
+            <li>Vi = +/- 1.5V (input dynamic range)</li>
+            <li>Rs = 0.83 * 1.5 / 0.003 = 415 ohms (source resistor)</li>
+            <li>Rd = 0.9 * (9 - 2*1.5) / 0.003 = 1800 ohms (drain resistor)</li>
+            <li>Vd = 0.6*9 + 0.7*1.5 = 6.45V (optimal drain voltage)</li>
+            <li>Av = 0.5 * 1800 / 415 = 2.2 times or roughly 7 dB (voltage gain)</li>
+            <li>Vo = 9 - 2*1.5 = 6V (output dynamic range)</li>
+        </ul>
+
+        <p>See the <a href="#12">calculator</a> below to determine your component values.</p>
+        <p>Choosing whether to include a source capacitor (and subsequently, the value of that capacitor) should be approached with the knowledge of how the Fetzer Valve stage will be used. Its inclusion increases gain (while reducing the clipping-free input range) while producing pure 2nd order harmonics. Having pure 2nd order harmonics is not necessarily undesirable, but different from a triode, which is the goal of the Fetzer Valve Revisited. For the cleanest possible output and closest approximation of a triode, it should be omitted. If the builder is interested in allowing some clipping in an effort to add character or wants to increase overall gain, the traditional 22u source bypass cap can be included. Or, a smaller cap can be used to accentuate certain frequencies, as illustrated with the Presence control in the Fetzer Valve Deluxe and discussed below.</p>
+        <p>Fig.7 shows the simulated waveform and harmonic distortion obtained for the Fetzer Valve using the component values from the above example. The red line shows the drain bias voltage when the input is zero.</p>
+        <img src="images/fetzertech6-chart.png" alt="{{ page.title }} chart" class="img-rounded img-responsive center-block">
+        <div class="text-center">Fig.7 (Simulated waveform and harmonic distortion of Fetzer Valve Revisited)</div>
+
+        <div class="page-header">
+            <h2 id="fetzer-valve-deluxe">10. Fetzer Valve Deluxe</h2>
+        </div>
+        <p>If a JFET with small |Vp| is used and clipping with guitar volume at maximum is not desired, a resistive attenuator might be added. This is implemented by replacing the 1Mohm input resistor with a 1Mohm LEVEL pot or trimpot. In order to avoid affecting the high frequency cutoff, the 33k input resistor and 220 pF filter cap are moved ahead of the trimpot. In this case a slight attenuation (0.28 dB) will be introduced when the LEVEL pot is dimed.</p>
+        <p>Another area open for modification is adding a cap in parallel with Rs. If a very large cap is added, the overall stage gain will increase by 6 dB, the clipping-free input range will be reduced by a similar amount, and the harmonics will be closer to the original Fetzer Valve, e.g. mostly 2nd order. A more interesting mod consists of adding a smaller cap instead, chosen to add brightness to the sound.</p>
+        <p>The value of this capacitor depends on Rs and the desired knee frequency fn, and can be calculated as:</p>
+        <pre>Cp = 1 / (2*pi*Rs*fn)</pre>
+        <p>where fn should be within 200 Hz and 2 kHz according to the desired effect on the mid and high frequencies. A 1 kHz corner frequency produces a nice Presence effect. This cap may be made switchable.</p>
+        <p>Example: if Rs= 1800 ohms, then a suitable Presence capacitor would be Cp = 1 / (2*pi*1800*1000) = 88.4 nF, thus, 68 nF, 82 nF or 100 nF would do fine.</p>
+        <p>A final refinement over the conventional Fetzer Valve would be to use a higher supply voltage, perhaps 12V, 15V or even 18V. This won't increase the input dynamic range but will increase the gain to allow more driving muscle out of this stage.</p>
+        <p>See the calculator below to determine your resistor and Presence capacitor values.</p>
+        <p>Fig.8 shows a Deluxe version of the Fetzer Valve Revisited.</p>
+        <img src="images/fetzertech7-schematic.png" alt="{{ page.title }} deluxe schematic" class="img-rounded img-responsive center-block">
+        <div class="text-center">Fig.8 (Fetzer Valve Deluxe)</div>
+        <img src="images/fetzerdlx-perf-layout.png" alt="{{ page.title }} deluxe perfboard layout" class="img-rounded img-responsive center-block">
+        <div class="text-center">Fig.9 (Fetzer Valve Deluxe perfboard layout)</div>
+        <p>Pablo De Luca (aka Gringo) contributed this PCB layout for the Fetzer Valve Deluxe.</p>
+        <iframe src="pdf/fetzer-deluxe-pcb.pdf" class="pcb-layout"></iframe>
+
+        <div class="page-header">
+            <h2 id="measurement-of-vp-and-idss">11. Measurement of Vp and Idss</h2>
+        </div>
+        <p>Fig.10 shows the setup required to measure Vp and Idss for an N-channel JFET.</p>
+        <img src="images/fetzertech10-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+        <div class="text-center">Fig.10 (Vp and Idss measurement setup)</div>
+
+        <p>As shown, a 9V battery, two resistors, a SPDT switch, and a DMM (digital multimeter) are required. Analog voltmeters won't work here for the Vp reading since input impedance must be at least 1 Mohm in order not to disturb the source biasing.</p>
+        <p>Follow the instructions above for Vp and Idss measurement.</p>
+
+        <p>The following data pertains to the specified number of JFETs we sampled for Vp and Idss. Average Rs value provides a reference starting point. Average Idss and Gain are based on a supply voltage of 9V. For ease of adjustment, you should use a trimpot that is twice the expected value of Rs and Rd. Note that in most cases the spread of values is over 2:1.</p>
+
+        <h4>Out of ten (10) J201</h4>
+        <div>average Vp: -0.83V (spanning from -0.57 to -0.97)</div>
+        <div>average Idss: 0.64mA (spanning 0.30mA to 0.83mA)</div>
+        <div>average Rs: 1076 ohms</div>
+        <div>average Rd: 10321 ohms</div>
+        <div>average Gain: 4.8 times or 13.6 dB</div>
+
+        <h4>Out of ten (10) 2SK30AY</h4>
+        <div>average Vp: -1.41V (spanning from -1.26 to -1.52)</div>
+        <div>average Idss: 2.14mA (spanning 1.78mA to 2.50mA)</div>
+        <div>average Rs: 505 ohms</div>
+        <div>average Rd: 2602 ohms</div>
+        <div>average Gain: 2.4 times or 7.6 dB</div>
+
+        <h4>Out of twelve (12) 2N5457</h4>
+        <div>average Vp: -1.58V (spanning from -1.22 to -1.80)</div>
+        <div>average Idss: 3.27mA (spanning 1.96mA to 4.11mA)</div>
+        <div>average Rs: 401 ohms</div>
+        <div>average Rd: 1607 ohms</div>
+        <div>average Gain: 2 times or 6 dB</div>
+
+        <h4>Out of ten (10) 2N5458</h4>
+        <div>average Vp: -2.18V (spanning from -1.74 to -2.87)</div>
+        <div>average Idss: 5.22mA (spanning 3.62mA to 7.41mA)</div>
+        <div>average Rs: 347 ohms</div>
+        <div>average Rd: 800 ohms</div>
+        <div>average Gain: 1.1 times or 1 dB</div>
+
+        <h4>Out of twenty-four (24) MPF102</h4>
+        <div>average Vp: -2.34V (spanning from -1.76 to -3.11)</div>
+        <div>average Idss: 5.65mA (spanning 3.91mA to 7.15mA)</div>
+        <div>average Rs: 344 ohms</div>
+        <div>average Rd: 688 ohms</div>
+        <div>average Gain: 1 times or 0 dB</div>
+
+        <h4>Out of five (5) PN4392</h4>
+        <div>average Vp: -3.64V (spanning from -3.34 to -4.10)</div>
+        <div>average Idss: 43.9mA (spanning 39.2mA to 48.7mA)</div>
+        <div>average Rs: 68.8 ohms</div>
+        <div>average Rd: 35.3 ohms</div>
+        <div>average Gain: 0.25 times or -12 dB</div>
+
+        <div class="page-header">
+            <h2 id="fetzer-valve-calculator">12. Fetzer Valve Calculator</h2>
+        </div>
+
+        <p>Insert Vp (absolute value), Idss, and Vcc values to calculate the optimal resistor values as well as the current consumption. For the Deluxe version, the 1kHz Presence capacitor value is calculated from Rs.</p>
+        <p>Default values correspond to an average J201.</p>
+
+        <p>Insert Vp (absolute value), Idss, and Vcc values to calculate the optimal resistor values as well as the current consumption.  For the Deluxe version, the 1kHz Presence capacitor value is calculated from Rs.<br>Default values correspond to an average J201.</p>
+        <form role="form" class=" well">
+            <div class="row">
+                <div class="col-md-6">
+                    <legend>Input</legend>
+                    <div class="form-group">
+                        <label for="input-vp" class="control-label">Vp (V)</label>
+                        <input type="text" class="form-control" id="input-vp" value="0.83">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-idss" class="control-label">Idss (mA)</label>
+                        <input type="text" class="form-control" id="input-idss" value="0.64">
+                    </div>
+                    <div class="form-group">
+                        <label for="input-vcc" class="control-label">Vcc (V)</label>
+                        <input type="text" class="form-control" id="input-vcc" value="9">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <legend>Output</legend>
+                    <table class="table table-bordered table-condensed">
+                        <tbody>
+                            <tr>
+                                <td style="width: 30%;">Rs (ohms)</td>
+                                <td id="output-rs">-</td>
+                            </tr>
+                            <tr>
+                                <td>Rd (ohms)</td>
+                                <td id="output-rd">-</td>
+                            </tr>
+                            <tr>
+                                <td>Vs (V)</td>
+                                <td id="output-vs">-</td>
+                            </tr>
+                            <tr>
+                                <td>Vd (V)</td>
+                                <td id="output-vd">-</td>
+                            </tr>
+                            <tr>
+                                <td>Id (mA)</td>
+                                <td id="output-id">-</td>
+                            </tr>
+                            <tr>
+                                <td>Av (V/V)</td>
+                                <td id="output-av">-</td>
+                            </tr>
+                            <tr>
+                                <td>Av (dB)</td>
+                                <td id="output-av-db">-</td>
+                            </tr>
+                            <tr>
+                                <td>Vo (Vpp)</td>
+                                <td id="output-vo">-</td>
+                            </tr>
+                            <tr>
+                                <td>Cp (nF)</td>
+                                <td id="output-cp">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr>
+            <button class="btn btn-primary" type="submit" id="fetzer-calculate-button">Calculate</button>
+            <button class="btn" type="reset" id="fetzer-reset-button">Reset</button>
+        </form>
+
+        <script src="js/fetzer-calculator.js"></script>
+    </div>
+</div>
