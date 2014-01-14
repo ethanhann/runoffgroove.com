@@ -317,15 +317,15 @@ complexity: 1
             <legend>Input</legend>
             <div class="form-group">
                 <label for="input-vp" class="control-label">Vp (V)</label>
-                <input type="text" class="form-control" id="input-vp">
+                <input type="text" class="form-control" id="input-vp" value="0.83">
             </div>
             <div class="form-group">
                 <label for="input-idss" class="control-label">Idss (mA)</label>
-                <input type="text" class="form-control" id="input-idss">
+                <input type="text" class="form-control" id="input-idss" value="0.64">
             </div>
             <div class="form-group">
                 <label for="input-vcc" class="control-label">Vcc (V)</label>
-                <input type="text" class="form-control" id="input-vcc">
+                <input type="text" class="form-control" id="input-vcc" value="9">
             </div>
         </div>
         <div class="col-md-6">
@@ -374,7 +374,7 @@ complexity: 1
     </div>
     <hr>
     <button class="btn btn-primary" type="submit" id="fetzer-calculate-button">Calculate</button>
-    <button class="btn" type="reset" class="gain">Reset Fields</button>
+    <button class="btn" type="reset" id="fetzer-reset-button">Reset</button>
 </form>
 
 <script src="js/fetzer-calculator.js"></script>
