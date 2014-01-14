@@ -236,7 +236,7 @@ iframe.pcb-layout {
 .back-to-top {
     position: fixed;
     bottom: 2em;
-    right: 0px;
+    right: 0;
     text-decoration: none;
     color: #CCCCCC;
     background-color: #0F0F0F;
@@ -245,6 +245,7 @@ iframe.pcb-layout {
     display: none;
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
+    border: solid 1px #999999;
 }
 
 .back-to-top:hover {
