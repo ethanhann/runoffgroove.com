@@ -195,7 +195,7 @@ iframe.pcb-layout {
 .sidebar .nav > .active:hover > a,
 .sidebar .nav > .active:focus > a {
     font-weight: bold;
-    color: #563d7c;
+    color: #FFFFFF;
     background-color: transparent;
     border-right: 1px solid #563d7c;
 }
