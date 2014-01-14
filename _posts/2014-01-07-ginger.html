@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Ginger"
+description: "The Ampeg SB-12 Portaflex adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 2
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The <a href="images/flipster.png">Flipster</a>, runoffgroove.com's only circuit primarily intended for use with a
+            bass guitar, was released in June 2004. It was another adaptation of a vintage tube amp for use as a
+            distortion pedal, namely the Ampeg SB-12 Portaflex introduced in 1965. Several bass players in the DIY-fx
+            community acted as beta testers during its development, and while the resulting circuit captured a good deal
+            of the target sound, it had higher gain and the overall frequency response was inaccurate due to impedance
+            differences.</p>
+
+        <p>In this "next generation" version named Ginger, the tonestack impedance has been scaled down 10x to reduce
+            noise and overall frequency response has been further adjusted to cover a more suitable range with reduced
+            insertion loss, as seen in this graph from <a href="http://www.duncanamps.com/tsc/">Duncan's Tonestack
+                Calculator</a>.</p>
+
+        <p>
+            <img src="images/ginger-stack.png" alt="{{ page.title }} stack graph"
+                 class="img-rounded img-responsive center-block">
+        </p>
+
+        <p>
+            Also, each stage has a pair of clipping diodes at the gate to avoid hard clipping in the JFET stages.
+            Additionally, each stage has been adjusted to provide overall circuit gain more faithful to the Ampeg SB-12
+            Portaflex. While the circuit does not follow the original amp schematic, it has been tuned to approach the
+            target sound. Finally, the low-pass filter at the output has been upgraded for improved attenuation of
+            frequencies outside the original speaker range.
+        </p>
+
+        <p>While the circuit is intended for use with a bass, it also provides excellent overdrive for a guitar and the
+            flexible tone controls allow a great deal of fine-tuning.</p>
+
+        <p>The drain voltage of Q1 and Q2 should be adjusted close to 6.0V by tuning the corresponding trimpot. Once the
+            optimum resistor value is determined, each trimpot may be optionally replaced by a fixed resistor for best
+            noise performance.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Gain 11, Bass 14, Treble 10</small></h4>
+        <audio controls><source src="clips/ginger1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>Gain 15, Bass 12, Treble 12</small></h4>
+        <audio controls><source src="clips/ginger1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>Gain 17, Bass 17, Treble 17</small></h4>
+        <audio controls><source src="clips/ginger1.mp3" type="audio/mp3"></audio>
+
+        <p>* Each clip includes a bypassed passage for reference</p>
+        <p>* Note that settings are given in 24-hour clock notation: minimum is 7 and maximum is 17</p>
+        <p>* Setup: Fender Jazz Bass (both pickups) - Ginger - Fender RAD Bass SS amplifier with EQ controls at 12 - mic - mixer - sound card</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/ginger-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/ginger-perf-layout.png" alt="{{ page.title }} perfboard layout"
+     class="img-rounded img-responsive center-block"><br>
+
