@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "Grace / Big Daddy"
+description: "Two 386-based distortions."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>A few months ago, Aron Nelson released the Smash Drive. The circuit ingeniously used an LM386 audio power amp chip to produce great distortion sounds. Aron based his work on that of Tim Escobedo. Tim's Stupidity Box was another great sounding unit and beautifully simplistic. The Smokey Amp by Bruce Zinky was another design that used a 386 for some great sounds.</p>
+        <p>Depending on your personal tastes, there may be a potential down side to the 386 designs. The input impedance is listed at 50k, according to the datasheet. This is quite low and causes some loading of the guitar signal. There is some degree of high end signal loss. This may be a favorable thing, again depending on personal preference. I chose to try a high impedance buffer before the 386 to alleviate the loading effect.</p>
+        <p>A simple Jfet buffer was chosen, due to high input Z and minimal parts count. A high value of 4M7 was chosen as the gate resistor, which helps set the input Z. The J201 fet was used, but any N Channel Jfet could be used with similar results.</p>
+        <p>The result of the input buffer is easily noticeable. There is increased sparkle in the signal. The signal hits the 386 a little harder, due to more signal reaching the amplification stages of the 386. The buffer adds no gain, but there is a perceived increase. The gain control of the circuit is something else unseen this far with the 386 designs. It is simplistic, but functional. A simple 1k pot was chosen and wired as a variable resistor between pins 1 and 8 of the 386. Looking at the datasheet for the IC, you should notice an internal 1.35k resistor. By connecting the 1k pot between pins 1 and 8, you can effectively vary the gain from near the normal condition of 20X gain to the pins 1/8 connected setting of 200X gain with the 1k pot at minimum resistance.</p>
+        <p>During the testing of this circuit design, the thought occurred to try a Jfet gain stage before the 386, instead of the buffer. The impedance would still be high and the 386 would see more signal and clip harder. The result is a pleasing grind and responsive big amp-like distortion. The gain control functions in the same way, but the range is higher in gain. Pretty effective, considering that if you want to use a gain stage, you probably don't want the semi-clean settings of the buffered version.</p>
+        <p>Thanks to Aron Nelson, Tim Escobedo, Bruce Zinky, Dave Stork, and others who have designed with the 386 chip.</p>
+        <p>The two circuits are very similar and it may be possible to use a switching system to alternate between the buffer and the gain stage versions.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Grace 3 <small>Recorded by Gary Burchett</small></h4>
+        <audio controls><source src="clips/grace3.mp3" type="audio/mp3"></audio>
+        <h4>Big Daddy</h4>
+        <audio controls><source src="clips/bigdaddy.mp3" type="audio/mp3"></audio>
+    </div>
+</div>
+
+<h3>Schematics</h3>
+<div class="row">
+    <div class="col-sm-6">
+        <p><img src="images/grace3-schematic.png" alt="{{ page.title }} grace schematic" class="img-rounded img-responsive center-block"></p>
+    </div>
+    <div class="col-sm-6">
+        <p><img src="images/bigdaddy-schematic.png" alt="{{ page.title }} big daddy schematic" class="img-rounded img-responsive center-block"></p>
+    </div>
+</div>
+
+<h3>Perfboards</h3>
+<div class="row">
+    <div class="col-sm-6">
+        <p><img src="images/grace3-perf-layout.png" alt="{{ page.title }} grace perfboard layout" class="img-rounded img-responsive center-block"></p>
+    </div>
+    <div class="col-sm-6">
+        <p><img src="images/bigdaddy-perf-layout.png" alt="{{ page.title }} big daddy perfboard layout" class="img-rounded img-responsive center-block"></p>
+    </div>
+</div>
+
+<h3>Printed Circuit Board</h3>
+<p>Will Percival kindly contributed two PCB layouts to build either Grace or Big Daddy.</p>
+<h4>Regular</h4>
+<iframe src="pdf/grace-pcb.pdf" class="pcb-layout"></iframe>
+<h4>Compact</h4>
+<iframe src="pdf/grace-pcb-compact.pdf" class="pcb-layout"></iframe>
