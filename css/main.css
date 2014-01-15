@@ -74,11 +74,12 @@ iframe.pcb-layout {
     background-color: #FFFFFF;
 }
 
-.table thead {
+.table th {
     background-color: #0F0F0F;
+    color: #CCCCCC;
 }
 
-.table tbody {
+.table tbody td {
     color: #000000;
 }
 
@@ -106,7 +107,6 @@ iframe.pcb-layout {
     width: 230px;
     height: 33px;
     fill: #CCCCCC;
-
 }
 
 .navbar-brand :hover {
@@ -252,4 +252,11 @@ iframe.pcb-layout {
     text-decoration: none;
     background-color: #e5e3e9;
     color: #563d7c;
+}
+
+/** Well
+ */
+
+.well {
+    color: #0F0F0F;
 }

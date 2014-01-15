@@ -1,0 +1,196 @@
+---
+layout: post
+title:  "4069:4049 Module"
+description: "Easily swap two popular CMOS chips"
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-sm-6">
+        <p><img src="images/6949f.jpg" alt="{{ page.title }} 6949f" class="img-rounded img-responsive center-block"></p>
+    </div>
+    <div class="col-sm-6">
+        <p><img src="images/6949e.jpg" alt="{{ page.title }} 6949e" class="img-rounded img-responsive center-block"></p>
+    </div>
+</div>
+
+<p>CMOS hex inverter chips have been used in several popular DIY-fx circuits (including runoffgroove.com's 22/7, Double
+    D, and Mr. EQ) and the part specified most often is the CD4049UBE. The 4069UBE is a nearly identical chip, but sees
+    far less usage in effect projects. Since the two chips are not interchangeable, it is time-consuming to repopulate a
+    breadboard or adapt an existing layout to accommodate the 4069.</p>
+<p>Why even try a 4069 in place of a 4049? Because their current drive capabilities and positive/negative symmetry are
+    different, thus producing a different overall sound - just like when changing the op-amp type in a Tube Screamer,
+    RAT, or Distortion Plus.</p>
+<p>The 4069 omits the two NC pins present in the 4049 and the power supply pins are in different places, but the
+    inverters are arranged similarly - just rotated 180 degrees from the 4049.</p>
+<p>The 4069 pins correspond to the 4049 thusly:</p>
+
+<p class="table-responsive">
+    <table align="center" class="table table-bordered table-condensed">
+        <tbody>
+        <tr>
+            <th>4069 pin</th>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+            <td>14</td>
+        </tr>
+        <tr>
+            <th>4049 pin</th>
+            <td>9</td>
+            <td>10</td>
+            <td>11</td>
+            <td>12</td>
+            <td>14</td>
+            <td>15</td>
+            <td>8</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>1</td>
+        </tr>
+        </tbody>
+    </table>
+</p>
+
+<p>I intended to create a module from two sockets with a piece of perfboard sandwiched between them, but found that the pins of the top socket were not long enought to pass through the perf and contact the bottom sockets. Since that didn't work (though I think a wire-wrapping socket could be used for the top since the pins could be trimmed to the right length), I've included a number of photos of the two socket module I used.</p>
+<p>So I simply stacked two sockets, using little jumpers to connect the top pins to the appropriate pin on the bottom socket. I used a DIP-14 dual leaf on top (so I could bend the pins out to the side) and a DIP-16 machine pin socket on the bottom.</p>
+<p>With the sockets stacked, it is necessary to place a non-conductive material (I used black electrical tape) between the top socket pins that are bent out and the lower socket holes.</p>
+
+<div class="row">
+    <div class="col-sm-6">
+        <p><img src="images/6949b.jpg" alt="{{ page.title }} 6949b" class="img-rounded img-responsive center-block"></p>
+    </div>
+    <div class="col-sm-6">
+        <p><img src="images/6949d.jpg" alt="{{ page.title }} 6949d" class="img-rounded img-responsive center-block"></p>
+    </div>
+</div>
+
+<h2>Instructions for building the module</h2>
+<p>Materials needed:</p>
+<p>
+<ul>
+    <li>DIP-14 dual leaf socket</li>
+    <li>DIP-16 machine-pin socket</li>
+    <li>spare resistor leads for use as jumpers</li>
+    <li>electrical tape</li>
+</ul>
+</p>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 1</h3>
+            <p><img src="images/6949b2.jpg" alt="{{ page.title }} 6949b2" class="img-rounded img-responsive center-block"></p>
+            <p>First, we need to bend out the necessary pins of the DIP-14 socket where the 4069 will be placed. When looking at the socket with its notch pointing away from you, turn it over and bend pins 5, 6, and 14 out to the side. Pin 7 needs to be bent in.</p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 2</h3>
+            <p><img src="images/6949c.jpg" alt="{{ page.title }} 6949c" class="img-rounded img-responsive center-block"></p>
+            <p>Next, orient the DIP-16 socket for the 4049 so its notch is facing away from you. Place a small piece of electrical tape over pins 13, 14, and 15.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 3</h3>
+            <p><img src="images/6949d2.jpg" alt="{{ page.title }} 6949d2" class="img-rounded img-responsive center-block"></p>
+            <p>Next, solder a lead to pin 7 (the one bent in) of the DIP-14. The lead needs to be a bit longer than the socket itself since it must connect pin 7 of the 4069 to pin 8 of the 4049.</p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 4</h3>
+            <p><img src="images/6949e2.jpg" alt="{{ page.title }} 6949e2" class="img-rounded img-responsive center-block"></p>
+            <p>Solder a lead to pin 14 of the DIP-14. Again, this lead must be a bit longer than the socket. It connects pin 14 of the 4069 to pin 1 of the DIP-16.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="well">
+            <h3>Step 5</h3>
+            <div class="row">
+                <div class="col-sm-6"><img src="images/6949f2.jpg" alt="{{ page.title }} 6949f2" class="img-rounded img-responsive center-block"></div>
+                <div class="col-sm-6"><img src="images/6949g2.jpg" alt="{{ page.title }} 6949g2" class="img-rounded img-responsive center-block"></div>
+            </div>
+            <p>Now on the DIP-14, we need two shorter jumpers. These are the more difficult connections to solder since the joints must be small. I used needle-nose pliers to make a small hook at one end of the jumper, then hook that on the appropriate pin and solder. A jumper must be placed on pin 5, then one on pin 6 of the DIP-14.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="well">
+            <h3>Step 6</h3>
+            <div class="row">
+                <div class="col-sm-6"><img src="images/6949h2.jpg" alt="{{ page.title }} 6949h2" class="img-rounded img-responsive center-block"></div>
+                <div class="col-sm-6"><img src="images/6949i.jpg" alt="{{ page.title }} 6949i" class="img-rounded img-responsive center-block"></div>
+            </div>
+            <p>Place a small piece of electrical tape under the bent-out pin 14 of the DIP-14. The lead from pin 7 of the DIP-14 must not make contact. Bend the lead so it will point downward from pin 14 of the DIP-14.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 7</h3>
+            <p><img src="images/6949i2.jpg" alt="{{ page.title }} 6949i2" class="img-rounded img-responsive center-block"></p>
+            <p>All our DIP-14 connections are complete. Now the DIP-14 must be oriented 180 degrees away from the DIP-16. Basically, the DIP-14 notch points in the opposite direction of the DIP-16 notch.</p>
+            <p>When placing the DIP-14 on the DIP-16, the notches still 180 degrees away from each other, place the lead from pin 7 of the DIP-14 into pin 8 of the DIP-16. The electrical tape will prevent any shorts.</p>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 8</h3>
+            <p><img src="images/6949j.jpg" alt="{{ page.title }} 6949j" class="img-rounded img-responsive center-block"></p>
+            <p>Insert the free end of the jumper from pin 14 of the DIP-14 in pin 1 of the DIP-16.</p>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <div class="well">
+            <h3>Step 9</h3>
+            <p><img src="images/6949i2.jpg" alt="{{ page.title }} 6949i2" class="img-rounded img-responsive center-block"></p>
+            <p>The free end of the jumper beginning at pin 5 of the DIP-14 must now be soldered to pin 14 of the DIP-16.</p>
+            <p>Next, the free end of the jumper beginning at pin 6 of the DIP-14 must now be soldered to pin 15 of the DIP-16.</p>
+            <p>Use a multimeter to check for continuity between the pins now connected. Place a 4069 in the top socket, orienting its pin 1 with the top socket notch. It will be upside-down from the notch of the DIP-16 socket below.</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="well">
+            <h3>Finished!</h3>
+            <div class="row">
+                <div class="col-sm-6"><img src="images/6949g.jpg" alt="{{ page.title }} 6949g" class="img-rounded img-responsive center-block"></div>
+                <div class="col-sm-6"><img src="images/6949h.jpg" alt="{{ page.title }} 6949h" class="img-rounded img-responsive center-block"></div>
+            </div>
+        </div>
+    </div>
+</div>
