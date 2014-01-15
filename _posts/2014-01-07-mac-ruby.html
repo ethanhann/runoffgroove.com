@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "Mac Ruby"
+description: "Ruby amp built in a Macintosh Plus"
+date: 2014-01-07 16:05:56
+categories: projects
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>For some time, I've been wanting to make a small battery-powered amp that would compete with my Pignose. That
+            has been my main motivation for all the chip amp testing that I've performed over the past two or so years.
+            I had also purchased a pair of six inch Jensen MOD speakers for this project and a suitable cabinet was
+            nearly as elusive as the right amp.</p>
+
+        <p>Last weekend, inspiration hit me. I remembered the Macintosh Plus upstairs that I'd saved from the local high
+            school's trash heap. The Mac was fully functional, but was more of a sentimental novelty that was collecting
+            dust. On the web, I've seen countless aquariums built from old Macs and it seemed that using one as a small
+            combo amp may be possible.</p>
+
+        <p>I brought the Mac downstairs to my bench and when I held one of the speakers up to the monitor, it looked
+            like it would fit. I then set out to remove the internal components of the Mac. The front and back of the
+            Mac are fastened by five Torx screws. The first three were easily removed, but the two underneath the handle
+            required a very long screwdriver that I didn't have in my toolbox. At a Mac aquarium construction
+            <a href="http://www.unlikelymoose.com/more/macquarium/macquarium_genesis02.html">website</a>, I found a
+            tip to make your own long shaft screwdriver with a ball-point pen. It worked perfectly and the case was then
+            open, allowing me to then remove the circuit boards and CRT quite easily. I didn't save anything except the
+            brightness control knob (and the original RAM, for some nostalgia), hoping that it could be used with the
+            volume control.</p>
+
+        <p>As expected, the Mac used a steel frame for the disk drive and circuit board mounting. I needed to retain the
+            frame, as it also holds the two pieces of the case together. The frame is screwed to the front case, then
+            the back case slides into grooves of the front, with the rear screws then attaching the back to the
+            frame.</p>
+
+        <p>The rear of the Mac had a number of cut-outs for peripherals and the power supply. I filled some with plastic
+            epoxy and others I used a metal plate painted flat black, affixed to the inside of the case. I also used
+            metal plates for the disk drive slot and keyboard port on the front of the case. There were a number of
+            vents in the case, which I either taped over from inside or filled with epoxy.</p>
+
+        <p>I constructed a baffle with Masonite hardboard left over from a previous cabinet construction attempt and
+            painted the front flat black. After I attached the baffle board and speaker to the front case, I slid the
+            back case on to test the sound. The metal frame was resonating at certain frequencies and I knew that it
+            would need dampening. I used a vinyl placemat and affixed it to the frame with double-sided foam tape, which
+            deadened the vibrations.</p>
+
+        <p>Next, I made an L-bracket to mount the volume pot and bolted it to the frame. Coincidentally, the recessed
+            keyboard port had the same width as a Marshall-style jack nut. I drilled out the metal plate to receive the
+            nut and mounted the jack. I wired in my <a href="{% post_url 2014-01-07-ruby %}">Ruby</a> prototype build,
+            removing the Gain pot in the process. I added a 5uF non-polarized cap across the speaker terminals to filter
+            out high frequencies, since the small speaker's response can be a bit bright.</p>
+
+        <p>Finally, I needed some sort of grille to protect the speaker. I used some coarse metal screen, stretched
+            grille cloth over it, then sandwiched it in place between the front case and baffle board.</p>
+
+        <p>The resulting amp sounds terrific and has a nice form, while retaining the sentimental novelty that led me to
+            originally save the computer. I have yet to wire the DC jack and I may make the offboard wiring modular so I
+            can try out other chip amps, but for now I'm very happy with the success of the project. I'm currently
+            powering the MacRuby with 8 AA batteries, but have been considering the use of a gel cell.</p>
+    </div>
+
+    <div class="col-md-4">
+        <iframe width="420" height="315" src="//www.youtube.com/embed/n-OaKc2iT00" frameborder="0"
+                allowfullscreen></iframe>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6">
+        <p><img src="images/macruby2.jpg" alt="{{ page.title }} front" class="img-rounded img-responsive center-block">
+        </p>
+    </div>
+
+    <div class="col-sm-6">
+        <p><img src="images/macruby-int.jpg" alt="{{ page.title }} without cover"
+                class="img-rounded img-responsive center-block"></p>
+    </div>
+</div>
