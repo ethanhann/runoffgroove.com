@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "May Queen"
+description: "Treble Booster/Overdrive."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>Not an exact copy of the Brian May sound, but it will get you in the neighborhood with the need for a dozen AC30s or funky old car radios. Good distotion, smooth highs, and mids with excellent harmonics are the main features of this circuit.</p>
+        <p>The optional cap in parallel with the Q3 bias trim is a high end filter. Larger values will yield less treble content. A good starting point is 2n2, then adjust to your taste. There is no gain control. This circuit is intended for full gain all the time. Thanks to Gus, Aron, Robb, etc.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1</h4>
+        <audio controls><source src="clips/MQ2AM.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2</h4>
+        <audio controls><source src="clips/MQ2BM.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3</h4>
+        <audio controls><source src="clips/MQ2CM.mp3" type="audio/mp3"></audio>
+        <h4>Clip 4</h4>
+        <audio controls><source src="clips/MQ2DM.mp3" type="audio/mp3"></audio>
+        <p>guitar - effect - Bulldog Cab Sim - sound card (some software reverb and flanging)</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/mayqueen2-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<p><a href="http://www.generalguitargadgets.com/component/virtuemart/?page=shop.product_details&flypage=shop.flypage&product_id=38&category_id=14">JD Sleep</a> sells a ready-to-solder PCB for the May Queen, shown below.</p>
+<img src="images/mayqueen-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+<img src="images/mayqueen-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1" class="img-rounded img-responsive center-block"><br>
+<img src="images/mayqueen-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block"><br>
+<p>Here are transistor pin voltages from the above build (using a regulated power supply that measured 9.10v):</p>
+<table class="table table-bordered table-condensed">
+    <thead>
+        <tr>
+            <th colspan="2">Q1</th>
+            <th colspan="2">Q2</th>
+            <th colspan="2">Q3</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>C</td><td>7.10</td>
+        <td>C</td><td>1.37</td>
+        <td>D</td><td>5.52</td></tr>
+    <tr>
+        <td>B</td><td>.629</td>
+        <td>B</td><td>.628</td>
+        <td>G</td><td>1.64</td></tr>
+    <tr>
+        <td>E</td><td>29mV</td>
+        <td>E</td><td>0</td>
+        <td>S</td><td>1.41</td></tr>
+    </tbody>
+</table>
+
+<h3>Printed Circuit Board</h3>
+<p>W. Percival kindly contributed a PCB layout for the {{ page.title }}.</p>
+<p>Note that this layout differs from the PCB sold by <a href="http://www.generalguitargadgets.com/component/virtuemart/?page=shop.product_details&flypage=shop.flypage&product_id=38&category_id=14">JD Sleep</a>, which was designed by Dean Hazelwanter.</p>
+<iframe src="pdf/may-queen-pcb.pdf" class="pcb-layout"></iframe>
+
+

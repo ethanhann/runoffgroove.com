@@ -61,7 +61,7 @@ a:hover {
     padding-bottom: 0.25em;
 }
 
-ol > li, dl > dd {
+ol > li, dl > dd, .list-indented {
     margin-left: 60px;
 }
 
