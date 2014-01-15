@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Little Gem & Little Gem MkII"
+description: "386-based mini-amplifiers."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="alert alert-info">For an alternate version of the Little Gem, check out <a href="{% post_url 2014-01-07-little-gem %}">Ruby</a>!</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <p>For better compatibility with effects driving the Little Gem, a FET buffer can be added. Both the Little Gem Mk II (seen below) and <a href="{% post_url 2014-01-07-little-gem %}">Ruby</a> schematics include a simple buffer design. No further circuit modifications are necessary, however the input capacitor value of the amp may need to be adjusted to taste.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Little Gem <small>Strat - Little Gem - 2x12 cab - mic - sound card (software reverb)</small></h4>
+        <audio controls><source src="clips/littlegem.mp3" type="audio/mp3"></audio>
+        <h4>Little Gem MkII <small>Strat - Little Gem MkII - 2x12 cab - mic - sound card (software reverb)</small></h4>
+        <audio controls><source src="clips/littlegemMK2.mp3" type="audio/mp3"></audio>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<div class="row">
+    <div class="col-sm-6">
+        <p><img src="images/littlegem-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block"></p>
+    </div>
+    <div class="col-sm-6">
+        <p><img src="images/littlegemmk2-schematic.png" alt="{{ page.title }} mk2 schematic" class="img-rounded img-responsive center-block"></p>
+    </div>
+</div>
+
+<h3>Perfboard</h3>
+<img src="images/littlegem-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed PCB layouts for the {{ page.title }}.</p>
+<h4>Little Gem</h4>
+<iframe src="pdf/littlegem-pcb.pdf" class="pcb-layout"></iframe>
+<h4>Little Gem MkII</h4>
+<iframe src="pdf/littlegemmk2-pcb.pdf" class="pcb-layout"></iframe>
