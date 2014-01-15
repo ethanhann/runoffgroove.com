@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "Ruby"
+description: "386-based 9v battery amp"
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>Ruby is an "enhanced" version of the <a href="{% post_url 2014-01-07-little-gem %}">Little Gem</a> battery-powered amplifier. The architecture of the Little Gem has been updated with an input buffer (as found in the Little Gem MkII) feeding the inverting input and the volume control changed from the output rheostat to the type and placement as shown in the datasheet application notes. Additionally, the 5k Gain pot of the Little Gem has been reduced to a 1k, as used in the <a href="{% post_url 2014-01-07-grace-big-daddy %}">Grace / Big Daddy</a> circuits.</p>
+        <p>Ruby has many shades of sparkly clean all the way up to a great, natural overdrive. The input buffer helps to retain treble detail going into the 386 chip. As you increase the Volume, you will start getting nice breakup. Where the Little Gem is similar to a "master volume" amplifier, Ruby is more like the "non-master" volume amps. If the Little Gem can be considered Marshall-ish, Ruby could be called Fender-ish or like a JTM 45.</p>
+        <p>The Gain pot works like a limit for the amount of available gain. With careful setting of the Volume and Gain pots, you can get the most clean volume possible from the 386. To do this, set the Volume pot to maximum and slowly turn up the Gain pot. Find the point just before the sound starts to break up and you have the maximum clean volume available. To kick things into overdrive, turn up the Gain pot to the desired maximum gain and adjust the Volume pot. These pots are highly interactive. If you have the Gain pot set high and you are still not getting desirable overdrive, you'll have to turn up the Volume pot to let more signal pass to the 386.</p>
+        <p>An MPF102 FET is specified for the buffer, though a 2N5457 will offer similar results. A J201 will work, but produces a slightly lower output. Also, Ruby was developed using a JRC386D (available from <a href="http://www.smallbearelec.com">Small Bear Electronics</a>), but any 386 can be used, including the type sold at RadioShack.</p>
+    </div>
+
+    <div class="col-md-4">
+        <!--
+        <img src="images/IMAGE_NAME.jpg" alt="..." class="img-rounded img-responsive center-block">
+        -->
+
+        <!--
+        <h3>Sound Samples</h3>
+        <h4>Clip X <small>SETTINGS </small></h4>
+        <audio controls><source src="clips/CLIP_NAME.mp3" type="audio/mp3"></audio>
+        -->
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/ruby-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/ruby-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+<img src="images/ruby-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1" class="img-rounded img-responsive center-block"><br>
+<img src="images/ruby-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed PCB layouts for the {{ page.title }}.</p>
+<iframe src="pdf/ruby-pcb.pdf" class="pcb-layout"></iframe>
