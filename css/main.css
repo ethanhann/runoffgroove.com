@@ -260,3 +260,14 @@ iframe.pcb-layout {
 .well {
     color: #0F0F0F;
 }
+
+/** Fetzer Calculator
+ */
+#fetzer-calculator {
+    font-size: 12px;
+}
+
+#fetzer-calculator .form-control {
+    display: inline;
+    width: 20%;
+}
