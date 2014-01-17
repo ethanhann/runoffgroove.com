@@ -317,27 +317,22 @@ complexity: 1
         <p>Default values correspond to an average J201.</p>
 
         <p>Insert Vp (absolute value), Idss, and Vcc values to calculate the optimal resistor values as well as the current consumption.  For the Deluxe version, the 1kHz Presence capacitor value is calculated from Rs.<br>Default values correspond to an average J201.</p>
-        <form role="form" class=" well">
+
+        <form role="form" class="well" id="fetzer-calculator">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-lg-6">
                     <legend>Input</legend>
-                    <div class="form-group">
-                        <label for="input-vp" class="control-label">Vp (V)</label>
-                        <input type="text" class="form-control" id="input-vp" value="0.83">
-                    </div>
-                    <div class="form-group">
-                        <label for="input-idss" class="control-label">Idss (mA)</label>
-                        <input type="text" class="form-control" id="input-idss" value="0.64">
-                    </div>
-                    <div class="form-group">
-                        <label for="input-vcc" class="control-label">Vcc (V)</label>
-                        <input type="text" class="form-control" id="input-vcc" value="9">
-                    </div>
+                    <label for="input-vp">Vp (V)</label>
+                    <input type="text" class="form-control" id="input-vp" value="0.83">
+                    <label for="input-idss">Idss (mA)</label>
+                    <input type="text" class="form-control" id="input-idss" value="0.64">
+                    <label for="input-vcc">Vcc (V)</label>
+                    <input type="text" class="form-control" id="input-vcc" value="9">
                 </div>
-                <div class="col-md-6">
-                    <legend>Output</legend>
-                    <table class="table table-bordered table-condensed">
-                        <tbody>
+                    <div class="col-lg-6">
+                        <legend>Output</legend>
+                        <table class="table table-bordered table-condensed">
+                            <tbody>
                             <tr>
                                 <td style="width: 30%;">Rs (ohms)</td>
                                 <td id="output-rs">-</td>
@@ -374,14 +369,14 @@ complexity: 1
                                 <td>Cp (nF)</td>
                                 <td id="output-cp">-</td>
                             </tr>
-                        </tbody>
-                    </table>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            <hr>
-            <button class="btn btn-primary" type="submit" id="fetzer-calculate-button">Calculate</button>
-            <button class="btn" type="reset" id="fetzer-reset-button">Reset</button>
-        </form>
+                <hr>
+                <button class="btn btn-primary" type="submit" id="fetzer-calculate-button">Calculate</button>
+                <button class="btn" type="reset" id="fetzer-reset-button">Reset</button>
+            </form>
         <script src="js/fetzer-calculator.js"></script>
     </div>
 </div>
