@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "Omega"
+description: "A versatile FET booster engine."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>This project began as a search for a FET treble booster similar to the well-known Dallas Rangemaster. We wanted to overcome several problems associated with building a Rangemaster clone, such as:</p>
+
+        <ol>
+            <li>Getting a PNP or NPN Ge transistor with low leakage and proper hfe (50-100)</li>
+            <li>Bias variation with temperature</li>
+            <li>Poor noise performance (mainly hiss)</li>
+        </ol>
+
+        <p>In addition, we wanted to retain several features of the original circuit, such as:</p>
+        <ol>
+            <li>Guitar loading</li>
+            <li>Frequency response</li>
+            <li>Overall gain</li>
+            <li>Low output impedance</li>
+            <li>Non-linear behavior and soft clipping near collector cutoff</li>
+        </ol>
+
+        <p>A variation of the <a href="fetzervalve.html">Fetzer Valve</a>, which we named the High Gain Fetzer Valve or HGFV, allows the accomplishment of all these goals. The HGFV uses a fixed high-valued drain resistor to increase the gain up to 30-35 dB (30-50 times). The drain bias voltage is adjusted by varying the source resistor, which is bypassed by a large capacitor.</p>
+        <p>During the development we found that varying the input impedance greatly affected the range of boosted frequencies, hence we named this control Range. For best results, the Omega should be driven directly by your guitar.</p>
+        <p>The output impedance of the HGFV is on the high side, so a MOSFET buffer takes care of driving hard whatever it follows. The gate of this MOSFET is fed from a voltage divider built on the drain resistor of the HGFV stage. This avoids clipping during the lower signal cycle in the output buffer.</p>
+        <p>The output control could have been named Level or Volume, but we preferred to call it Master to increase the mojo factor.</p>
+        <p>The resulting circuit is so flexible that it ranges from a treble boost with a slight amount of grit (in fact pretty faithful to a Rangemaster but with less hiss) to a fat overdriven boost (comparable to a gainy LPB-2). In between there are many sweet spots to be found that will correspond to your personal tastes and gear.</p>
+        <p>The drain bias voltage of the first stage plays a role in determining the character and grit added by the circuit. We encourage you to experiment and find the bias voltage that works best for you. A bias voltage of 7V proved to be faithful to the Rangemaster tones, while a lower drain voltage in the range of 4.5 to 5V was somewhat better for the fat sounds.</p>
+        <p>We thank Michael Klein who provided the name for this circuit. Omega is the last letter of the Greek alphabet, and we believe this is the ultimate booster. It is also the symbol used to represent ohms, the unit used to measure impedance, and it fits nicely into our circuit since the input impedance is strategically varied to alter the frequency response.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>bypassed, max. Range, min. Range</small></h4>
+        <audio controls><source src="clips/omega-higain.mp3" type="audio/mp3"></audio>
+        <p>*HB equipped Strat - Omega - modded Valve Jr. - 4x12 cab - mic - sound card - software reverb</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/omega-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/omega-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed PCB layouts for the {{ page.title }}.</p>
+<iframe src="pdf/omega-pcb.pdf" class="pcb-layout"></iframe>

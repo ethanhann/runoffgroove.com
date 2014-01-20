@@ -1,0 +1,57 @@
+---
+layout: post
+title:  "Peppermill"
+description: "A simple, transparent overdrive."
+date: 2014-01-07 16:05:56
+categories: projects
+excerpt: "Link text for the news list"
+complexity: 0
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The idea behind this project is to create a natural sounding overdrive sound using minimal components. It should also be suitable for a booster for an already driven amp.</p>
+        <p>Borrowing from past experience (see <a href="odie.html">Odie</a>), FETs were chosen for their tube-like sounds. The basic topology of the circuit is a MOSFET driving a JFET into overdrive. The MOSFET was used for its superior gain characteristic. A JFET wouldn't have had as much gain available and would have taken two stages or more to produce enough drive. We chose a JFET for the driven component due to its smooth, tube-like quality when overdriven. Another benefit of using a JFET here is the fewer components needed for such a stage.</p>
+        <p>You'll note a simple R/C filter on the tail of the circuit. This is here to tame some of the excess highs and shape the sound into a smoother sound. This filter acts as a fixed tone control. The resistor and capacitor can be varied to alter the response, if so desired.</p>
+        <p>The end result of this collection of components is a bluesy, "Fender-y" sound. The touch sensitivity of this circuit is incredible. Light picking produces clean and round sounds. Harder picking will produce a firm bark with lots of pick sound. With certain pick attacks, you will notice the strong second harmonic content. This adds another element to the sound, helping to create a three-dimensional effect. This circuit is a "player's" overdrive that responds as another instrument instead of masking what your hands are doing. It sounds very similar to a cranked old Fender Deluxe Reverb.</p>
+        <p>If you are looking for a stand-alone overdrive to give you a bluesy sound into a clean amp, this may be a circuit to consider. If you are looking to send your already driven amp a little farther into the dark side, this may help you get there with the added benefit of clearer articulation. A sonic "peppermill" to spice up your sound, without making it unpalatable.</p>
+        <p>Please take note of the transistor pin voltages shown below, specifically the source of the J201 JFET. It may be necessary to audition different J201 for the best sound. MPF102 and 2N3819 will not provide the desired sound in this circuit. Various J201 may have a range of source voltages, even when the drain voltage is set at 4.5 volts. Having a source voltage near 115mV should produce results that are very similar to the sound clips.</p>
+        <p>The LED serves as protection against potential damage to the MOSFET caused by static electricity (thanks to <a href="http://analogalchemy.com">Joe Davisson</a> for this idea). A 9.1v zener diode may be used as well (as seen in the Jack Orman's <a href="http://www.muzique.com">AMZ Mosfet Booster</a>), with the same orientation. Jake Nagy's <a href="http://diystompboxes.com/pedals/schems/blue_magic.pdf">Blue Magic</a> predates the Peppermill and exhibits a similar topology. However, the development of the Peppermill was not influenced by the Blue Magic design and any resemblance is coincidental.</p>
+
+        <h4>Transistor pin voltages (8.96v battery)</h4>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th colspan="2">Q1 (BS170)</th>
+                    <th colspan="2">Q2 (J201)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>D</td><td>5.62</td><td>D</td><td>4.52</td></tr>
+                <tr><td>G</td><td>2.74</td><td>G</td><td>0</td></tr>
+                <tr><td>S</td><td>.709</td><td>S</td><td>114.7mV</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <img src="images/peppermill.jpg" alt="..." class="img-rounded img-responsive center-block">
+
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Gain at 9:00</small></h4>
+        <audio controls><source src="clips/pmill1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>Gain at 9:00</small></h4>
+        <audio controls><source src="clips/pmill2.mp3" type="audio/mp3"></audio>
+        <p>*<a href="images/pretty-guitar.jpg">pretty guitar</a> (bridge pickup) - Peppermill - Bulldog cab sim - software reverb</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/peppermill-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/peppermill-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed PCB layouts for the {{ page.title }}.</p>
+<iframe src="pdf/peppermill-pcb.pdf" class="pcb-layout"></iframe>
