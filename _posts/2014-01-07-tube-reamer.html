@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Tube Reamer"
+description: "Simplified Tube Screamer overdrive"
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The first incarnation of the Tube Reamer was developed as a stripped-down, yet edgier version of the classic Ibanez Tube Screamer. We removed the input and output buffers as well as the tone control stage, plus implemented a different gain control. Many builders enjoyed the circuit, but a number of them saw the circuit was ripe for modification. Since a majority of the popular mods dealt with the gain control and range, we decided to revisit the circuit in an effort to improve on it.</p>
+        <p>First, we reverted to the original Tube Screamer gain control. The type we used in the first Tube Reamer interacted with the bass content a bit too much for our liking and the range of available gain settings was quite narrow. We expanded the gain range and also adjusted the component values to keep more midrange frequencies in the signal. Finally, we added a second small gain stage to increase the output level of the circuit. Nearly any dual op-amp is suitable for use in this circuit, including the usual suspects: JRC4558, TL072, NE5532.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>0% Drive, 50%, Gain 100% Gain</small></h4>
+        <audio controls><source src="clips/tr2a.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>0% Drive, 50%, Gain 100% Gain</small></h4>
+        <audio controls><source src="clips/tr2b.mp3" type="audio/mp3"></audio>
+        <p>*Guitar (bridge pickup) - effect - sound card (software cab sim)</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/tubereamer2-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<p><img src="images/tubereamer2-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"></p>
+<div class="row">
+    <div class="col-sm-6">
+        <img src="images/tubereamer2-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block">
+    </div>
+    <div class="col-sm-6">
+        <img src="images/tubereamer2-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block">
+    </div>
+</div>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed a PCB layout for the {{ page.title }}</p>
+<iframe src="pdf/tubereamer2-pcb.pdf" class="pcb-layout"></iframe>
