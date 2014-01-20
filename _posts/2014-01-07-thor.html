@@ -1,0 +1,62 @@
+---
+layout: post
+title:  "Thor"
+description: "The legendary Marshall 100W Super Lead adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The Thunderchief project, released in March 2004, was the first runoffgroove.com circuit that was developed using the tubes-to-FETs process. Enlightened and inspired by Doug Hammond's excellent Meteor circuit, we used the same approach in an effort to capture some of the legendary magic of the Marshall Super Lead. The circuit's performance pleased us, but there were issues.</p>
+
+        <p>The first issue was the Phase Inverter stage. Many builders experienced difficulty adjusting the bias voltage to the suggested value for that stage. Even those that could dial in the drain voltage sometimes reported their builds as sounding different than the clip we had posted. This stage needed to be improved or eliminated without affecting the target sound.</p>
+        <p>Another area of dissatisfaction among builders was the lack of tone controls. We posted a <a href="images/tc-tone.png">full tonestack version</a> version of the Thunderchief in our FAQ, but few seemed to find it. We decided that an important improvement to the circuit would be to include some type of tone control. Rather than simply add in the familiar passive three-knob tonestack, we developed an active second order high pass filter combined with deep bass boost capability.</p>
+        <p>The third item we wanted to address was the circuit producing a sound that is more representative of the vacuum tubes in the amp. During the development of the second generation {% post_url 2014-01-07-fetzer-valve %}, we found that the Three Halves Law could be used to produce a harmonic content more accurate to a triode tube.</p>
+        <p>Finally, we wanted to correct the amount of gain available in the circuit. The Thunderchief and many other distortion circuits that use the tubes-to-FETs conversion process often have too much gain to accurately ape the sound of the amps. We understood that to make the new circuit as authentic as possible, we would need to tame that overly distorted sound.</p>
+        <p class="alert">We've given the new circuit a name befitting its thunderous sounds: Thor.</p>
+        <p>Our primary inspiration was once again the Marshall Super Lead. Numerous old Marshall tracings and schematics were scoured for the definitive components that make up the famous sound. After trying many - if not all - of these arrangements, we have arrived at the values shown above.</p>
+        <p>The smaller Bright cap on the volume control is taken from the JTM and early Super Leads. This value allows a usable Bright setting without the harsh treble effect exhibited by the later amps. Beginning in 1969, the amps often had 5000pF caps that are almost always removed or replaced with a much smaller value.</p>
+        <p>The classic 470k/470pF filter preceding the second gain stage was chosen for its fuller sound. This is a later Super Lead filter with a lower break frequency than the older design, which gives a fuller sound.</p>
+        <p>The mu-amp section better simulates the odd order harmonics of the amp's Class AB push-pull distortion.</p>
+        <p>For those without a 4x12 cabinet, the added Bottom control closely mimics the bass resonance of the famous Marshall speaker arrangement.</p>
+        <p>All these ingredients result in a sound similar to the classic Marshall amp and correct the shortcomings of the aging Thunderchief.</p>
+    </div>
+
+    <div class="col-md-4">
+        <img src="images/thor.jpg" alt="{{ page.title }}" class="img-rounded img-responsive center-block">
+
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Recorded by Martin Lister, a.k.a. MartyMart
+            <p>Both guitar parts: Bottom switch off and Bright switch on. Rhythm guitar: Strat front pup, Thor at 75% Gain. Lead guitar : Yamaha AE820 HB bridge pup, Thor at max. Gain. Recorded with Behringer DI using 4x12 cab sim. Reverb and delay added, overall mix slightly compressed using UAD Fairchild compressor. No other EQ or processing on the guitar parts.</p>
+        </small></h4>
+        <audio controls><source src="clips/thorsgroove.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2</small></h4>
+        <audio controls><source src="clips/thor-cryin.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3</h4>
+        <audio controls><source src="clips/thor-mean.mp3" type="audio/mp3"></audio>
+        <p>*Clips 2-3: Bottom and Bright switches on, max. Gain. HB bridge pup - Randall SS Amp - 4x12 - mic - mixer - soundcard. Software reverb and delay added, slight compression and limiting.</p>
+    </div>
+</div>
+{% include velvetpedals-notice.html url="http://www.velvetpedals.com/thor.html" %}
+
+<h3>Schematic</h3>
+<img src="images/thor-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<p>
+    <img src="images/thor-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block">
+</p>
+<div class="row">
+    <div class="col-sm-6">
+        <img src="images/thor-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1" class="img-rounded img-responsive center-block">
+    </div>
+    <div class="col-sm-6">
+        <img src="images/thor-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block">
+    </div>
+</div>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed a PCB layout for the {{ page.title }}</p>
+<iframe src="pdf/thor-pcb.pdf" class="pcb-layout"></iframe>

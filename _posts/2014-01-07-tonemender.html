@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "Tonemender"
+description: "Ultra-flexible tonestack with clean boost."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 2
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The Tonemender is a very flexible, yet simple clean boost with a 3-knob tonestack that allows the user to re-create the classic Fender, Marshall and Vox responses.</p>
+        <p>We suggest using a TLC2272 for the dual op-amp. The TLC2272 is rated for low-noise and rail-to-rail output, which will offer the highest possible clean boost and dynamic range. The NE5532 is another good choice, but a TL072 can also be used with decent results.</p>
+        <p>The Mid Shift switch (SW1 on the schematic) selects the center frequency of the midrange dip in the response. The center frequency is moved from around 700Hz (Marshall/Vox) down to 400Hz (Fender) in the HI and LO settings, respectively.</p>
+        <p>For Fender-style curves, the Mid Shift is placed in the LO setting (closed). To replicate Marshall-style curves, switch the Mid Shift to the HI position (open). Set the Mid control between 12:00 and 5:00 for traditional Marshall settings, with lower settings providing additional flexibility. For a Vox-style response, keep the Mid Shift in the HI setting and set the Mids control fixed at 10:00 and move the Bass between 7:00 and 12:00.</p>
+        <p>A "flat" equalizer position is set with the Bass and Treble both at minimum, and the Mid control at its midpoint. When Bass and Treble are fully cut, the Mid knob acts as an additional Level control, which is a familiar characteristic of the Fender tonestack.</p>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="images/tonemender-flat.jpg" alt="{{ page.title }} flat" class="img-rounded img-responsive center-block"><br>
+            </div>
+            <div class="col-sm-6">
+                <img src="images/tonemender-fender.jpg" alt="{{ page.title }} fender" class="img-rounded img-responsive center-block"><br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="images/tonemender-marshall.jpg" alt="{{ page.title }} marshall" class="img-rounded img-responsive center-block"><br>
+            </div>
+            <div class="col-sm-6">
+                <img src="images/tonemender-vox.jpg" alt="{{ page.title }} vox" class="img-rounded img-responsive center-block"><br>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1</h4>
+        <audio controls><source src="clips/tmclean.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2</h4>
+        <audio controls><source src="clips/tmfuzz.mp3" type="audio/mp3"></audio>
+        <p>*Both clips follow the order of bypassed, then Fender, Marshall, Vox modes. For Clip 2, the <a href="http://home-wrecker.com/sili-face.html">Sili-Face</a> was placed before the Tonemender and both pickups were on.</p>
+        <p>*<a href="images/pretty-guitar.jpg">Pretty guitar</a> (Clip 1: bridge pup only) - Tonemender - <a href="{% post_url 2014-01-07-condor-cab-sim %}">Condor Cab Sim</a> (Marshall notch, gain at 25%) - sound card - software reverb</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/tonemender-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<p><img src="images/tonemender-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"></p>
+<p><img src="images/tonemender-perf-photo1.jpg" alt="{{ page.title }} perfboard" class="img-rounded img-responsive center-block"></p>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed a PCB layout for the {{ page.title }}</p>
+<iframe src="pdf/tonemender-pcb.pdf" class="pcb-layout"></iframe>
