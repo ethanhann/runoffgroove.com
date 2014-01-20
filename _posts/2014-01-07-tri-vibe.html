@@ -1,0 +1,82 @@
+---
+layout: post
+title:  "Tri-Vibe"
+description: "A versatile modulation effect that offers true vibrato."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The Tri-Vibe was born from the idea of developing a true vibrato pedal that could be built without resorting to parts matching and complex adjustment procedures. Various frequency modulation alternatives were analyzed to accomplish this goal.</p>
+        <p>There are numerous pseudo-vibrato implementations built around modified chorus and phaser pedals where the dry path is canceled, leaving only the wet signal. Several shortcomings to these approaches exist, such as: non-sinusoidal modulation (a sinusoidal LFO is a must for authentic vibrato), uneven frequency modulation across the audio band, poor noise performance, limited bandwidth, and intrinsic time delay.</p>
+        <p>Delay chips such as MN3007 or PT2399 were dismissed mainly due their limited bandwidth and the intrinsic delay associated with them. The Wurlitzer vibrato was also considered, however its implementation required a rather large number of components. This left the all-pass stage alternatives. We initially thought that at least four all-pass stages might be necessary to achieve the goal of true vibrato, but after further investigation we found that as few as two all-pass stages could be optimized for linear phase variation within the guitar frequency range. This explains the unusual 15:1 capacitor ratio that sets the frequency of each stage, as this arrangement can produce a quite flat +/- 90 degree phase shift variation for frequencies between 80 Hz and 6 kHz.</p>
+        <p>In order to implement the phase shift stages, the most common options were considered for the variable element: junction field-effect transistors (JFETs), light-dependent resistors (LDRs) and operational transconductance amplifiers (OTAs). JFETs and LDRs were discarded because they have wide production tolerances that would require precise matching and/or careful adjustments. On the other hand, OTAs are reasonably matched and predictable, so no parts selection or adjustments are necessary.</p>
+        <p>Different OTAs exist, such as CA3080, CA3094 and LM13600/LM13700. We decided in favor of the LM13600 device since it includes the output buffers and contains a pair of linearizing diodes that allow an improvement in the dynamic range and S/N ratio. In addition, we added corresponding pre and de-emphasis networks at the input and output buffers to further improve the S/N ratio.</p>
+        <p>The next challenge was to generate a suitable modulation signal. As a side note, in most phaser and chorus pedals adapted for vibrato mode, the lack of "proper" modulation vs. time produces an unappealing "motion sickness" characteristic. So, starting from a conventional triangle waveform generator with a predefined output level, a pseudo-sinusoidal signal is obtained by means of a 4k7 resistor, the 10k DEPTH pot, and two back-to-back diodes. The LFO is not finished yet, for the sinusoidal control signal needs to be exponentiated to obtain symmetric phase variation at each peak of the sinusoid. This final task is performed by the nonlinear arrangement of diodes and biasing resistor in the opamp stage U2b. Again, this section of the circuit requires no component matching or adjustments.</p>
+
+        <img src="images/tri-vibe-lfo.png" alt="{{ page.title }} lfo waveforms" class="img-rounded img-responsive center-block">
+        <p>
+            <ul class="list-unstyled">
+                <li><strong>LFO waveforms</strong></li>
+                <li>Blue curve: triangle generator output (pin 7 of U3)</li>
+                <li>Red curve: pseudo-sinusoid (pin 3 of the DEPTH pot)</li>
+                <li>Green curve: exponentiated pseudo-sinusoid (pin 7 of U2)</li>
+            </ul>
+        </p>
+
+        <p>We are proud of the final circuit, as it produces a unique vintage vibrato sound not readily found in other DIY pedals. But the story doesn't end there, since this circuit offers more than vibrato. With the Tri-Vibe's three-way switch in the Swirl mode, the circuit is arranged as a phaser has a nice sound reminiscent of a Phase 45, but with a milder sweep. In addition, there is an intermediate sound (Whirl) obtained by adding a fraction of the dry signal into the mix. This mode combines frequency and amplitude modulation in a way that evokes a rotary speaker.</p>
+        <p>In summary, the Tri-Vibe with its three modes: Vibe, Whirl and Swirl, is an elegantly refined modulation effect that can add an interesting variety of organic modulation sounds to your playing.</p>
+
+        <h4>Build Notes</h4>
+
+        <ul class="list-indented padded-list">
+            <li>The RATE pot should be ideally rev-log or "C" taper as indicated in the schematic, however, it is possible to use a normal log or "A" taper pot instead by swapping lugs 3 and 1. In this case the rotation of the pot will be reversed, but the "feel" will still be adequate. It is not recommended to use a linear or "B" taper pot, as the fast rates will be bunched up in one extreme.</li>
+            <li>The two back-to-back 10uF polarized electrolytic capacitors may be replaced with a single 4.7uF or 5uF bipolar type, if available. In any case the circuit will perform as expected.</li>
+            <li>U1 was chosen as NE5532 for its better audio properties. An TL072 or LF353 or TL082 or TL062 may be used with similar results (in that order of preference).</li>
+            <li>A TL062 was chosen for U2 and U3 due to its lower power consumption, however any of the aforementioned devices could be used in place.</li>
+            <li>The LM13600 could replaced by an LM13700, JRC13600, JRC13700, NJM13600, or NJM13700.</li>
+            <li>The red LED in the exponentiating section should be the colored-lens type, not a high efficiency unit. It can be replaced by three (3) series 1N4148 diodes.</li>
+            <li>A rate indicator LED can be implemented by tapping pin 7 of U3b (squarewave LFO output) with a series resistor (2k2 to 10k) followed by an LED with its cathode to ground. Adjust the resistor for the brightness you desire.</li>
+        </ul>
+
+        <img src="images/tri-vibe-ratemod.png" alt="{{ page.title }} rate mod" class="img-rounded img-responsive center-block">
+    </div>
+
+    <div class="col-md-4">
+        <img src="images/tri-vibe.jpg" alt="{{ page.title }}" class="img-rounded img-responsive center-block">
+
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Tone 12, Gain 15, Bright On, Scoop Off</small></h4>
+        <audio controls><source src="clips/tri-vibe1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>Tone 9, Gain 13, Bright On, Scoop On </small></h4>
+        <audio controls><source src="clips/tri-vibe2.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>Tone 12, Gain 12, Bright Off, Scoop On</small></h4>
+        <audio controls><source src="clips/tri-vibe3.mp3" type="audio/mp3"></audio>
+        <h4>Clip 4 <small>Tone 10, Gain 12, Bright Off, Scoop On</small></h4>
+        <audio controls><source src="clips/tri-vibe4.mp3" type="audio/mp3"></audio>
+        <p>Note: settings are given in 24-hour clock notation: minimum is 7 and maximum is 17</p>
+        <p>Clip 1 uses a Parker PM20 (LP-style) bridge pickup, Clips 2-3 are a Strat bridge pickup, and Clip 4 is a Strat neck pickup</p>
+        <p>Setup: guitar - Azabache - Behringer 2x10 - condenser mic at 1 foot - mixer - sound card</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/tri-vibe-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<p><img src="images/tri-vibe-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"></p>
+<div class="row">
+    <div class="col-sm-6">
+        <img src="images/tri-vibe-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1" class="img-rounded img-responsive center-block">
+    </div>
+    <div class="col-sm-6">
+        <img src="images/tri-vibe-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block">
+    </div>
+</div>
+
+<h3>Printed Circuit Board</h3>
+<p>Visit <a href="http://www.basicaudio.net">Basic Audio</a> to purchase a ready to solder PCB for the {{ page.title }}.</p>
+<p>John Lyons, of Basic Audio, contributed a PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/tri-vibe-pcb.pdf" class="pcb-layout"></iframe>

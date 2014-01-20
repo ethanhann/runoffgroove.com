@@ -1,0 +1,39 @@
+---
+layout: post
+title:  "22/7 (Twenty-two Sevenths)"
+description: "A CMOS implementation of the Big Muff Pi."
+date: 2014-01-07 16:05:56
+categories: projects
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>This circuit was born with the idea of making a CMOS workalike of the well known Electro-Harmonix Big Muff Pi (BMP). We chose the name Twenty-two Sevenths or 22/7 since it is a rational approximation of pi.</p>
+        <p>The gain and frequency response of each stage were adjusted to match the corresponding stage on a BMP. The result is a rich and full sounding pedal that evokes some of the fuzz sounds circa 1969, as well as some classic singing leads.</p>
+        <p>Through the years several variations on the tonestack have appeared, but after studying their variants we concluded that these differences correspond more to parts value availability rather than a significant difference in sound. So, the tonestack components were chosen to obtain an "average" BMP sound, which is referred to as CLASSIC mode in this implementation. In addition, a center-off DPDT switch was added in order to obtain two additional sought after sounds from the tonestack: a FLAT setting and a deeper SCOOP mode. In this way, the sonic palette of the 22/7 is greatly expanded.</p>
+        <p>The interstage coupling caps have been observed to vary between 100nF and 1uF in different versions of the BMP. In this implementation we chose 100n, which produces a more balanced bass/treble mix that works well for chords as well as soloing. If you want heavier and fuzzier bottom end as found in some BMP versions, you may want to replace the five 100nF caps with 1uF.</p>
+        <p>As this is a high gain circuit, good layout and cabling practices are critical for good performance. Apart from recommending shielded cable for input and output wiring, the entire circuit should be well shielded inside a metallic enclosure so as to reduce AC mains hum pickup to a minimum.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Bridge Tele Pup</small></h4>
+        <audio controls><source src="clips/227rhythm-bridge.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>Bridge Tele Pup</small></h4>
+        <audio controls><source src="clips/227lead-bridge.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>Neck HB Pup </small></h4>
+        <audio controls><source src="clips/227lead-neck.mp3" type="audio/mp3"></audio>
+        <p>Gain 50%, Tone 50% mode is set to Scoop, then Classic, then Flat</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/22-7-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/22-7-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Visit <a href="http://www.basicaudio.net">Basic Audio</a> to purchase a ready to solder PCB for the {{ page.title }}.</p>
+<p>John Lyons, of Basic Audio, contributed a PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/22-7-pcb.pdf" class="pcb-layout"></iframe>
