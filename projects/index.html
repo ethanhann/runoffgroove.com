@@ -12,7 +12,7 @@ title: runoffgroove.com
         <ul class="padded-list list-unstyled">
             {% assign projects = site.categories.projects | sort: 'title' %}
             {% for post in projects %}
-            <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> - {{ post.description }}</li>
+            <li><a href="{{ post.url }}">{{ post.title }}</a> - {{ post.description }}</li>
             {% endfor %}
         </ul>
     </div>
