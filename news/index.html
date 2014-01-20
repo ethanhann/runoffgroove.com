@@ -3,12 +3,17 @@ layout: page
 title: runoffgroove.com
 ---
 
-<div class="page-header">
-    <h2 style="display: inline;">News</h2>
-</div>
+<div class="container">
+    <div class="page-header">
+        <h2 style="display: inline;">News</h2>
+    </div>
 
-<ul class="padded-list list-unstyled">
     {% for post in site.categories.news %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.excerpt }}</a></li>
+    <div class="list-post">
+        <div>
+            <span class="heading-date">{{ post.date | date_to_string }} &raquo;</span> <span class="heading-title">{{ post.title }}</span>
+        </div>
+        <p>{{ post.content }}</p>
+    </div>
     {% endfor %}
-</ul>
+</div>

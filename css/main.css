@@ -35,7 +35,11 @@ a:hover {
 
 .content {
     background-color: #663366;
-    padding-top: 30px;
+    padding-top: 40px;
+
+}
+
+.content .container{
     padding-bottom: 40px;
 }
 
@@ -161,7 +165,9 @@ iframe.pcb-layout {
 /** Creative Commons License notice
 */
 .cc-license-notice {
+    background-color: #503473;
     margin-top: 3em;
+    padding: 30px 0 30px 0;
 }
 
 .cc-license-notice div {
@@ -274,4 +280,18 @@ iframe.pcb-layout {
 #fetzer-calculator .form-control {
     display: inline;
     width: 20%;
+}
+
+/** News
+*/
+.list-post .heading-date {
+    color: #888888;
+}
+
+.list-post .heading-title {
+    font-weight: bold;
+}
+
+.list-post hr {
+    border-top: 1px solid #888888;
 }
