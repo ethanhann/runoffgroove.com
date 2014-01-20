@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "Phozer"
+description: "LFO and rocker pedal twin-T wah."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The <a href="old-phozer.png">original Phozer</a> was a sound idea, but was hindered by its mashed-up development. The circuit didn't really exceed the sum of its parts, namely Tim Escobedo's <a href="http://www.geocities.com/tpe123/folkurban/fuzz/snippets.html">Idiot Wah</a> and the LFO from the EA <a href="eatremolo.html">EA Tremolo</a>. The faux phase shifting effect was reasonably convincing at faster speeds, but the LFO failed to produce a true sweep at slower speeds. Rather than ramp up and down, at slow speeds the LFO simply spent more time in the darker heel-down position between quick pulses of toe-down mode. Also, we saw that using op-amps rather than discrete components would probably allow for a more complex effect with fewer parts.</p>
+        <p>After experimenting with other LFO and variable resistance styles, we found using the <a href="http://home-wrecker.com/ross3.html">orange Ross Phaser</a> LFO with an LED/LDR (aka vactrol, optoisolator) produced the best sweep with the fewest parts. Adhering to the runoffgroove.com prime directive of simplicity, we imposed a two IC limit on the circuit - one for the LFO and one for the filter section. We chose this limit with the thought that the parts count and complexity should be as low as possible when developing an imitation of a phaser. If the circuit became too complex, simply building an actual phaser would be more economical for the builder.</p>
+        <p>Since we needed a dual op-amp for the LFO, we then explored the best utilization of a dual op-amp for the filter section. Inspired by the Electro-Harmonix Bassballs, we chose two parallel filters tuned to different ranges. This results in a thicker and more convincing effect. The dual-gang Resonance controls acts much a like a phaser's Depth control. Please note that at higher Resonance settings, the output level will be higher than unity.</p>
+        <p>With two filters, we then needed two variable resistive elements. This was quite easy to build; we simply added another LDR to the existing homemade unit we'd been using during development. However, there were no part numbers to reference because the LED and two LDRs were from grab-bags. Fortunately, we've found that using two VTL5C2 vactrols with the LEDs in parallel will provide a nearly identical performance. The Balance trimpot was included to allow adjustment of the range swept by the LFO and can compensate for different LED types.</p>
+        <p>The next step was to add the manual sweep option, specifically in a rocker pedal. <a href="http://geofex.com/circuits/ldrlfo.htm">RG Keen</a> had already done the hard work for us in his Single Pot Univibe LFO article. The article describes how to use a pot to vary the brightness of an LED. That pot can then be rotated with a rocker pedal (available at <a href="http://smallbearelec.com">Small Bear Electronics</a>), which allows a manual sweep of the Phozer filters for an effect similar to a wah-wah. While the character differs from that of an inductor-based wah, the dual filters produce a more pronounced effect than other twin-T wahs.</p>
+        <p>We auditioned three different wah pots to find the best taper for this circuit: the Dunlop Hot Potz II, the Fulltone, and the Bourns Life pot. While all three have nearly the same resistance (which is then reduced by the parallel 10k resistor), the Dunlop and Fulltone have a non-linear taper. Since the pot must be wired in reverse, the taper is reversed as well. This produces an abrupt change in resistance at the midpoint of the pot travel and results in an odd "feel." We recommend the Bourns Life pot for its linear taper, allowing it to be wired in reverse with no ill effects.</p>
+        <p>The 10k trimpot between the transistor emitter and ground sets the brightness of the LEDs when the rocker pedal is in the toe-down (treble) position. Begin with the trimpot set to its maximum and adjust by ear to find the upper limit.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>min. Resonance, three Rate settings</small></h4>
+        <audio controls><source src="clips/phozer2reslo.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>max. Resonance, three rate settings</small></h4>
+        <audio controls><source src="clips/phozer2reshi.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>wah mode, max. Resonance</small></h4>
+        <audio controls><source src="clips/phozer2wah1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 4 <small>wah mode, max. Resonance</small></h4>
+        <audio controls><source src="clips/phozer2wah2.mp3" type="audio/mp3"></audio>
+        <p>*guitar - effect - sound card - software cab sim</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/phozer2-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed PCB layouts for the {{ page.title }}.</p>
+<iframe src="pdf/phozer2-pcb.pdf" class="pcb-layout"></iframe>
+
