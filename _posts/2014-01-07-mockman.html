@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "Mockman 2.0"
+description: "Distortion inspired by the Rockman."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 1
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>This project has returned from beyond the grave for a tune-up. Compressed, harsh, and '80s sounding are fitting descriptions of its sonic character. Yes, it is a niche sound which is quite the opposite of some JFET-based distortions developed by the 'groove, however we feel it is a great time capsule of an era fondly remembered by many. Whether you are looking for a simple weekend project or willing to play a cover of an '80s hard rock anthem, the Mockman will suit your needs.</p>
+        <p>During the '80s, countless artists recorded directly to console using a Rockman amp. The Mockman sounds uncannily reminiscent of this sound as it is based on the Scholz Rockman's distortion section. Distortion is created by overdriving the op-amps, similar to the Sansamp units, but with strong equalization in each stage: a high-frequency emphasis combined with an aggressive low-frequency cut.</p>
+        <p>In this revision, the optional LEDs were completely removed, the high-end has been tamed to reduce hiss and some harshness, and gain was increased for additional sustain. Also, switch at the output sets the amount of bass for a biting '80s sound (Classic) or a heavier '90s sound (Modern).</p>
+        <p>The original op-amp was an RC1458, however you are encouraged to audition any dual opamp, as this component is an integral part of the sound. The JRC4558 opamp works quite well. Some faster/better op-amps like TL072 and NE5532 produce a slightly brighter sound. Modern rail-to-rail opamps like TLC2262 and TLC2272 sound a bit louder and better defined. In particular, our favorite op-amps were the JRC4558 and TLC2262.</p>
+        <p>The output filter capacitor can be set initially to 470pF, then tuned according to your preference and the op-amp in use.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>(bridge pickup) - Classic mode </small></h4>
+        <audio controls><source src="clips/mm2a.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>(neck pickup) - Classic mode </small></h4>
+        <audio controls><source src="clips/mm2b.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>(bridge pickup) - Classic, then Modern mode </small></h4>
+        <audio controls><source src="clips/mm2c.mp3" type="audio/mp3"></audio>
+        <h4>Clip 4 <small>(bridge pickup) - Classic mode </small></h4>
+        <audio controls><source src="clips/mm2d.mp3" type="audio/mp3"></audio>
+        <p>*LP copy - Mockman 2.0 (U1=JRC4558, Cx=470p) - <a href="http://home-wrecker.com/rocket2.html">Ampeg Rocket II</a> - mic - mixer - software reverb</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/mockman2-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/mockman2-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p><a href="http://groove-electronics.blogspot.com">Matto Daudet</a> kindly contributed this PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/mockman2-pcb.pdf" class="pcb-layout"></iframe>
