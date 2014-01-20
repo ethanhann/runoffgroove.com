@@ -1,0 +1,72 @@
+---
+layout: post
+title:  "Uno"
+description: "The Boogie MkI adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>One of the first amps to offer distortion at lower volumes was the Boogie MkI amplifier. As told by Randall Smith, the designer of the Boogie amp, these amplifiers were born of a practical joke on a guitarist friend. Mr. Smith modified a Fender Princeton to have considerably more gain and power, but appear stock. As the story goes, Carlos Santana play-tested the amp and was impressed. Carlos was quoted as saying the amp "really boogied!" Thus, the name of the amp was born.</p>
+        <p>The amp is basically a Fender design, but modified to produce large amounts of preamp gain. The power amp does not figure into the sound equation as much, so it has been omitted from our circuit.</p>
+        <p>We named the circuit Uno, in homage to both the Boogie version number and Carlos Santana.</p>
+        <p>The old blues player's trick of reducing the Bass control at high gain settings works very well with this circuit. If the bass control is set too high, you may notice a muddy sound.</p>
+
+        <p>Baseline pin voltages from the official runoffgroove.com build (supply voltage from a 9.1v battery):</p>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th colspan="2">Q1 J201</th>
+                    <th colspan="2">Q2 J201</th>
+                    <th colspan="2">Q3 J201</th>
+                    <th colspan="2">Q4 J201</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>D</td><td>4.58</td>
+                    <td>D</td><td>4.58</td>
+                    <td>D</td><td>4.64</td>
+                    <td>D</td><td>4.59</td>
+                </tr>
+                <tr>
+                    <td>S</td><td>412mV</td>
+                    <td>S</td><td>387mV</td>
+                    <td>S</td><td>408mV</td>
+                    <td>S</td><td>118mV</td>
+                </tr>
+                <tr>
+                    <td colspan="8"><i>zero voltage at all gates</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Volume 10, Treble: 7, Mid: 10, Bass: 5</small></h4>
+        <audio controls><source src="clips/uno.mp3" type="audio/mp3"></audio>
+        <p>Settings noted in 1-10, not clock style.</p>
+        <p>Dual HB guitar - Uno - Randall SS amp - mic - sound card - software reverb</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/uno-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/uno-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/uno-pcb.pdf" class="pcb-layout"></iframe>
+
+<div class="page-header">
+    <h2>Possible Modifications</h2>
+</div>
+<p>Change the frequency response of the "speaker" section. Change the 3n3 capacitors to 2n2 to simulate brighter speakers.</p>
+<p>Thicken the sound by substituting a larger value for the 10pF capacitor before the final JFET. Try 120p or even larger.</p>
+<p>Reduce the maximum available gain by reducing the 1M resistor and increasing the 100k resistor connected to the third JFET's gate. Try to keep the total amount of resistance as close to 1100k as possible, to avoid changes in overall sound.</p>
+<p>Add a small resistor in series from the input to the first JFET gate. This will reduce or remove possible RF interference. Try a 10k or larger.</p>

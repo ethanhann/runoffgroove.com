@@ -1,0 +1,41 @@
+---
+layout: post
+title:  "Umble"
+description: "A distortion stompbox inspired by Dumble amplifiers."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 3
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>There has always been much talk about the mystical hand-built amps that a particular man sells for around $10,000 each. Some claim these are the greatest amplifiers known to man, while others maintain it's all hype. The runoffgroove.com team doesn't know for sure, because neither of us can plunk down 10 Gs on an amp! We've heard the Line 6 digital models of the amps. One of us owns the Behringer unit that has another digital model of these amps. Between the two of us, we also have several recordings of these elusive amps.</p>
+        <p>After some prodding by a member of <a href="http://www.diystompboxes.com/forums/stompboxforum/">Aron's Stompbox Forum</a>, we decided to investigate and try to make a FET-based stompbox from one of these amps. There aren't many schematics available and those are subject to debate regarding their authenticity. Putting all that aside, we set out to distill the available information and come up with a circuit that was, at the very least, heavily influenced by the amps. We opted for the preamp section only, since the "precision power amp" is intended to be clean and not readily distort. We decided to omit that section for simplicity's sake.</p>
+        <p>We named our resulting circuit Umble. Looking closely, we can see what amounts to a few Fender-style gain stages and an odd looking Fender-style tone stack. There is nothing revolutionary about the cascaded gain stages, but the tone stack looks like it was mis-drawn. Maybe this was a "happy accident" by the designer, but this little variation from the Fender design has a larger impact on the sound and is perhaps key to the $10k sound. The controls become more effective and change the overall sound of the circuit in comparison to the standard Fender unit. One can also notice odd interactions of the three tones. In our research, we have read many accounts of the actual amps that back-up this effect.</p>
+        <p>A breakdown of the Umble circuit will reveal a conglomeration of several schematics available on the internet (see the Dumble Amps section of <a href="http://www.schematicheaven.com">Schematic Heaven</a> for a nice assortment). We used the gain stages from the '70s ODS model and the tone stack from the front section of the '97 ODS model. We eliminated many of the large resistors and small caps that didn't have much affect on the tone, but increased the noise level somewhat. We also left out all the complex switching options and hard-wired a straight-ahead sound.</p>
+        <p>We don't really know if it sounds like the amps SRV, Eric Johnson, Larry Carlton, etc. used. There are elements in the sound that are similar to some of these artists, though. We think the Umble sounds much smoother and more like the famous recordings than the Behringer or Line 6 models, but that may be personal preferences. There is some background hiss, but not an intolerable level.</p>
+        <p>With the real amps, it's hard to say what the definitive sound is supposed to be. Since each one is custom made, the amp sounds could be very different from unit to unit, even though they have the same model name. Our advice is to try the Umble as it is drawn. If you think you would like something a little different, "customize" this circuit after looking at the amp schematics.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>Volume 50% (tonestack tests)</small></h4>
+        <audio controls><source src="clips/umble.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>Volume 75%</small></h4>
+        <audio controls><source src="clips/umble2.mp3" type="audio/mp3"></audio>
+        <p>Guitar - Umble - SS Randall - mic - soundcard (some software reverb)</p>
+    </div>
+</div>
+
+{% include olcircuits-notice.html url="http://www.olcircuits.com/olc_umble.html" %}
+{% include velvetpedals-notice.html url="http://www.velvetpedals.com/umble.html" %}
+
+<h3>Schematic</h3>
+<img src="images/umble-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/umble-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed this PCB layout for the {{ page.title }}.</p>
+<iframe src="pdf/umble-pcb.pdf" class="pcb-layout"></iframe>
