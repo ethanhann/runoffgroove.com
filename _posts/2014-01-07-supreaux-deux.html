@@ -1,0 +1,66 @@
+---
+layout: post
+title:  "Supreaux Deux"
+description: "The Supro 16T adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+complexity: 2
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>Supro was a budget brand name for amplifiers produced by Valco in Chicago, IL during the golden age of tubes. The same model of amplifier could be sold as a Gretsch, National, or Airline brand (through the Montgomery-Ward catalog). Valco manufactured amps are now highly sought after and have increased in price accordingly. Jimmy Page reportedly used a Supro amp while recording Led Zeppelin's debut album and other guitarists have also employed the small combos in the studio for searing electric blues. In April of 2002, these amps were featured in the <a href="http://www.tonequest.com/">ToneQuest Report</a>.</p>
+        <p>The original Supro 16T circuit design is similar to other single-ended Class A amplifiers from the period, but subtle differences are present. The filter network following the first stage rolls off bass and treble content where the tonestack of a Fender Champ or Princeton normally resides. The Supro's single Tone control is placed after the second pre-amp stage. Thus, more high-end signal is present to drive the second stage. Also, there is no use of negative feedback to reduce distortion. This circuit produces a wide range of sounds that do not sound much like the Fenders, Voxes, and other famous names; it has it's own character and identity.</p>
+        <p>Since its release, the original <a href="{% post_url 2014-01-07-supreaux %}">Supreaux</a> project became quite popular as a low to medium gain overdrive, so we decided to work on a refined update while retaining its characteristic tone and honoring its origins. We are very proud and satisfied with the sonic improvement of this second version, which we obviously named Supreaux Deux.</p>
+
+        <p>The following upgrades to the original circuit were implemented in this revision:</p>
+        <ol>
+            <li>The three gain stages now follow closely the topology of the Revisited Fetzer Valve.</li>
+            <li>An 18V supply was chosen in order to have more gain, additional headroom and higher output capability. As a side effect, there was an improvement in the overall character of this circuit due to the higher supply voltage that can't be easily described in words; a je ne sais qoi if you please.</li>
+            <li>The miller capacitance of the first stage is now included for a more accurate frequency response, which translates in a mellower but still harmonic-rich sound.</li>
+            <li>The output impedance of each valve stage was considered and included for a more accurate tone shaping. This improved the response of the Tone control making it much more effective, so we departed from the 5n tone capacitor used in the amp and chose a value of 1n5 instead. You may want to experiment increasing this value if you prefer darker sounds.</li>
+            <li>The network around the Gain pot and the output filter were simplified and optimized for less overall insertion loss.</li>
+        </ol>
+        <p>As an option for the builder, an extra capacitor may be added with a switch in order to fatten up the sound, which is especially nice when using the pedal as a full frequency boost.</p>
+        <p>The Supreaux Deux differs from other FET-based designs based on tube amps, since we had the benefit of owning the actual amp to compare with the stompbox version. The revisited circuit captures much of the amp's tone. The brilliant treble response is replicated, along with the Tone control range. A sweet overdrive even kicks in at nearly the same point in the Volume pot's rotation! If you are looking for an articulate blues or classic rock sound, this is a good place to start. Many sounds, from Albert King-type tones to a Led Zeppelin sonic blitzkrieg to sparkling clean can be produced with the Supreaux Deux. Be sure to work your guitar's volume knob and your pick attack when playing with this circuit, as it is very sensitive and dynamic.</p>
+        <p>Regarding the supply voltage, voltages lower than 18V will reduce drastically the overall gain and sacrifice the tone of the circuit, so 9V won't work properly, and 15V would be the minimum recommended voltage, accepting that you'll be sacrificing around 6 dB of gain. Perhaps the simplest supply alternative consists in a pair of 9V batteries connected in series. A voltage doubler built around a MAX1044 or equivalent will also work fine, provided the clock frequency is above the audio range.</p>
+    </div>
+
+    <div class="col-md-4">
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>
+            <ul class="list-unstyled padded-list">
+                <li>Left: pretty (bridge pickup) - Gain 12:00, Tone 3:00, Bottom off</li>
+                <li>Right: pretty (neck pickup) - Gain 12:00, Tone 9:00, Bottom on (Cx=8n2)</li>
+                <li>Lead: pretty (neck pickup) - Gain 5:00, Tone 12:00, Bottom off</li>
+            </ul>
+        </small></h4>
+        <audio controls><source src="clips/sd1.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>
+            <ul class="list-unstyled padded-list">
+                <li>Rhythm: pretty (bridge pickup) - Gain 12:00, Tone 3:00, Bottom off</li>
+                <li>Faux Bass: pretty (neck pickup) - Gain 2:00, Tone 7:00, Bottom on (Cx=8n2)</li>
+                <li>Lead: pretty (neck pickup) - Gain 5:00, Tone 12:00, Bottom off</li>
+            </ul>
+        </small></h4>
+        <audio controls><source src="clips/sd2.mp3" type="audio/mp3"></audio>
+        <h4>Clip 3 <small>
+            <ul class="list-unstyled padded-list">
+                <li>Rhythm: pretty (bridge pickup) - Gain 5:00, Tone 3:00, Bottom on (Cx=8n2)</li>
+                <li>Lead: pretty (neck pickup) - Gain 5:00, Tone 5:00, Bottom on (Cx=8n2)</li>
+            </ul>
+        </small></h4>
+        <audio controls><source src="clips/sd3.mp3" type="audio/mp3"></audio>
+        <p>*<a href="images/pretty-guitar.jpg">Pretty guitar</a> - Ampeg Rocket II - mic - mixer - software reverb</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/supreaux-deux-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/supreaux-deux-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<iframe src="pdf/supreaux-deux-pcb.pdf" class="pcb-layout"></iframe>
+

@@ -1,0 +1,64 @@
+---
+layout: post
+title:  "Supreaux"
+description: "The Supro 16T adapted for use as a distortion stompbox."
+date: 2014-01-07 16:05:56
+categories: projects
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>The <a href="{% post_url 2014-01-07-supreaux-deux %}">Supreaux Deux</a> is much closer to the original Supro amp than the Supreaux, approaching the amp's mellow and dynamic tone while capturing its characteristic growl. Nevertheless, some people might still like the original Supreaux for what it is: a brighter and gainier version that's not so close to the amp, yet good in its own right.</p>
+
+        <p>Here are pin voltages from the official runoffgroove.com build to provide a baseline (supply voltage from a 9.1v battery):</p>
+        <table class="table table-bordered table-condensed">
+            <thead>
+                <tr>
+                    <th colspan="2">Q1 J201</th><th colspan="2">Q2 J201</th><th colspan="2">Q3 MPF102 (2N5457)</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>D</td><td>4.57</td>
+                <td>D</td><td>4.58</td>
+                <td>D</td><td>4.59 (4.60)</td></tr>
+            <tr>
+                <td>S</td><td>269mV</td>
+                <td>S</td><td>246mV</td>
+                <td>S</td><td>.690 (.621)</td></tr>
+            <tr>
+                <td colspan="6"><i>zero voltage at all gates</i></td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-4">
+        <img src="images/supreaux.jpg" alt="{{ page.title }}" class="img-rounded img-responsive center-block">
+
+        <h3>Sound Samples</h3>
+        <h4>Clip 1 <small>
+            <a href="images/pretty-guitar.jpg">Pretty guitar</a> - Ampeg Rocket II - mic - mixer - software reverb
+            <ul class="list-unstyled padded-list">
+                <li>Left: pretty (bridge pickup) - Volume 12:00, Tone 3:00</li>
+                <li>Right: pretty (neck pickup) - Volume 12:00, Tone 9:00</li>
+                <li>Lead: pretty (neck pickup) - Volume 5:00, Tone 12:00</li>
+            </ul>
+        </small></h4>
+        <audio controls><source src="clips/supreaux.mp3" type="audio/mp3"></audio>
+        <h4>Clip 2 <small>Dual HB guitar - Supreaux: Volume 5:00, Tone 12:00 - Randall SS amp - mic - sound card - software reverb</small></h4>
+        <audio controls><source src="clips/supreaux2.mp3" type="audio/mp3"></audio>
+    </div>
+</div>
+{% include olcircuits-notice.html url="http://www.olcircuits.com/olc_supreaux.html" %}
+
+<h3>Schematic</h3>
+<img src="images/supreaux-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/supreaux-perf-layout.png" alt="{{ page.title }} perfboard layout" class="img-rounded img-responsive center-block"><br>
+<img src="images/supreaux-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1" class="img-rounded img-responsive center-block"><br>
+<img src="images/supreaux-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2" class="img-rounded img-responsive center-block"><br>
+
+<h3>Printed Circuit Board</h3>
+<p>Pablo De Luca (aka Gringo) contributed a PCB layout for the {{ page.title }}</p>
+<iframe src="pdf/supreaux-deux-pcb.pdf" class="pcb-layout"></iframe>
