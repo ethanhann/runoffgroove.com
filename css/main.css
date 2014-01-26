@@ -33,6 +33,11 @@ a:hover {
     margin-top: 0;
 }
 
+.display-inline {
+    display: inline;
+}
+
+
 .content {
     background-color: #663366;
     padding-top: 40px;
@@ -294,4 +299,11 @@ iframe.pcb-layout {
 
 .list-post hr {
     border-top: 1px solid #888888;
+}
+
+/** Well Notice
+*/
+.well-notice {
+    background-color: #CC99CC;
+    color: #333333;
 }
