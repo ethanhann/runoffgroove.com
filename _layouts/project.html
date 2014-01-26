@@ -17,9 +17,11 @@ layout: page
     </div>
     {% endif %}
 
+    {% if page.date %}
     <p>
-        {{ page.date | date_to_string }}
+        Published {{ page.date | date_to_string }}
     </p>
+    {% endif %}
 
     <div class="project">
         {{ content }}
