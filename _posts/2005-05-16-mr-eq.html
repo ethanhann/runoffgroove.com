@@ -1,0 +1,116 @@
+---
+layout: project
+title:  "Mr. EQ"
+description: "A simple, yet potent DIY equalizer."
+date: 2005-05-16
+categories: projects
+complexity: 2
+---
+
+<div class="row">
+    <div class="col-md-8">
+        <p>While use of a graphic equalizer is often recommended for fine-tuning the tone of your instrument, no
+            feasible DIY versions exist. However, a seven-band equalizer is not necessary to drastically shape the
+            response of an instrument of effect. Adding peaks at certain frequencies can provide a pleasing result and
+            is much easier for the DIY builder.</p>
+
+        <p>The Dan Armstrong <a href="http://home-wrecker.com/peaker.html">Purple Peaker</a> (and Yellow Humper, the
+            sister version tuned for bass guitar) used two peaks for bass and treble boosts. The resulting effect is
+            interesting, but not very flexible. We chose to apply the same concept, but with a modern approach that
+            would provide added control to the user.</p>
+
+        <p>We chose a 4049 IC as the foundation of the circuit. The 4049 has been used in distortions, such as the <a
+                href="{% post_url 2003-06-13-double-d %}">Double D</a> and <a
+                href="http://www.home-wrecker.com/3leggeddog.html">3 Legged Dog</a>, for its tube-like clipping. The
+            graceful distortion, plus the number of available stages made the 4049 an excellent candidate.</p>
+
+        <p>The input gain stage compensates for the signal level variation introduced by the later filter stages. To
+            reduce the parts count, we used bridged-T notch filters where the Purple Peaker used twin-T filters.
+            Preceding each peak stage is a parallel resistor and capacitor network. This forms a high-pass filter that
+            preserves the treble content through the bridged-T notch filter.</p>
+
+        <p>For the peaks' center frequencies, we began with the modified Purple Peaker values and tuned them a bit lower
+            after many listening tests. The three peaks are tuned to 100 Hz, 700 Hz and 2.1 kHz. The LO peaks works well
+            for adding more bass to a guitar or bass. The MID peak functions as a relative treble peak for a bass
+            guitar, like the rare Yellow Humper. As expected, the HI peak adds a crisp sheen to a guitar (but has no
+            effect on a bass).</p>
+
+        <p>Each peak, when activated, provides a 7 dB boost, except for the MID stage that can also produce a 7 dB cut.
+            We included this feature since a true midrange cut differs audibly from the relative mid cut produced by the
+            bass and treble peaks (as implemented by the Purple Peaker).</p>
+
+        <p>There are 11 different equalization curves in total, excluding the flat setting with all bands off. We
+            suggest you experiment with combinations of Mr. EQ settings and your pickup switching to determine the
+            settings that are best for your gear and playing style.</p>
+
+        <p>The following graphs illustrate the frequency response of different switching combinations of Mr. EQ:</p>
+
+        <p class="row">
+
+        <div class="col-md-4">
+            <ul class="list-unstyled padded-list">
+                <li>Red: LO on, MID off, HI on (Purple Peaker mode - relative mid scoop)</li>
+                <li>Blue: LO on, MID boost, HI on (full-range boost)</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <img src="images/mr-eq-graph1.png" alt="{{ page.title }} graph 1" class="img-rounded img-responsive">
+        </div>
+        </p>
+        <p class="row">
+
+        <div class="col-md-4">
+            <ul class="list-unstyled padded-list">
+                <li>Brown: LO off, MID cut, HI off (mid scoop)</li>
+                <li>Black: LO on, MID boost, HI off (Yellow Humper mode)</li>
+                <li>Green: LO on, MID cut, HI on (extreme mid scoop)</li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <img src="images/mr-eq-graph2.png" alt="{{ page.title }} graph 2" class="img-rounded img-responsive">
+        </div>
+        </p>
+    </div>
+
+    <div class="col-md-4">
+        <p>
+            <img src="images/mr-eq.jpg" alt="..." class="img-rounded img-responsive center-block">
+        </p>
+
+        <h3>Sound Samples</h3>
+        <h4>Clip 1
+            <small>all off, LO, HI, LO + HI</small>
+        </h4>
+        <audio controls>
+            <source src="clips/MrEQa.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 2
+            <small>all off, MID cut, MID boost, MID boost + HI</small>
+        </h4>
+        <audio controls>
+            <source src="clips/MrEQb2.mp3" type="audio/mp3">
+        </audio>
+        <h4>Clip 3
+            <small>With Bazz Fuss: same order as Clip 1</small>
+        </h4>
+        <audio controls>
+            <source src="clips/MrEQd.mp3" type="audio/mp3">
+        </audio>
+        <p>*Clips 1 - 4: <a href="images/pretty-guitar.jpg">Pretty guitar</a> - <a
+                href="http://home-wrecker.com/bazz.html">Bazz Fuss</a> (Clips 3 and 4) - Mr. EQ - <a
+                href="{% post_url 2004-11-15-condor-cab-sim %}">Condor</a> (stock notch, 25% Gain) - soundcard</p>
+    </div>
+</div>
+
+<h3>Schematic</h3>
+<img src="images/mr-eq-schematic.png" alt="{{ page.title }} schematic" class="img-rounded img-responsive center-block">
+
+<h3>Perfboard</h3>
+<img src="images/mr-eq-perf-photo1.jpg" alt="{{ page.title }} perfboard photo 1"
+     class="img-rounded img-responsive center-block">
+<img src="images/mr-eq-perf-photo2.jpg" alt="{{ page.title }} perfboard photo 2"
+     class="img-rounded img-responsive center-block">
+
+<h3>Printed Circuit Board (and Perfboard Layout)</h3>
+<iframe src="pdf/mr-eq-pcb.pdf" class="pcb-layout"></iframe>
+
