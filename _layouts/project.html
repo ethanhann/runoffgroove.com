@@ -13,7 +13,16 @@ layout: page
         <span class="rating-{{ page.complexity }}">
             {% include logo.svg %}
         </span>
-        <span class="rating-text">This project is rated {{ page.complexity }} out of 3 for the level of complexity.</span>
+        <span class="rating-text rating-text-verbose">This project is rated {{ page.complexity }} out of 3 for the level of complexity.</span>
+        <span class="rating-text rating-text-abbreviated">
+            {% if page.complexity == 1 %}
+            Beginner
+            {% elsif page.complexity == 2 %}
+            Intermediate
+            {% elsif page.complexity == 3 %}
+            Advanced
+            {% endif %}
+        </span>
     </div>
     {% endif %}
 

@@ -307,3 +307,19 @@ iframe.pcb-layout {
     background-color: #CC99CC;
     color: #333333;
 }
+
+/** Media Queries
+*/
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 768px) {
+    .rating-text.rating-text-verbose {
+        display: none;
+    }
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    .rating-text.rating-text-abbreviated {
+        display: none;
+    }
+}
