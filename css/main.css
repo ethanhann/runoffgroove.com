@@ -185,8 +185,8 @@ iframe.pcb-layout {
 /** License notice
 */
 .license-notice {
-    background-color: #503473;
     padding: 30px 0 30px 0;
+    background-color: #994955;
 }
 
 .license-notice div {
@@ -196,7 +196,6 @@ iframe.pcb-layout {
 /** Sidebar
 */
 .sidebar.affix {
-    
     position: static;
 }
 
@@ -286,7 +285,6 @@ iframe.pcb-layout {
 
 /** Well
  */
-
 .well {
     color: #0F0F0F;
 }
@@ -323,23 +321,7 @@ iframe.pcb-layout {
     color: #333333;
 }
 
-/** Media Queries
-*/
-/* Extra small devices (phones, less than 768px) */
-@media (max-width: 768px) {
-    .rating-text.rating-text-verbose {
-        display: none;
-    }
-}
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    .rating-text.rating-text-abbreviated {
-        display: none;
-    }
-}
-
 /* Labels */
 .label-info {
-    background-color: #558855;
+    background-color: #994955;
 }

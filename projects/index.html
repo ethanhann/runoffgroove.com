@@ -7,9 +7,8 @@ title: runoffgroove.com
     <div class="page-header">
         <h2 class="display-inline">Projects</h2>
     </div>
-
+    {% assign projects = site.categories.projects | sort: 'title' %}
     <div class="row projects">
-        {% assign projects = site.categories.projects | sort: 'title' %}
         <div class="col-sm-4">
             <div class="panel">
                 <div class="panel-heading">
@@ -48,6 +47,24 @@ title: runoffgroove.com
                 <div class="panel-body">
                     {% for post in projects %}
                     {% if post.complexity == 3 %}
+                    <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+                    <div>{{ post.description }}</div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row projects">
+        <div class="col-sm-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Other/Unrated</h3>
+                </div>
+                <div class="panel-body">
+                    {% for post in projects %}
+                    {% if post.complexity != 1 and post.complexity != 2 and post.complexity != 3%}
                     <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
                     <div>{{ post.description }}</div>
                     {% endif %}
