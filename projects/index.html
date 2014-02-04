@@ -8,7 +8,52 @@ title: runoffgroove.com
         <h2 class="display-inline">Projects</h2>
     </div>
     {% assign projects = site.categories.projects | sort: 'title' %}
-    <div class="row projects">
+
+    <script>
+        jQuery(document).ready(function () {
+            jQuery('#all-projects-button').click(function () {
+                jQuery('#all-projects').toggleClass('hidden');
+                jQuery('#projects-by-complexity').toggleClass('hidden');
+                jQuery('#all-projects-button').toggleClass('active');
+                jQuery('#projects-by-complexity-button').toggleClass('active');
+                jQuery('#all-projects').addClass('animated fadeInLeftBig')
+                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                            jQuery('#all-projects').removeClass('animated fadeInLeftBig');
+                        });
+            });
+            jQuery('#projects-by-complexity-button').click(function () {
+                jQuery('#all-projects').toggleClass('hidden');
+                jQuery('#projects-by-complexity').toggleClass('hidden');
+                jQuery('#all-projects-button').toggleClass('active');
+                jQuery('#projects-by-complexity-button').toggleClass('active');
+                jQuery('#projects-by-complexity').addClass('animated fadeInRightBig')
+                        .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                            jQuery('#all-projects').removeClass('animated fadeInRightBig');
+                        });
+            });
+        });
+    </script>
+
+    <div class="btn-group" style="margin-bottom: 20px;">
+        <button id="all-projects-button" type="button" class="btn btn-primary active" style="width: 120px">All</button>
+        <button id="projects-by-complexity-button" type="button" class="btn btn-primary" style="width: 120px">By Complexity</button>
+    </div>
+
+    <div id="all-projects" class="row projects">
+        <div class="col-sm-12">
+            <div class="panel">
+                <div class="panel-body">
+                    {% for post in projects %}
+                    <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+
+                    <div>{{ post.description }}</div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="projects-by-complexity" class="row projects hidden">
         <div class="col-sm-4">
             <div class="panel">
                 <div class="panel-heading">
@@ -18,6 +63,7 @@ title: runoffgroove.com
                     {% for post in projects %}
                     {% if post.complexity == 1 %}
                     <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+
                     <div>{{ post.description }}</div>
                     {% endif %}
                     {% endfor %}
@@ -33,6 +79,7 @@ title: runoffgroove.com
                     {% for post in projects %}
                     {% if post.complexity == 2 %}
                     <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+
                     <div>{{ post.description }}</div>
                     {% endif %}
                     {% endfor %}
@@ -48,24 +95,7 @@ title: runoffgroove.com
                     {% for post in projects %}
                     {% if post.complexity == 3 %}
                     <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
-                    <div>{{ post.description }}</div>
-                    {% endif %}
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="row projects">
-        <div class="col-sm-4">
-            <div class="panel">
-                <div class="panel-heading">
-                    <h3 class="panel-title text-center">Other/Unrated</h3>
-                </div>
-                <div class="panel-body">
-                    {% for post in projects %}
-                    {% if post.complexity != 1 and post.complexity != 2 and post.complexity != 3%}
-                    <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
                     <div>{{ post.description }}</div>
                     {% endif %}
                     {% endfor %}
@@ -79,6 +109,7 @@ title: runoffgroove.com
     <div class="row">
         <div class="col-xs-offset-4 col-xs-4">
             <h3>Licensing Notice</h3>
+
             <p>runoffgroove.com projects are provided free-of-charge to builders for personal, non-commercial use.</p>
 
             <p>We do offer licensing for builders who wish to sell pedals based on, in whole or in part, our projects.
