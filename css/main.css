@@ -108,9 +108,6 @@ iframe.pcb-layout {
 
 .panel {
     background-color: #503473;
-    -moz-box-shadow: 3px 3px 9px #0F0F0F;
-    -webkit-box-shadow: 3px 3px 9px #0F0F0F;
-    box-shadow: 3px 3px 9px #0F0F0F;
 }
 
 .panel-heading {
