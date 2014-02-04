@@ -12,20 +12,20 @@ title: runoffgroove.com
     <script>
         jQuery(document).ready(function () {
             jQuery('#all-projects-button').click(function () {
-                jQuery('#all-projects').toggleClass('hidden');
-                jQuery('#projects-by-complexity').toggleClass('hidden');
-                jQuery('#all-projects-button').toggleClass('active');
-                jQuery('#projects-by-complexity-button').toggleClass('active');
+                jQuery('#all-projects').removeClass('hidden active');
+                jQuery('#projects-by-complexity').addClass('hidden');
+                jQuery('#all-projects-button').addClass('active');
+                jQuery('#projects-by-complexity-button').removeClass('active');
                 jQuery('#all-projects').addClass('animated fadeInLeft')
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                             jQuery('#all-projects').removeClass('animated fadeInLeft');
                         });
             });
             jQuery('#projects-by-complexity-button').click(function () {
-                jQuery('#all-projects').toggleClass('hidden');
-                jQuery('#projects-by-complexity').toggleClass('hidden');
-                jQuery('#all-projects-button').toggleClass('active');
-                jQuery('#projects-by-complexity-button').toggleClass('active');
+                jQuery('#all-projects').addClass('hidden');
+                jQuery('#projects-by-complexity').removeClass('hidden active');
+                jQuery('#all-projects-button').removeClass('active');
+                jQuery('#projects-by-complexity-button').addClass('active');
                 jQuery('#projects-by-complexity').addClass('animated fadeInRight')
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
                             jQuery('#all-projects').removeClass('animated fadeInRight');
