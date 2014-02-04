@@ -41,7 +41,7 @@ complexity: 1
         <div class="text-center">Fig.2 (Valve to JFET transformation)</div>
 
         <p>The steps involved can be summarized as follows:</p>
-        <ul>
+        <ul class="list-indented">
             <li>The triode is replaced by a JFET with the following correspondence of terminals: plate to drain, grid to gate, and cathode to source. This is supported by the fact that both the vacuum triode and the JFET are voltage controlled devices which change their transconductance according to a (usually) negative control voltage.</li>
             <li>The high voltage supply voltage is replaced by a low voltage, usually in the 9 to 18V range as used in effect circuits.</li>
             <li>The original grid and cathode elements remain the same.</li>
@@ -107,7 +107,7 @@ complexity: 1
         <p>(Notice that we used the positive value of Vp in the above calculations.)</p>
 
         <p>As a general rule, JFETs with higher values of |Vp| and/or Idss will require smaller source resistors, which has the following implications to take into account:</p>
-        <ul>
+        <ul class="list-indented">
             <li>Increased input level handling without clipping</li>
             <li>Increased current consumption</li>
             <li>Reduced gain</li>
@@ -119,7 +119,7 @@ complexity: 1
 
         <p>Normally, biasing of the drain voltage in JFET amplifiers is performed by adjusting the drain resistor with one of the following methods:</p>
 
-        <ul>
+        <ul class="list-indented">
             <li>Drain voltage is set near half the supply voltage</li>
             <li>Drain voltage is tuned by ear for the "best sound"</li>
         </ul>
@@ -155,7 +155,7 @@ complexity: 1
         <p>Example: A J201 with Vp=-0.75V will accept up to +/- 0.75V before entering into the clipping region.</p>
 
         <p>If clipping is undesired, one of the following workarounds might be considered:</p>
-        <ul>
+        <ul class="list-indented">
             <li>Reduce the guitar volume</li>
             <li>Use a JFET with higher |Vp|</li>
             <li>Implement a voltage divider at the input of the Fetzer Valve</li>
@@ -174,7 +174,7 @@ complexity: 1
         <pre>Av = 0.54 * (Vcc/|Vp| - 2)</pre>
 
         <p>Some remarks on the gain formulae are:</p>
-        <ul>
+        <ul class="list-indented">
             <li>Rd must be greater than twice Rs or the gain will be less than unity.</li>
             <li>Vcc must be approximately greater than 4*|Vp| or the gain will be less than unity.</li>
             <li>Gain depends on Vcc and Vp only, and is independent of Idss.</li>
@@ -211,7 +211,7 @@ complexity: 1
         <iframe src="pdf/fetzer2-pcb.pdf" class="pcb-layout"></iframe>
 
         <p>The circuit can be set up according to the following steps:</p>
-        <ul>
+        <ul class="list-indented">
             <li>Choose a JFET type whose Vp is compatible with the desired or anticipated input range</li>
             <li>Vp and Idss for the chosen JFET should be measured (see section 11 below), or else an estimated value extracted from the datasheet should be used</li>
             <li>Calculate and adjust Rs</li>
@@ -221,7 +221,7 @@ complexity: 1
         </ul>
 
         <p>Example: Assume we have a 2N5457 with measured Vp=-1.5V and Idss=3mA. The presented equations dictate the following design data if a 9V supply is to be used:</p>
-        <ul>
+        <ul class="list-indented">
             <li>Vi = +/- 1.5V (input dynamic range)</li>
             <li>Rs = 0.83 * 1.5 / 0.003 = 415 ohms (source resistor)</li>
             <li>Rd = 0.9 * (9 - 2*1.5) / 0.003 = 1800 ohms (drain resistor)</li>

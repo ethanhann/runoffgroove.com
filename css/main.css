@@ -45,7 +45,7 @@ a:hover {
 }
 
 .content .container{
-    padding-bottom: 40px;
+    padding-bottom: 60px;
 }
 
 .footer {
@@ -104,6 +104,21 @@ iframe.pcb-layout {
 .table-bordered,
 .table-bordered > thead > tr > th {
     border: 1px solid #DDDDDD;
+}
+
+.panel {
+    background-color: #503473;
+    -moz-box-shadow: 3px 3px 9px #0F0F0F;
+    -webkit-box-shadow: 3px 3px 9px #0F0F0F;
+    box-shadow: 3px 3px 9px #0F0F0F;
+}
+
+.panel-heading {
+    background-color: #0F0F0F;
+}
+
+.panel-body {
+    background-color: #503473;
 }
 
 /** Branding
@@ -167,15 +182,14 @@ iframe.pcb-layout {
     fill: #CCCCCC;
 }
 
-/** Creative Commons License notice
+/** License notice
 */
-.cc-license-notice {
+.license-notice {
     background-color: #503473;
-    margin-top: 3em;
     padding: 30px 0 30px 0;
 }
 
-.cc-license-notice div {
+.license-notice div {
     padding: 0.25em 0 0 0;
 }
 
@@ -197,7 +211,7 @@ iframe.pcb-layout {
 }
 .sidebar .nav > li > a {
     display: block;
-    color: #716b7a;
+    color: #DDDDDD;
     padding: 5px 20px;
 }
 .sidebar .nav > li > a:hover,
@@ -205,6 +219,7 @@ iframe.pcb-layout {
     text-decoration: none;
     background-color: #e5e3e9;
     border-right: 1px solid #dbd8e0;
+    color: #0F0F0F;
 }
 .sidebar .nav > .active > a,
 .sidebar .nav > .active:hover > a,
@@ -322,4 +337,9 @@ iframe.pcb-layout {
     .rating-text.rating-text-abbreviated {
         display: none;
     }
+}
+
+/* Labels */
+.label-info {
+    background-color: #558855;
 }

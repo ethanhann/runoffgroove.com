@@ -4,17 +4,13 @@ layout: page
 
 <div class="container">
     <div class="page-header">
-        <h2 class="display-inline">{{ page.title }}</h2>
+        <h3 class="display-inline">{{ page.title }}</h3>
         <small>{{ page.description }}</small>
     </div>
-
-    {% if page.complexity %}
-    <div class="project-complexity">
-        <span class="rating-{{ page.complexity }}">
-            {% include logo.svg %}
-        </span>
-        <span class="rating-text rating-text-verbose">This project is rated {{ page.complexity }} out of 3 for the level of complexity.</span>
-        <span class="rating-text rating-text-abbreviated">
+    <p>
+        {% if page.date %}<span>Published {{ page.date | date_to_string }}</span>{% endif %}
+        {% if page.complexity %}
+            <span class="label label-info">
             {% if page.complexity == 1 %}
             Beginner
             {% elsif page.complexity == 2 %}
@@ -22,19 +18,15 @@ layout: page
             {% elsif page.complexity == 3 %}
             Advanced
             {% endif %}
-        </span>
-    </div>
-    {% endif %}
-
-    {% if page.date %}
-    <p>
-        Published {{ page.date | date_to_string }}
+            </span>
+        {% endif %}
     </p>
-    {% endif %}
-
-    <div class="project">
-        {{ content }}
+    <div class="panel">
+        <div class="panel-body project">
+            {{ content }}
+        </div>
     </div>
+
 </div>
 
 {% include cc-license-notice.html %}

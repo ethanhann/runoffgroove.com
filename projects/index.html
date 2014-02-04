@@ -8,28 +8,69 @@ title: runoffgroove.com
         <h2 class="display-inline">Projects</h2>
     </div>
 
-    <div class="row">
-        <div class="col-md-8">
-            <ul class="padded-list list-unstyled">
-                {% assign projects = site.categories.projects | sort: 'title' %}
-                {% for post in projects %}
-                <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a> - {{ post.description }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="col-md-4">
-            <div class="well well-notice">
-                <h3>Licensing Notice</h3>
-                <p>runoffgroove.com projects are provided free-of-charge to builders for personal, non-commercial use.</p>
-
-                <p>We do offer licensing for builders who wish to sell pedals based on, in whole or in part, our projects.
-                    As part of the licensing agreement, the builder must clearly state that the circuit was developed by
-                    runoffgroove.com, both in promotional literature and on the circuit board.</p>
-
-                <p>If you see a pedal for sale that seems to be based on a runoffgroove.com project and does not credit us,
-                    the builder may not be officially licensed by us and therefore, not compensating us as the developer.
-                    Please contact us with the information and we will investigate the situation. Thank you.</p>
+    <div class="row projects">
+        {% assign projects = site.categories.projects | sort: 'title' %}
+        <div class="col-sm-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Beginner</h3>
+                </div>
+                <div class="panel-body">
+                    {% for post in projects %}
+                    {% if post.complexity == 1 %}
+                    <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+                    <div>{{ post.description }}</div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
             </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Intermediate</h3>
+                </div>
+                <div class="panel-body">
+                    {% for post in projects %}
+                    {% if post.complexity == 2 %}
+                    <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+                    <div>{{ post.description }}</div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title text-center">Advanced</h3>
+                </div>
+                <div class="panel-body">
+                    {% for post in projects %}
+                    {% if post.complexity == 3 %}
+                    <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+                    <div>{{ post.description }}</div>
+                    {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="license-notice text-center">
+    <div class="row">
+        <div class="col-xs-offset-4 col-xs-4">
+            <h3>Licensing Notice</h3>
+            <p>runoffgroove.com projects are provided free-of-charge to builders for personal, non-commercial use.</p>
+
+            <p>We do offer licensing for builders who wish to sell pedals based on, in whole or in part, our projects.
+                As part of the licensing agreement, the builder must clearly state that the circuit was developed by
+                runoffgroove.com, both in promotional literature and on the circuit board.</p>
+
+            <p>If you see a pedal for sale that seems to be based on a runoffgroove.com project and does not credit us,
+                the builder may not be officially licensed by us and therefore, not compensating us as the developer.
+                Please contact us with the information and we will investigate the situation. Thank you.</p>
         </div>
     </div>
 </div>
