@@ -16,9 +16,9 @@ title: runoffgroove.com
                 jQuery('#projects-by-complexity').toggleClass('hidden');
                 jQuery('#all-projects-button').toggleClass('active');
                 jQuery('#projects-by-complexity-button').toggleClass('active');
-                jQuery('#all-projects').addClass('animated fadeInLeftBig')
+                jQuery('#all-projects').addClass('animated fadeInLeft')
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                            jQuery('#all-projects').removeClass('animated fadeInLeftBig');
+                            jQuery('#all-projects').removeClass('animated fadeInLeft');
                         });
             });
             jQuery('#projects-by-complexity-button').click(function () {
@@ -26,9 +26,9 @@ title: runoffgroove.com
                 jQuery('#projects-by-complexity').toggleClass('hidden');
                 jQuery('#all-projects-button').toggleClass('active');
                 jQuery('#projects-by-complexity-button').toggleClass('active');
-                jQuery('#projects-by-complexity').addClass('animated fadeInRightBig')
+                jQuery('#projects-by-complexity').addClass('animated fadeInRight')
                         .one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-                            jQuery('#all-projects').removeClass('animated fadeInRightBig');
+                            jQuery('#all-projects').removeClass('animated fadeInRight');
                         });
             });
         });
